@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf .git .gitattributes)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(rm -rf .git)",
+      "Bash(rm -rf \"JPHo/大家的日语1\" \"JPHo/大家的日语2\")",
+      "Bash(mkdir -p \"机器学习\" \"计算广告\" \"投资理财\" \"日语学习\")"
+    ]
+  }
+}
