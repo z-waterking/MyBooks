@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>核心词汇 · IELTS Almanack</title>
+<link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+<header class="brandbar">
+  <div class="brandbar-inner">
+    <a href="../index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span class="brand-text">IELTS · Almanack<small>est. mmxxvi · cambridge-style</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="menu">Menu</button>
+    <ul class="nav">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="plan.html">学习路线</a></li>
+      <li><a href="vocabulary.html" class="active">核心词汇</a></li>
+      <li><a href="reading.html">阅读方法</a></li>
+      <li><a href="listening.html">听力</a></li>
+      <li><a href="writing.html">写作</a></li>
+      <li><a href="speaking.html">口语</a></li>
+      <li><a href="resources.html">资源</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="wrap" style="padding-top: 2.5rem;">
+  <p class="eyebrow">FOLIO I · VOCABULARY</p>
+  <h1 style="margin-top: 0.4rem;">核心词汇 · The Complete Lexicon</h1>
+  <p class="lead" style="margin-top: 1rem;">
+    <strong>3000+</strong> 雅思核心词条，按 4 阶段 × 12 主题组织。带 ★ 的词条提供真题例句，点击词条可展开 / 折叠。顶部支持<strong>搜索</strong>和<strong>阶段/主题筛选</strong>。
+  </p>
+</section>
+
+<div class="vfilter">
+  <div class="vfilter-inner">
+    <div class="group">
+      <label>阶段:</label>
+      <button class="chip active" data-stage="all">全部</button>
+      <button class="chip" data-stage="s1">I 奠基</button>
+      <button class="chip" data-stage="s2">II 入门</button>
+      <button class="chip" data-stage="s3">III 强化</button>
+      <button class="chip" data-stage="s4">IV 冲刺</button>
+    </div>
+    <div class="group">
+      <label>主题:</label>
+      <button class="chip gold active" data-topic="all">全部</button>
+      <button class="chip gold" data-topic="core">基础</button>
+      <button class="chip gold" data-topic="edu">教育</button>
+      <button class="chip gold" data-topic="env">环境</button>
+      <button class="chip gold" data-topic="tech">科技</button>
+      <button class="chip gold" data-topic="health">健康</button>
+      <button class="chip gold" data-topic="society">社会</button>
+      <button class="chip gold" data-topic="work">工作</button>
+      <button class="chip gold" data-topic="culture">文化</button>
+      <button class="chip gold" data-topic="city">城市</button>
+      <button class="chip gold" data-topic="travel">旅游</button>
+      <button class="chip gold" data-topic="abstract">学术</button>
+      <button class="chip gold" data-topic="syn">同义替换</button>
+    </div>
+    <div class="group">
+      <input type="search" id="vsearch" placeholder="搜索单词或中文..." />
+    </div>
+    <div class="count" id="vcount">— 词</div>
+  </div>
+</div>
+
+<section class="wrap" style="margin-top: 2rem;">
+  <div id="vocab-container"></div>
+
+  <p style="margin-top: 3rem; padding: 1.2rem; background: var(--paper-warm); border-left: 3px solid var(--gold); font-size: 0.95rem;">
+    <strong>建议节奏：</strong>每天背 50–80 词，分早晚两轮；每周末用"搜索 + 阶段筛选"快速回顾本周词汇。
+    Stage I 必须先全部掌握再进入 Stage II ；Stage IV 同义替换族建议在写作 / 阅读训练时配套学习。
+  </p>
+</section>
+
+<!-- ===== 词汇学习方法 ===== -->
+<section class="wrap" style="margin-top: 4rem;">
+  <p class="eyebrow">§ THE METHOD</p>
+  <h2>词汇学习的五遍法 · Five-Pass Routine</h2>
+  <div class="rule-thin"></div>
+  <ol style="line-height: 1.9; margin-left: 1.4rem;">
+    <li><strong>Pass 1 · 看：</strong>抄词 + 读音标 + 看中文，圈出完全陌生的词。<em>速度：50 词 / 15 分钟。</em></li>
+    <li><strong>Pass 2 · 听：</strong>用 Forvo 或词典 App 听音，跟读 3 遍。<em>速度：50 词 / 10 分钟。</em></li>
+    <li><strong>Pass 3 · 例：</strong>读例句，把生词放回上下文里理解搭配。重点看 ★ 词条的真题来源。</li>
+    <li><strong>Pass 4 · 用：</strong>当天写日记或口语录音用上至少 5 个新词。</li>
+    <li><strong>Pass 5 · 复：</strong>第 1、3、7、15 天滚动复习（Anki / SuperMemo 自动安排间隔）。</li>
+  </ol>
+
+  <h3 style="margin-top: 2rem;">三大常见错误</h3>
+  <ul style="margin-left: 1.4rem; line-height: 1.9;">
+    <li><strong>只背中文释义。</strong> 中文是拐杖；最终你需要的是"看到 surge 心里直接浮现一条飙升的曲线"。</li>
+    <li><strong>不背搭配。</strong> 知道 enhance ≠ 会用 enhance。一定背 "enhance one's skills / quality / ability"。</li>
+    <li><strong>不分主动 / 被动。</strong>"看到能认得"是被动词汇；"写作和口语能脱口而出"是主动词汇。两者数量差 3 倍。雅思 6+ 需要至少 2000 个主动词汇。</li>
+  </ul>
+</section>
+
+<!-- ===== Paraphrase 训练表 ===== -->
+<section class="wrap" style="margin-top: 4rem;">
+  <p class="eyebrow">§ PARAPHRASE TRAINING</p>
+  <h2>同义替换族训练（7+ 必备）</h2>
+  <div class="rule-thin"></div>
+  <p>雅思的核心机制：题目和原文永远不用同一组词。下面列 12 组高频替换族，建议每天攻克 1 组，3 周成型。</p>
+
+  <table style="margin-top: 1rem;">
+    <thead><tr><th>核心义</th><th>常见替换</th></tr></thead>
+    <tbody>
+      <tr><td><strong>增加</strong></td><td>increase · rise · grow · climb · soar · surge · rocket · skyrocket · escalate · proliferate · burgeon · expand</td></tr>
+      <tr><td><strong>减少</strong></td><td>decrease · decline · drop · fall · plunge · plummet · diminish · dwindle · shrink · slump · tumble · taper</td></tr>
+      <tr><td><strong>原因</strong></td><td>cause · lead to · result in · give rise to · trigger · stem from · arise from · be attributable to · engender · spawn · precipitate</td></tr>
+      <tr><td><strong>重要</strong></td><td>important · crucial · vital · essential · pivotal · indispensable · paramount · imperative · fundamental · critical</td></tr>
+      <tr><td><strong>影响</strong></td><td>affect · influence · impact · shape · alter · transform · revolutionise · reshape · determine · mould</td></tr>
+      <tr><td><strong>人/公众</strong></td><td>people · individuals · the public · citizens · residents · inhabitants · the populace · members of the community</td></tr>
+      <tr><td><strong>问题</strong></td><td>problem · issue · concern · challenge · dilemma · drawback · obstacle · setback · predicament · impediment</td></tr>
+      <tr><td><strong>研究表明</strong></td><td>research shows · studies indicate · evidence suggests · findings reveal · data demonstrate · it has been documented that</td></tr>
+      <tr><td><strong>好</strong></td><td>good · excellent · outstanding · remarkable · exceptional · superb · stellar · admirable · commendable</td></tr>
+      <tr><td><strong>坏</strong></td><td>bad · harmful · detrimental · adverse · disastrous · dire · unfavourable · hazardous</td></tr>
+      <tr><td><strong>多</strong></td><td>many · numerous · abundant · ample · plentiful · copious · extensive · prolific</td></tr>
+      <tr><td><strong>减轻</strong></td><td>reduce · ease · alleviate · mitigate · curb · abate · assuage · allay · relieve · lessen · palliate</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>IELTS · Almanack &nbsp;|&nbsp; Folio I — Vocabulary</div>
+    <div><a href="../index.html">返回首页 ↺</a></div>
+  </div>
+</footer>
+
+<div class="totop">↑</div>
+
+<script src="../js/vocab-data-1.js"></script>
+<script src="../js/vocab-data-2.js"></script>
+<script src="../js/vocab-data-3.js"></script>
+<script src="../js/vocab-data-4.js"></script>
+<script>
+(function () {
+    const container = document.getElementById('vocab-container');
+    const countEl = document.getElementById('vcount');
+    const searchEl = document.getElementById('vsearch');
+    let curStage = 'all', curTopic = 'all', curSearch = '';
+
+    const STAGE_LABEL = { s1: 'STAGE I · 奠基核心', s2: 'STAGE II · 主题入门', s3: 'STAGE III · 学术抽象', s4: 'STAGE IV · 同义替换' };
+    const TOPIC_LABEL = {
+        core: '基础高频', edu: '教育', env: '环境', tech: '科技', health: '健康',
+        society: '社会', work: '工作 / 经济', culture: '文化 / 媒体', city: '城市 / 交通',
+        travel: '旅游', abstract: '学术抽象', syn: '同义替换族'
+    };
+    const TOPIC_ORDER_BY_STAGE = {
+        s1: ['core'],
+        s2: ['edu','env','tech','health','society','work','culture','city','travel'],
+        s3: ['abstract'],
+        s4: ['syn']
+    };
+
+    function escapeHTML(s) { return String(s).replace(/[&<>]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;' }[c])); }
+
+    function renderItem(v) {
+        const [stage, topic, word, pron, pos, cn, eg, src] = v;
+        const hasEg = eg ? 'has-eg' : '';
+        const egHTML = eg
+            ? `<div class="eg">${eg}${src ? `<span class="src">— ${escapeHTML(src)}</span>` : ''}</div>`
+            : '';
+        return `<div class="v ${hasEg}" data-stage="${stage}" data-topic="${topic}">
+            <div class="w">${escapeHTML(word)}</div>
+            <div class="pron">${escapeHTML(pron)}</div>
+            <div class="meta"><span class="pos">${escapeHTML(pos)}</span><span class="cn">${escapeHTML(cn)}</span></div>
+            ${egHTML}
+        </div>`;
+    }
+
+    function render() {
+        const VOCAB = window.VOCAB || [];
+        const q = curSearch.trim().toLowerCase();
+        const filtered = VOCAB.filter(v => {
+            if (curStage !== 'all' && v[0] !== curStage) return false;
+            if (curTopic !== 'all' && v[1] !== curTopic) return false;
+            if (q) {
+                const word = v[2].toLowerCase(), cn = v[5];
+                if (!word.includes(q) && !cn.includes(q)) return false;
+            }
+            return true;
+        });
+
+        // 按 stage → topic 分组
+        const groups = {};
+        filtered.forEach(v => {
+            const k = v[0] + '|' + v[1];
+            if (!groups[k]) groups[k] = [];
+            groups[k].push(v);
+        });
+
+        // 输出
+        let html = '';
+        const stages = ['s1','s2','s3','s4'];
+        let n = 0;
+        stages.forEach(stage => {
+            if (curStage !== 'all' && curStage !== stage) return;
+            const topics = TOPIC_ORDER_BY_STAGE[stage];
+            topics.forEach(topic => {
+                if (curTopic !== 'all' && curTopic !== topic) return;
+                const items = groups[stage + '|' + topic];
+                if (!items || !items.length) return;
+                html += `<div class="section-head">
+                    <span class="num">${stages.indexOf(stage)+1}.${topics.indexOf(topic)+1}</span>
+                    <h3>${STAGE_LABEL[stage]} <span style="color:var(--ink-faded); font-weight:400; font-size:0.7em;">— ${TOPIC_LABEL[topic]}</span></h3>
+                    <span class="cnt">${items.length} 词</span>
+                </div>`;
+                html += `<div class="vocab-grid">${items.map(renderItem).join('')}</div>`;
+                n += items.length;
+            });
+        });
+
+        container.innerHTML = html || '<p style="margin: 3rem 0; text-align:center; color: var(--ink-faded);">没有匹配的词条。</p>';
+        countEl.textContent = `${n} / ${VOCAB.length} 词`;
+
+        // 绑定点击展开例句
+        container.querySelectorAll('.v.has-eg').forEach(el => {
+            el.addEventListener('click', () => el.classList.toggle('open'));
+        });
+    }
+
+    // 筛选按钮
+    document.querySelectorAll('[data-stage]').forEach(b => {
+        b.addEventListener('click', () => {
+            document.querySelectorAll('[data-stage]').forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            curStage = b.dataset.stage;
+            render();
+        });
+    });
+    document.querySelectorAll('[data-topic]').forEach(b => {
+        b.addEventListener('click', () => {
+            document.querySelectorAll('[data-topic]').forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            curTopic = b.dataset.topic;
+            render();
+        });
+    });
+    // 搜索
+    let st;
+    searchEl.addEventListener('input', () => {
+        clearTimeout(st);
+        st = setTimeout(() => { curSearch = searchEl.value; render(); }, 150);
+    });
+
+    render();
+})();
+</script>
+<script src="../js/main.js"></script>
+</body></html>

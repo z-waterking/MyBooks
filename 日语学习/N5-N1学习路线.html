@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日语学习路线 · 从 N5 到 N1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Klee+One:wght@400;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe2;
+  --paper-2:#ece5d0;
+  --paper-3:#e3dabf;
+  --ink:#1a1612;
+  --ink-2:#3a322a;
+  --ink-3:#6b6055;
+  --vermillion:#c8362d;
+  --vermillion-d:#94221b;
+  --indigo:#2a3a4f;
+  --gold:#a8843b;
+  --moss:#5a6a3a;
+  --line:#cdc2a3;
+  --line-soft:#ddd2b5;
+  --serif-jp:"Shippori Mincho B1","Noto Serif SC","Noto Serif JP","Songti SC",serif;
+  --serif-body:"Noto Serif SC","Shippori Mincho B1","Noto Serif JP",serif;
+  --serif-display:"Fraunces","Shippori Mincho B1","Noto Serif SC",serif;
+  --hand:"Klee One","Shippori Mincho B1","Noto Serif SC",serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--serif-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.85;
+  font-feature-settings:"palt";
+  position:relative;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity:.55;
+  mix-blend-mode:multiply;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(168,132,59,.06), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(42,58,79,.05), transparent 50%);
+}
+
+a{color:inherit;text-decoration:none}
+
+.progress{
+  position:fixed;top:0;left:0;height:3px;width:0;
+  background:var(--vermillion);
+  z-index:1000;
+  transition:width .1s linear;
+}
+
+.nav{
+  position:fixed;
+  right:34px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:100;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:flex-end;
+}
+.nav a{
+  font-family:var(--serif-display);
+  font-size:11px;
+  letter-spacing:.18em;
+  color:var(--ink-3);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  position:relative;
+  transition:color .3s ease;
+}
+.nav a::after{
+  content:"";
+  width:24px;
+  height:1px;
+  background:var(--ink-3);
+  opacity:.5;
+  transition:all .3s ease;
+}
+.nav a:hover,.nav a.active{color:var(--vermillion)}
+.nav a:hover::after,.nav a.active::after{
+  width:48px;background:var(--vermillion);opacity:1;
+}
+
+.page{
+  position:relative;
+  z-index:2;
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 80px;
+}
+
+.masthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 80px 0;
+  font-family:var(--serif-display);
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  position:relative;
+  z-index:3;
+  max-width:1240px;
+  margin:0 auto;
+}
+.masthead .left{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.masthead .dot{width:6px;height:6px;background:var(--vermillion);border-radius:50%}
+.masthead .vol{font-style:italic;color:var(--vermillion)}
+.rule-double{
+  max-width:1240px;
+  margin:18px auto 0;
+  padding:0 80px;
+  position:relative;z-index:3;
+}
+.rule-double hr{
+  border:none;
+  border-top:1px solid var(--ink);
+  margin:0;
+}
+.rule-double hr+hr{
+  margin-top:3px;
+  border-top:.5px solid var(--ink);
+}
+
+.hero{
+  padding:90px 0 120px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:60px;
+  align-items:end;
+  position:relative;
+}
+.hero-vertical{
+  position:absolute;
+  left:-12px;
+  top:60px;
+  writing-mode:vertical-rl;
+  font-family:var(--serif-jp);
+  font-weight:800;
+  font-size:200px;
+  line-height:.9;
+  color:var(--ink);
+  letter-spacing:.05em;
+  opacity:.96;
+}
+.hero-vertical .accent{color:var(--vermillion)}
+
+.hero-meta{
+  position:absolute;
+  top:30px;
+  right:0;
+  text-align:right;
+  font-family:var(--serif-display);
+  font-size:11px;
+  letter-spacing:.25em;
+  color:var(--ink-3);
+  line-height:1.8;
+}
+.hero-meta strong{color:var(--vermillion);font-weight:600}
+
+.hero-main{
+  margin-left:240px;
+  padding-top:60px;
+}
+.kicker{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-size:14px;
+  letter-spacing:.05em;
+  color:var(--vermillion);
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.kicker::before{
+  content:"";
+  width:36px;height:1px;background:var(--vermillion);
+}
+
+.hero-title{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(56px,9vw,128px);
+  line-height:.92;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  margin-bottom:30px;
+}
+.hero-title .arrow{
+  color:var(--vermillion);
+  font-style:italic;
+  font-weight:400;
+  margin:0 .2em;
+}
+.hero-title .num{
+  font-weight:900;
+  font-variation-settings:"opsz" 144;
+}
+.hero-title .jp{
+  font-family:var(--serif-jp);
+  font-weight:500;
+  display:block;
+  font-size:.42em;
+  letter-spacing:.18em;
+  color:var(--ink-2);
+  margin-top:14px;
+}
+
+.hero-lede{
+  max-width:560px;
+  font-size:17px;
+  line-height:1.9;
+  color:var(--ink-2);
+}
+.hero-lede strong{color:var(--vermillion-d);font-weight:600}
+
+.seal{
+  position:absolute;
+  right:0;
+  bottom:60px;
+  width:118px;height:118px;
+  border:2.5px solid var(--vermillion);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(200,54,45,.06);
+  transform:rotate(-8deg);
+}
+.seal::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid var(--vermillion);
+  border-radius:50%;
+  opacity:.5;
+}
+.seal span{
+  font-family:var(--serif-jp);
+  font-weight:700;
+  color:var(--vermillion);
+  font-size:22px;
+  text-align:center;
+  letter-spacing:.1em;
+  line-height:1.1;
+}
+
+.overview{
+  padding:80px 0;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.overview::before{
+  content:"";
+  position:absolute;
+  top:6px;left:0;right:0;
+  border-top:.5px solid var(--ink);
+}
+.section-label{
+  font-family:var(--serif-display);
+  font-size:11px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  color:var(--vermillion);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.section-label::before{
+  content:"§";
+  font-style:italic;
+  font-size:14px;
+}
+.section-h{
+  font-family:var(--serif-display);
+  font-weight:400;
+  font-size:42px;
+  line-height:1.15;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin-bottom:40px;
+  max-width:780px;
+}
+.section-h em{
+  font-style:italic;
+  color:var(--vermillion);
+  font-weight:400;
+}
+.section-h .jp{
+  font-family:var(--serif-jp);
+  font-size:.55em;
+  color:var(--ink-2);
+  display:block;
+  margin-top:10px;
+  letter-spacing:.08em;
+  font-weight:500;
+}
+
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.ov-cell{
+  padding:22px 18px 22px 0;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.ov-cell:last-child{border-right:none}
+.ov-num{
+  font-family:var(--serif-display);
+  font-size:14px;
+  font-weight:600;
+  color:var(--vermillion);
+  letter-spacing:.15em;
+  margin-bottom:8px;
+}
+.ov-jp{
+  font-family:var(--serif-jp);
+  font-weight:700;
+  font-size:22px;
+  color:var(--ink);
+  margin-bottom:10px;
+  letter-spacing:.05em;
+}
+.ov-desc{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--ink-2);
+}
+.ov-cell:nth-child(1) .ov-num{color:#5a6a3a}
+.ov-cell:nth-child(2) .ov-num{color:#a8843b}
+.ov-cell:nth-child(3) .ov-num{color:#c8362d}
+.ov-cell:nth-child(4) .ov-num{color:#94221b}
+.ov-cell:nth-child(5) .ov-num{color:#2a3a4f}
+
+.chapter{
+  padding:140px 0 100px;
+  position:relative;
+  border-bottom:1px solid var(--line);
+}
+
+.chapter-head{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:50px;
+  align-items:end;
+  margin-bottom:80px;
+  position:relative;
+}
+
+.chapter-num{
+  font-family:var(--serif-display);
+  font-size:280px;
+  font-weight:900;
+  line-height:.78;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  font-variation-settings:"opsz" 144;
+  position:relative;
+}
+.chapter-num .small{
+  display:block;
+  font-size:.12em;
+  letter-spacing:.4em;
+  color:var(--vermillion);
+  font-weight:500;
+  margin-bottom:18px;
+  margin-left:.05em;
+  font-family:var(--serif-jp);
+}
+.chapter-num .level{
+  position:relative;
+  display:inline-block;
+}
+.chapter-num .level::after{
+  content:attr(data-jp);
+  position:absolute;
+  bottom:18px;
+  right:-160px;
+  writing-mode:vertical-rl;
+  font-family:var(--serif-jp);
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:.3em;
+  color:var(--ink-2);
+  -webkit-text-stroke:0;
+  line-height:1;
+}
+
+.chapter-title{padding-bottom:30px}
+.chapter-title h2{
+  font-family:var(--serif-jp);
+  font-weight:700;
+  font-size:50px;
+  line-height:1.05;
+  color:var(--ink);
+  margin-bottom:18px;
+  letter-spacing:.02em;
+}
+.chapter-title h2 .en{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-weight:300;
+  font-size:.5em;
+  color:var(--vermillion);
+  margin-left:18px;
+  letter-spacing:.05em;
+}
+.chapter-title .tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.15em;
+  color:var(--ink-3);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.chapter-title .tag span{
+  border:1px solid var(--line);
+  padding:5px 12px;
+  border-radius:2px;
+}
+
+.chapter-pageno{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-size:13px;
+  color:var(--ink-3);
+  letter-spacing:.15em;
+  padding-bottom:36px;
+  text-align:right;
+}
+.chapter-pageno strong{
+  font-style:normal;
+  font-size:48px;
+  font-weight:300;
+  color:var(--ink);
+  display:block;
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.goals{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:50px;
+  padding:32px 0;
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--line);
+  margin-bottom:70px;
+}
+.goals-label{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  font-size:15px;
+  color:var(--vermillion);
+  letter-spacing:.1em;
+}
+.goals-label::before{content:"◉ "}
+.goals-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:8px 30px;
+  font-family:var(--serif-body);
+  font-size:15px;
+}
+.goals-list li{
+  list-style:none;
+  position:relative;
+  padding-left:18px;
+  color:var(--ink-2);
+}
+.goals-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:14px;
+  width:8px;height:1px;
+  background:var(--vermillion);
+}
+
+.cols{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  margin-bottom:60px;
+}
+@media (max-width:980px){.cols{grid-template-columns:1fr}}
+
+.col{position:relative}
+.col-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:24px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--ink);
+}
+.col-head .num{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-size:32px;
+  color:var(--vermillion);
+  font-weight:400;
+  line-height:1;
+}
+.col-head h3{
+  font-family:var(--serif-jp);
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:.05em;
+}
+.col-head .en{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-size:12px;
+  color:var(--ink-3);
+  margin-left:auto;
+  letter-spacing:.08em;
+}
+
+.col p{
+  font-size:14.5px;
+  line-height:1.85;
+  color:var(--ink-2);
+  margin-bottom:14px;
+}
+.col p strong{
+  color:var(--ink);
+  font-weight:600;
+  background:linear-gradient(transparent 60%, rgba(200,54,45,.18) 60%);
+  padding:0 2px;
+}
+
+.res{
+  margin-bottom:14px;
+  padding:14px 16px;
+  background:rgba(255,255,255,.45);
+  border:1px solid var(--line-soft);
+  border-left:3px solid var(--vermillion);
+  position:relative;
+  transition:transform .25s ease, background .25s ease;
+}
+.res:hover{
+  background:rgba(255,255,255,.7);
+  transform:translateX(2px);
+}
+.res-primary{
+  border-left-color:var(--vermillion);
+  background:rgba(200,54,45,.06);
+}
+.res-secondary{border-left-color:var(--indigo)}
+.res-free{border-left-color:var(--moss)}
+.res-name{
+  font-family:var(--serif-jp);
+  font-weight:700;
+  font-size:15.5px;
+  color:var(--ink);
+  margin-bottom:4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+}
+.res-name a{
+  color:inherit;
+  border-bottom:1px dotted var(--ink-3);
+  transition:color .2s, border-color .2s;
+  padding-bottom:1px;
+}
+.res-name a:hover{
+  color:var(--vermillion);
+  border-bottom-color:var(--vermillion);
+}
+.res-name a::after{
+  content:" ↗";
+  font-size:.78em;
+  font-family:var(--serif-display);
+  color:var(--ink-3);
+  font-weight:400;
+  margin-left:2px;
+  transition:color .2s;
+}
+.res-name a:hover::after{color:var(--vermillion)}
+.res-name .tag{
+  font-family:var(--serif-jp);
+  font-size:10.5px;
+  letter-spacing:.1em;
+  color:var(--vermillion);
+  font-weight:500;
+  white-space:nowrap;
+  padding:2px 6px;
+  border:1px solid var(--vermillion);
+  border-radius:2px;
+}
+.res-tag-blue{color:var(--indigo)!important;border-color:var(--indigo)!important}
+.res-tag-green{color:var(--moss)!important;border-color:var(--moss)!important}
+.res-desc{
+  font-size:13px;
+  color:var(--ink-2);
+  line-height:1.7;
+}
+
+.pullquote{
+  margin:60px 80px 0;
+  padding:36px 50px;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:40px;
+  align-items:center;
+}
+.pullquote::before{
+  content:"「";
+  position:absolute;
+  top:-12px;left:-2px;
+  font-family:var(--serif-jp);
+  font-size:60px;
+  color:var(--vermillion);
+  line-height:1;
+}
+.pullquote::after{
+  content:"」";
+  position:absolute;
+  bottom:-22px;right:-2px;
+  font-family:var(--serif-jp);
+  font-size:60px;
+  color:var(--vermillion);
+  line-height:1;
+}
+.pq-kanji{
+  font-family:var(--serif-jp);
+  font-size:80px;
+  font-weight:700;
+  color:var(--vermillion);
+  line-height:1;
+  letter-spacing:.05em;
+  opacity:.88;
+}
+.pq-text{
+  font-family:var(--serif-jp);
+  font-size:19px;
+  line-height:1.75;
+  color:var(--ink);
+  font-weight:500;
+}
+.pq-text small{
+  display:block;
+  margin-top:10px;
+  font-family:var(--serif-body);
+  font-style:normal;
+  font-size:13px;
+  color:var(--ink-3);
+  letter-spacing:.02em;
+}
+
+.tools{padding:120px 0}
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+}
+.tool{
+  padding:36px 30px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  transition:background .3s ease;
+  display:block;
+}
+.tool:hover{background:rgba(200,54,45,.05)}
+.tool:nth-child(3n){border-right:none}
+.tool:nth-last-child(-n+3){border-bottom:none}
+@media (max-width:780px){
+  .tools-grid{grid-template-columns:1fr}
+  .tool{border-right:none!important}
+}
+.tool-icon{
+  font-family:var(--serif-jp);
+  font-size:42px;
+  font-weight:300;
+  color:var(--vermillion);
+  line-height:1;
+  margin-bottom:18px;
+  letter-spacing:.05em;
+}
+.tool-name{
+  font-family:var(--serif-jp);
+  font-size:22px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:6px;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.tool-name .en{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:13px;
+  color:var(--ink-3);
+}
+.tool-name::after{
+  content:"↗";
+  font-family:var(--serif-display);
+  font-size:14px;
+  color:var(--ink-3);
+  margin-left:auto;
+  font-weight:300;
+  transition:color .2s, transform .2s;
+}
+.tool:hover .tool-name::after{
+  color:var(--vermillion);
+  transform:translate(2px,-2px);
+}
+.tool-desc{
+  font-size:14px;
+  line-height:1.75;
+  color:var(--ink-2);
+}
+
+.pitfalls{padding:80px 0 120px}
+.pitfall-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-top:50px;
+}
+@media (max-width:880px){.pitfall-grid{grid-template-columns:1fr}}
+.pitfall{
+  padding:30px;
+  border:1px solid var(--ink);
+  background:var(--paper-2);
+  position:relative;
+}
+.pitfall::before{
+  content:"✕";
+  position:absolute;
+  top:-14px;
+  left:24px;
+  width:28px;height:28px;
+  background:var(--vermillion);
+  color:var(--paper);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--serif-display);
+  font-size:14px;
+  font-weight:700;
+}
+.pitfall h4{
+  font-family:var(--serif-jp);
+  font-size:18px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:12px;
+  padding-top:8px;
+}
+.pitfall p{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--ink-2);
+}
+
+.closing{
+  padding:140px 0 100px;
+  text-align:center;
+  border-top:1px solid var(--ink);
+  position:relative;
+}
+.closing::before{
+  content:"";
+  position:absolute;
+  top:6px;left:0;right:0;
+  border-top:.5px solid var(--ink);
+}
+.closing-kanji{
+  font-family:var(--serif-jp);
+  font-size:180px;
+  font-weight:800;
+  line-height:1;
+  color:var(--vermillion);
+  letter-spacing:.1em;
+  margin-bottom:40px;
+  opacity:.9;
+}
+.closing-text{
+  font-family:var(--serif-jp);
+  font-size:32px;
+  line-height:1.5;
+  color:var(--ink);
+  font-weight:500;
+  max-width:680px;
+  margin:0 auto 24px;
+  letter-spacing:.03em;
+}
+.closing-text em{
+  color:var(--vermillion);
+  font-style:normal;
+}
+.closing-jp{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-size:15px;
+  color:var(--ink-3);
+  letter-spacing:.08em;
+}
+
+footer{
+  padding:40px 80px;
+  border-top:2px solid var(--ink);
+  max-width:1240px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--serif-display);
+  font-size:11px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  position:relative;
+  z-index:3;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+@media (max-width:1080px){
+  .page,.masthead,.rule-double,footer{padding-left:40px;padding-right:40px}
+  .hero-vertical{font-size:140px;left:-8px}
+  .hero-main{margin-left:160px}
+  .chapter-num{font-size:200px}
+  .chapter-head{grid-template-columns:1fr;gap:24px}
+  .chapter-num .level::after{display:none}
+  .nav{display:none}
+  .pullquote{margin:60px 0 0}
+}
+@media (max-width:680px){
+  .page,.masthead,.rule-double,footer{padding-left:24px;padding-right:24px}
+  .hero{padding:40px 0 60px;grid-template-columns:1fr}
+  .hero-vertical{font-size:90px;position:relative;left:0;top:0;writing-mode:horizontal-tb;margin-bottom:30px}
+  .hero-main{margin-left:0;padding-top:0}
+  .hero-meta{position:relative;text-align:left;top:0;margin-bottom:30px}
+  .seal{position:relative;right:0;bottom:0;margin-top:30px}
+  .overview-grid{grid-template-columns:repeat(2,1fr)}
+  .ov-cell:nth-child(odd){border-right:1px solid var(--line)}
+  .ov-cell:nth-child(even){border-right:none}
+  .chapter-num{font-size:120px}
+  .chapter-title h2{font-size:34px}
+  .goals{grid-template-columns:1fr;gap:20px}
+  .closing-kanji{font-size:100px}
+  .closing-text{font-size:22px}
+  .pq-kanji{font-size:50px}
+  .pullquote{grid-template-columns:1fr;padding:30px 24px}
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="#overview" data-target="overview">总览 · OVERVIEW</a>
+  <a href="#n5" data-target="n5">N5 · 入门</a>
+  <a href="#n4" data-target="n4">N4 · 基础</a>
+  <a href="#n3" data-target="n3">N3 · 中级</a>
+  <a href="#n2" data-target="n2">N2 · 准上级</a>
+  <a href="#n1" data-target="n1">N1 · 上级</a>
+  <a href="#tools" data-target="tools">工具 · TOOLS</a>
+  <a href="#pitfalls" data-target="pitfalls">避坑 · CAVEATS</a>
+</nav>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <span>第〇一期 · ISSUE 01</span>
+    <span class="vol">日语学习路线指南</span>
+  </div>
+  <div>2026 · 春季版</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-vertical">
+      日<span class="accent">本</span>語
+    </div>
+
+    <div class="hero-meta">
+      给 JLPT 学习者的<br>
+      <strong>一份实战指南</strong><br>
+      ─────────<br>
+      五 → 四 → 三 → 二 → 一
+    </div>
+
+    <div class="hero-main">
+      <div class="kicker">完整进阶路线 · 五个阶段</div>
+      <h1 class="hero-title">
+        从 <span class="num">N5</span><span class="arrow">→</span><span class="num">N1</span>
+        <span class="jp">从五十音到原版小说 · 一条路走到底</span>
+      </h1>
+      <p class="hero-lede">
+        一份不贪多、不堆砌的日语学习路线。每一阶段只保留 <strong>核心资源</strong> 与 <strong>少量补充</strong>，
+        告诉你"学什么、用什么背、怎么坚持"。点击资源名可以直接跳转到官网或下载页面。
+      </p>
+    </div>
+
+    <div class="seal">
+      <span>学<br>习</span>
+    </div>
+  </section>
+
+  <!-- ============== OVERVIEW ============== -->
+  <section class="overview" id="overview">
+    <div class="section-label">第〇章 · 全景</div>
+    <h2 class="section-h">
+      五个阶段，<em>一条路</em>。
+      <span class="jp">从入门到上级，一步一个台阶</span>
+    </h2>
+
+    <div class="overview-grid">
+      <div class="ov-cell">
+        <div class="ov-num">N5 · 入门</div>
+        <div class="ov-jp">假名 · 800 词</div>
+        <div class="ov-desc">学完五十音、基础语法和最常用词汇，能看懂简单句子。约 3–6 个月。</div>
+      </div>
+      <div class="ov-cell">
+        <div class="ov-num">N4 · 基础</div>
+        <div class="ov-jp">动词变形 · 日常会话</div>
+        <div class="ov-desc">动词变形熟练，看简短文章和漫画，可进行简单对话。约 6–10 个月。</div>
+      </div>
+      <div class="ov-cell">
+        <div class="ov-num">N3 · 分水岭</div>
+        <div class="ov-jp">教材 → 真实</div>
+        <div class="ov-desc">从教材日语跨入真实日语。这是最容易掉队的阶段，必须接触真实材料。</div>
+      </div>
+      <div class="ov-cell">
+        <div class="ov-num">N2 · 准上级</div>
+        <div class="ov-jp">职场 · 大学</div>
+        <div class="ov-desc">接近日本职场和大学阅读要求。求职、留学的基本门槛。</div>
+      </div>
+      <div class="ov-cell">
+        <div class="ov-num">N1 · 上级</div>
+        <div class="ov-jp">接近母语</div>
+        <div class="ov-desc">阅读小说、报纸、专业文章。教材已不再是主角，真实材料才是。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== N5 ============== -->
+  <section class="chapter" id="n5">
+    <div class="chapter-head">
+      <div class="chapter-num">
+        <span class="small">第一阶 · 入门 · 从五十音开始</span>
+        <span class="level" data-jp="假名 · 基础语法 · 常用词">N5</span>
+      </div>
+      <div class="chapter-title">
+        <h2>入门<span class="en">Getting started</span></h2>
+        <div class="tag"><span>3–6 个月</span><span>800 词</span><span>100 汉字</span></div>
+      </div>
+      <div class="chapter-pageno"><strong>01</strong>第一章</div>
+    </div>
+
+    <div class="goals">
+      <div class="goals-label">阶段目标</div>
+      <ul class="goals-list">
+        <li>掌握全部五十音（平假名・片假名）</li>
+        <li>基础语法（です／ます／助词）</li>
+        <li>核心词汇 800 个</li>
+        <li>常用汉字 100 字左右</li>
+        <li>能读懂简单的短句和招牌</li>
+      </ul>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-head">
+          <span class="num">01</span>
+          <h3>学习方法</h3>
+          <span class="en">方法</span>
+        </div>
+        <p><strong>头两周专注假名。</strong>不要急着学语法，否则会半懂不懂。每天 30 分钟手写 + Anki 复习。</p>
+        <p>之后跟着主教材一课一课走，每课配 <strong>预习 → 听课 → Anki 卡 → 课后练习</strong> 四步循环。</p>
+        <p>每天 <strong>1–1.5 小时</strong>，比每周末突击 5 小时高效得多。</p>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">02</span>
+          <h3>推荐资料</h3>
+          <span class="en">教材</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://book.douban.com/subject/2102711/" target="_blank" rel="noopener">新标准日本语 初级上</a> <span class="tag">主推</span></div>
+          <div class="res-desc">中文母语者最友好，B 站资源极多，跟着阿飞老师效率高。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://genki3.japantimes.co.jp/en/" target="_blank" rel="noopener">Genki I</a> <span class="tag res-tag-blue">替代</span></div>
+          <div class="res-desc">世界范围最主流，逻辑严谨。想长期走国际路线者首选。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://guidetojapanese.org/learn/" target="_blank" rel="noopener">Tae Kim's Guide</a> <span class="tag res-tag-green">免费</span></div>
+          <div class="res-desc">免费的英文语法指南，工科脑友好，可与主教材并行使用。</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">03</span>
+          <h3>背单词</h3>
+          <span class="en">词汇</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://github.com/donkuri/Kaishi" target="_blank" rel="noopener">Anki + Kaishi 1.5k</a> <span class="tag">核心</span></div>
+          <div class="res-desc">每天 10–15 个新词，配合复习；不要贪多，节奏比数量重要。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://ankiweb.net/shared/decks" target="_blank" rel="noopener">Tango N5 卡组</a> <span class="tag res-tag-blue">应试</span></div>
+          <div class="res-desc">如目标是考试，可叠加 JLPT 专项词表，按例句记忆。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://www3.nhk.or.jp/news/easy/" target="_blank" rel="noopener">NHK Easy</a> / <a href="https://nihongoconteppei.com/" target="_blank" rel="noopener">Teppei</a> <span class="tag res-tag-green">听力</span></div>
+          <div class="res-desc">每日 10 分钟"听不懂也要听"，培养语感和节奏感。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pq-kanji">惯</div>
+      <div class="pq-text">
+        先让耳朵和眼睛"习惯"这门语言，再追求理解。
+        <small>N5 阶段，听不懂也别停。</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== N4 ============== -->
+  <section class="chapter" id="n4">
+    <div class="chapter-head">
+      <div class="chapter-num">
+        <span class="small">第二阶 · 基础 · 动词变形的大山</span>
+        <span class="level" data-jp="动词活用 · 日常会话">N4</span>
+      </div>
+      <div class="chapter-title">
+        <h2>打基础<span class="en">Building the base</span></h2>
+        <div class="tag"><span>6–10 个月</span><span>1500 词</span><span>300 汉字</span></div>
+      </div>
+      <div class="chapter-pageno"><strong>02</strong>第二章</div>
+    </div>
+
+    <div class="goals">
+      <div class="goals-label">阶段目标</div>
+      <ul class="goals-list">
+        <li>动词五段／一段／不规则变形</li>
+        <li>て形・た形・ない形熟练运用</li>
+        <li>能读懂短篇文章和简单漫画</li>
+        <li>能进行日常对话</li>
+        <li>词汇约 1500，汉字约 300</li>
+      </ul>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-head">
+          <span class="num">01</span>
+          <h3>学习方法</h3>
+          <span class="en">方法</span>
+        </div>
+        <p><strong>动词变形是最大的山。</strong>专门花 1–2 周做活用表练习，每天默写一组。</p>
+        <p>开始引入 <strong>分级阅读</strong>（Tadoku）和 <strong>慢速听力</strong>。读不懂也别查词太多 —— 整页过一遍优于逐字啃。</p>
+        <p>建议加入 <strong>Bunpro</strong> 做语法 SRS 循环，告别"学了就忘"。</p>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">02</span>
+          <h3>推荐资料</h3>
+          <span class="en">教材</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://genki3.japantimes.co.jp/en/" target="_blank" rel="noopener">Genki II</a> / <a href="https://book.douban.com/subject/2102713/" target="_blank" rel="noopener">新标日初级下</a> <span class="tag">主推</span></div>
+          <div class="res-desc">承接 N5 主教材，建议保持同一系列，少切换体系。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://bunpro.jp/" target="_blank" rel="noopener">Bunpro</a> <span class="tag res-tag-blue">SRS</span></div>
+          <div class="res-desc">语法循环复习神器，Tae Kim 理解后用它刷熟。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://tadoku.org/japanese/en/free-books-en/" target="_blank" rel="noopener">Tadoku 分级读物</a> <span class="tag res-tag-green">免费</span></div>
+          <div class="res-desc">分级阅读，从 Level 0 开始，培养"读完一本"的成就感。</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">03</span>
+          <h3>背单词</h3>
+          <span class="en">词汇</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://ankiweb.net/shared/info/1488670517" target="_blank" rel="noopener">Anki Core 2k</a> <span class="tag">核心</span></div>
+          <div class="res-desc">日语高频词卡组，每天 15–20 新词，搭配例句和音频。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://apps.ankiweb.net/" target="_blank" rel="noopener">教材附带词表（自做卡组）</a> <span class="tag res-tag-blue">语境</span></div>
+          <div class="res-desc">每课词汇做成自卡，带句子上下文，避免孤立背词。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://nihongowithshun.com/" target="_blank" rel="noopener">Nihongo with Shun</a> 等播客 <span class="tag res-tag-green">听力</span></div>
+          <div class="res-desc">通勤路上听一两集，培养"日语在背景中流动"的状态。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pq-kanji">练</div>
+      <div class="pq-text">
+        反复练习，是 N4 阶段唯一的捷径。语法表打印出来贴墙上。
+        <small>动词活用值得花一整周。</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== N3 ============== -->
+  <section class="chapter" id="n3">
+    <div class="chapter-head">
+      <div class="chapter-num">
+        <span class="small">第三阶 · 分水岭 · 教材到真实</span>
+        <span class="level" data-jp="中级桥梁 · 真实输入起步">N3</span>
+      </div>
+      <div class="chapter-title">
+        <h2>分水岭<span class="en">The watershed</span></h2>
+        <div class="tag"><span>10–14 个月</span><span>3000 词</span><span>650 汉字</span></div>
+      </div>
+      <div class="chapter-pageno"><strong>03</strong>第三章</div>
+    </div>
+
+    <div class="goals">
+      <div class="goals-label">阶段目标</div>
+      <ul class="goals-list">
+        <li>从"教材日语"过渡到真实日语</li>
+        <li>能读懂报纸标题、简单新闻</li>
+        <li>看动画、日剧能跟上大致剧情</li>
+        <li>词汇约 3000，汉字约 650</li>
+        <li>语法体系基本完整</li>
+      </ul>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-head">
+          <span class="num">01</span>
+          <h3>学习方法</h3>
+          <span class="en">方法</span>
+        </div>
+        <p><strong>这是最容易掉队的阶段。</strong>很多人卡在 N3 一两年走不出去，原因都是没接触真实材料。</p>
+        <p>必须开始 <strong>大量输入</strong>：日剧、动漫、YouTube、播客、原版漫画。每天至少 30 分钟。</p>
+        <p>教材保持节奏，但比重下降。新增 <strong>精读 + 泛读</strong> 双轨：精读一篇 Satori Reader，泛读 NHK / 漫画。</p>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">02</span>
+          <h3>推荐资料</h3>
+          <span class="en">教材</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://quartet.japantimes.co.jp/" target="_blank" rel="noopener">Quartet I</a> / <a href="https://tobiraweb.9640.jp/" target="_blank" rel="noopener">Tobira</a> <span class="tag">主推</span></div>
+          <div class="res-desc">中级桥梁教材。Quartet 更现代，Tobira 经典厚重，二选一。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://www.satorireader.com/" target="_blank" rel="noopener">Satori Reader</a> <span class="tag res-tag-blue">阅读</span></div>
+          <div class="res-desc">原生级阅读体验，点击查词 + 真人朗读，N3 阅读飞跃神器。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://www.3anet.co.jp/np/list.html?cid=87" target="_blank" rel="noopener">新完全掌握 N3 语法</a> <span class="tag res-tag-green">应试</span></div>
+          <div class="res-desc">若打算考 N3，提前用神书系列刷一轮。</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">03</span>
+          <h3>背单词</h3>
+          <span class="en">词汇</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://ankiweb.net/shared/info/1488670517" target="_blank" rel="noopener">Anki Core 6k</a> <span class="tag">核心</span></div>
+          <div class="res-desc">从 2k 续接到 6k，覆盖至 N2 入门级，节奏 20 新词/天。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://yomitan.wiki/" target="_blank" rel="noopener">Yomitan + Anki 挖词</a> <span class="tag res-tag-blue">挖词</span></div>
+          <div class="res-desc">在阅读中边查边记，自建卡组，效率远超固定卡组。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://jlptsensei.com/jlpt-n3-grammar-list/" target="_blank" rel="noopener">JLPT Sensei N3</a> <span class="tag res-tag-green">查询</span></div>
+          <div class="res-desc">免费在线语法字典，遇到不懂的语法点随手查。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pq-kanji">跨</div>
+      <div class="pq-text">
+        N3 的关键不是再多背一千词，而是 —— 走出去，去读真正的日本人写的东西。
+        <small>哪怕只看得懂三成，也比再刷一遍教材强。</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== N2 ============== -->
+  <section class="chapter" id="n2">
+    <div class="chapter-head">
+      <div class="chapter-num">
+        <span class="small">第四阶 · 准上级 · 职场与大学</span>
+        <span class="level" data-jp="真题 · 真实输入 · 输出">N2</span>
+      </div>
+      <div class="chapter-title">
+        <h2>准上级<span class="en">Near fluency</span></h2>
+        <div class="tag"><span>14–20 个月</span><span>6000 词</span><span>1000 汉字</span></div>
+      </div>
+      <div class="chapter-pageno"><strong>04</strong>第四章</div>
+    </div>
+
+    <div class="goals">
+      <div class="goals-label">阶段目标</div>
+      <ul class="goals-list">
+        <li>读懂日本职场邮件、新闻、说明书</li>
+        <li>能看懂大部分动漫不带字幕</li>
+        <li>日本求职、留学的基本门槛</li>
+        <li>词汇约 6000，汉字约 1000</li>
+        <li>复杂句式与敬语初步掌握</li>
+      </ul>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-head">
+          <span class="num">01</span>
+          <h3>学习方法</h3>
+          <span class="en">方法</span>
+        </div>
+        <p>核心三件事：<strong>真题</strong> + <strong>真实输入</strong> + <strong>挖词卡</strong>。三者缺一不可。</p>
+        <p>每周至少做一次模拟卷计时；每天精读 1 篇 + 泛读 2 篇；听力跟 NHK 新闻。</p>
+        <p>这一阶段开始尝试 <strong>语言交换</strong>（HelloTalk / iTalki），输出会暴露真正的盲点。</p>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">02</span>
+          <h3>推荐资料</h3>
+          <span class="en">教材</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://www.3anet.co.jp/np/list.html?cid=87" target="_blank" rel="noopener">新完全掌握 N2 全套</a> <span class="tag">核心</span></div>
+          <div class="res-desc">语法・阅读・听力・词汇四本一套，JLPT 神书，几乎必备。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://quartet.japantimes.co.jp/" target="_blank" rel="noopener">Quartet II</a> / <a href="https://www.ask-books.com/jp/978-4-86639-002-7/" target="_blank" rel="noopener">TRY! N2</a> <span class="tag res-tag-blue">替代</span></div>
+          <div class="res-desc">想要系统中级教材的话，二选一。TRY! 更轻量适合速通。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://www3.nhk.or.jp/news/" target="_blank" rel="noopener">NHK 新闻</a> · <a href="https://www.asahi.com/" target="_blank" rel="noopener">朝日新闻</a> <span class="tag res-tag-green">真实</span></div>
+          <div class="res-desc">每日新闻泛听 + 精读一篇。真实媒体语料密度最高。</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">03</span>
+          <h3>背单词</h3>
+          <span class="en">词汇</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://www.3anet.co.jp/np/books/2300/" target="_blank" rel="noopener">新完全掌握 N2 词汇</a> <span class="tag">应试</span></div>
+          <div class="res-desc">考试导向，按词类与场景分类，配合刷题进度同步推进。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://yomitan.wiki/" target="_blank" rel="noopener">Yomitan + Anki 挖词</a> <span class="tag res-tag-blue">挖词</span></div>
+          <div class="res-desc">挖词卡比任何固定卡组更贴合你的阅读品味，长期受益。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://jlptsensei.com/jlpt-n2-grammar-list/" target="_blank" rel="noopener">JLPT Sensei</a> / <a href="https://bunpro.jp/" target="_blank" rel="noopener">Bunpro N2</a> <span class="tag res-tag-green">查询</span></div>
+          <div class="res-desc">语法点速查 + SRS 复习，二者搭配最稳。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pq-kanji">用</div>
+      <div class="pq-text">
+        N2 之后真正拉开差距的不是教材，是你每天有没有用日语生活。
+        <small>追剧、读小说、写日记，全是练习。</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== N1 ============== -->
+  <section class="chapter" id="n1">
+    <div class="chapter-head">
+      <div class="chapter-num">
+        <span class="small">第五阶 · 上级 · 接近母语者</span>
+        <span class="level" data-jp="原版小说 · 报纸 · 论文">N1</span>
+      </div>
+      <div class="chapter-title">
+        <h2>上级<span class="en">The summit</span></h2>
+        <div class="tag"><span>20–36 个月</span><span>10000+ 词</span><span>2000 汉字</span></div>
+      </div>
+      <div class="chapter-pageno"><strong>05</strong>第五章</div>
+    </div>
+
+    <div class="goals">
+      <div class="goals-label">阶段目标</div>
+      <ul class="goals-list">
+        <li>读懂日本小说、专业论文、社论</li>
+        <li>听懂广播、综艺、专业讲座</li>
+        <li>书面输出接近母语自然度</li>
+        <li>词汇 10000+，汉字 2000+</li>
+        <li>古典、敬语、拟声拟态有感觉</li>
+      </ul>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-head">
+          <span class="num">01</span>
+          <h3>学习方法</h3>
+          <span class="en">方法</span>
+        </div>
+        <p><strong>教材已不再是主角</strong>，真实材料才是。N1 的语法点很多冷僻，但更难的是词汇与微妙的语感。</p>
+        <p>建议：每月读完一本小说 + 每周读 5 篇社论 + 每天听 30 分钟广播。</p>
+        <p>开始 <strong>主动输出</strong>：写日记、写读后感、找日本人批改（HelloTalk / iTalki）。</p>
+        <p>备考时再集中刷 2 个月真题与神书，效率最高。</p>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">02</span>
+          <h3>推荐资料</h3>
+          <span class="en">教材</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://www.3anet.co.jp/np/list.html?cid=88" target="_blank" rel="noopener">新完全掌握 N1 全套</a> <span class="tag">核心</span></div>
+          <div class="res-desc">N1 备考几乎绕不开，四本系统刷完即可应试。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://zh.wikipedia.org/wiki/%E6%9D%91%E4%B8%8A%E6%98%A5%E6%A8%B9" target="_blank" rel="noopener">村上春树</a> / <a href="https://zh.wikipedia.org/wiki/%E6%9D%B1%E9%87%8E%E5%9C%AD%E5%90%BE" target="_blank" rel="noopener">东野圭吾</a> 原版小说 <span class="tag res-tag-blue">阅读</span></div>
+          <div class="res-desc">从轻小说入门 → 当代名家 → 古典。读完第一本是重要里程碑。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://www.asahi.com/rensai/list.html?id=61" target="_blank" rel="noopener">朝日新闻 天声人语</a> <span class="tag res-tag-green">免费</span></div>
+          <div class="res-desc">每日一篇社论小品文，语言精炼，是高级写作的最好模板。</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-head">
+          <span class="num">03</span>
+          <h3>背单词</h3>
+          <span class="en">词汇</span>
+        </div>
+        <div class="res res-primary">
+          <div class="res-name"><a href="https://yomitan.wiki/" target="_blank" rel="noopener">自挖 Anki + Yomitan</a> <span class="tag">核心</span></div>
+          <div class="res-desc">N1 阶段固定卡组已捉襟见肘，必须靠从真实材料挖词积累。</div>
+        </div>
+        <div class="res res-secondary">
+          <div class="res-name"><a href="https://www.3anet.co.jp/np/books/2305/" target="_blank" rel="noopener">N1 必备词汇</a> <span class="tag res-tag-blue">应试</span></div>
+          <div class="res-desc">考前 2 个月集中刷 N1 高频词表与拟声拟态语专项。</div>
+        </div>
+        <div class="res res-free">
+          <div class="res-name"><a href="https://www.monokakido.jp/" target="_blank" rel="noopener">物书堂日日辞典</a>（大辞林／广辞苑） <span class="tag res-tag-green">词典</span></div>
+          <div class="res-desc">查日日辞典而非中日辞典，能精确掌握词义边界。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="pq-kanji">道</div>
+      <div class="pq-text">
+        N1 不是终点 —— 它只是你能开始真正"享受"日语的起点。
+        <small>之后是一辈子的阅读与生活。</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TOOLS ============== -->
+  <section class="tools" id="tools">
+    <div class="section-label">第六章 · 工具</div>
+    <h2 class="section-h">
+      必备 <em>工具箱</em>。
+      <span class="jp">装好这些再上路，省下大把时间</span>
+    </h2>
+
+    <div class="tools-grid">
+      <a class="tool" href="https://yomitan.wiki/" target="_blank" rel="noopener">
+        <div class="tool-icon">辞</div>
+        <div class="tool-name">Yomitan <span class="en">划词词典</span></div>
+        <div class="tool-desc">浏览器扩展，鼠标悬停即查词，可一键加入 Anki 卡组。N3 之后阅读必备。</div>
+      </a>
+      <a class="tool" href="https://github.com/kha-white/manga-ocr" target="_blank" rel="noopener">
+        <div class="tool-icon">读</div>
+        <div class="tool-name">Manga OCR <span class="en">漫画识别</span></div>
+        <div class="tool-desc">看原版漫画时把气泡里的日文识别成文本，配合 Yomitan 查词。</div>
+      </a>
+      <a class="tool" href="https://www.google.co.jp/ime/" target="_blank" rel="noopener">
+        <div class="tool-icon">入</div>
+        <div class="tool-name">Google 日本語入力 <span class="en">输入法</span></div>
+        <div class="tool-desc">日本人也常用的 IME，比系统自带版本智能，候选词更准。</div>
+      </a>
+      <a class="tool" href="https://apps.ankiweb.net/" target="_blank" rel="noopener">
+        <div class="tool-icon">记</div>
+        <div class="tool-name">Anki <span class="en">间隔重复</span></div>
+        <div class="tool-desc">全段必备。配合 AnkiConnect + Yomitan，可实现从阅读到卡片的工作流。</div>
+      </a>
+      <a class="tool" href="https://www.languagereactor.com/" target="_blank" rel="noopener">
+        <div class="tool-icon">听</div>
+        <div class="tool-name">Language Reactor <span class="en">双语字幕</span></div>
+        <div class="tool-desc">Netflix / YouTube 双语字幕扩展，看日剧学日语的标配。</div>
+      </a>
+      <a class="tool" href="https://www.italki.com/" target="_blank" rel="noopener">
+        <div class="tool-icon">话</div>
+        <div class="tool-name">iTalki / <a href="https://www.hellotalk.com/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">HelloTalk</a> <span class="en">语言交换</span></div>
+        <div class="tool-desc">N2 之后强烈推荐。HelloTalk 免费聊天，iTalki 付费 1on1 课程。</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== PITFALLS ============== -->
+  <section class="pitfalls" id="pitfalls">
+    <div class="section-label">第七章 · 避坑</div>
+    <h2 class="section-h">
+      三个常见的 <em>坑</em>。
+      <span class="jp">学日语最容易掉进去的三件事</span>
+    </h2>
+
+    <div class="pitfall-grid">
+      <div class="pitfall">
+        <h4>同时学三套教材</h4>
+        <p>新标日、Genki、Minna no Nihongo 一起开 —— 很快就会崩盘。<br><strong>选一套，走到底。</strong></p>
+      </div>
+      <div class="pitfall">
+        <h4>一开始狂背汉字</h4>
+        <p>日语不是中文。重点是"词、语境、发音"，不是"会写"。<br><strong>汉字在词里出现自然就记住了。</strong></p>
+      </div>
+      <div class="pitfall">
+        <h4>不接触真实内容</h4>
+        <p>到 N4 之后必须开始看日剧、漫画、YouTube。<br><strong>否则你永远停留在"教材日语"。</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CLOSING ============== -->
+  <section class="closing">
+    <div class="closing-kanji">坚持</div>
+    <p class="closing-text">
+      持之以恒，<em>胜过</em>偶尔狂学。<br>
+      每天都来，是唯一的秘诀。
+    </p>
+    <p class="closing-jp">継続は力なり —— 每天一点点，才是最近的路。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线</div>
+  <div>N5 → N1 · 一份不堆砌的路线图</div>
+  <div>2026 · 完</div>
+</footer>
+
+<script>
+const progress = document.getElementById('progress');
+function updateProgress(){
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+
+const navLinks = document.querySelectorAll('.nav a');
+const sections = Array.from(navLinks).map(a => document.getElementById(a.dataset.target)).filter(Boolean);
+function updateNav(){
+  const y = window.scrollY + 200;
+  let activeIdx = 0;
+  sections.forEach((s,i) => { if(s.offsetTop <= y) activeIdx = i; });
+  navLinks.forEach((a,i) => a.classList.toggle('active', i === activeIdx));
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('in');
+  });
+}, {threshold:0.1, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.chapter, .overview, .tools, .pitfalls, .closing').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+
+</body>
+</html>

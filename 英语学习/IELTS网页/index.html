@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IELTS 备考学习中心 · The Cambridge Almanack</title>
+<meta name="description" content="为 CET-4 / CET-6 水平学习者准备的雅思 6 分以上备考网站：分阶段核心词汇、阅读方法精讲、四项技能策略、真题资源索引。" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ========== 顶部品牌条 ========== -->
+<header class="brandbar">
+  <div class="brandbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span class="brand-text">
+        IELTS · Almanack
+        <small>est. mmxxvi &nbsp;|&nbsp; Cambridge-style</small>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-label="menu">Menu</button>
+    <ul class="nav">
+      <li><a href="index.html" class="active">首页</a></li>
+      <li><a href="pages/plan.html">学习路线</a></li>
+      <li><a href="pages/vocabulary.html">核心词汇</a></li>
+      <li><a href="pages/reading.html">阅读方法</a></li>
+      <li><a href="pages/listening.html">听力</a></li>
+      <li><a href="pages/writing.html">写作</a></li>
+      <li><a href="pages/speaking.html">口语</a></li>
+      <li><a href="pages/resources.html">资源</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ========== 头版报纸式头部 ========== -->
+<section class="masthead">
+  <div class="wrap">
+    <div class="masthead-meta reveal reveal-1">
+      <span>VOLUME I &middot; NO. 1</span>
+      <span>BAND 6.0 &harr; 7.0</span>
+      <span>FOR CET-4 → CET-6 LEARNERS</span>
+      <span class="today" id="today"></span>
+    </div>
+    <div class="rule" style="margin: 1.4rem 0 1.6rem;"></div>
+
+    <div class="masthead-grid">
+      <div class="masthead-left">
+        <p class="eyebrow reveal reveal-1">A Step-by-Step Companion</p>
+        <h1 class="reveal reveal-2">从四级走到雅思六分<br/><span style="color: var(--gold-deep); font-style: italic;">An Orderly Ascent.</span></h1>
+        <p class="lead reveal reveal-3" style="margin-top: 1.4rem;">
+          这不是一份让人望而生畏的题海手册。它把雅思考试拆成四个清晰的台阶——从你现在的四级基础出发，一阶一阶地拼回完整的能力地图。词汇、阅读、听力、写作、口语，每一项都先讲方法，再给真题来源的例句，最后才推你上真题。
+        </p>
+        <div class="reveal reveal-4" style="margin-top: 1.8rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="pages/plan.html" class="btn solid">开始 · 查看学习路线</a>
+          <a href="pages/vocabulary.html" class="btn gold">先看词汇</a>
+        </div>
+      </div>
+
+      <aside class="masthead-right reveal reveal-4">
+        <div class="quill">
+          <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- 装饰：羽毛笔 + 墨水 -->
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#b8893b"/>
+                <stop offset="1" stop-color="#6b2c2a"/>
+              </linearGradient>
+            </defs>
+            <!-- 卷轴底纸 -->
+            <rect x="20" y="40" width="160" height="170" fill="#ede4d3" stroke="#1a2332" stroke-width="1.5"/>
+            <line x1="35" y1="68" x2="165" y2="68" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="84" x2="165" y2="84" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="100" x2="155" y2="100" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="116" x2="160" y2="116" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="132" x2="150" y2="132" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="148" x2="158" y2="148" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="164" x2="142" y2="164" stroke="#c8b896" stroke-width="0.7"/>
+            <line x1="35" y1="180" x2="155" y2="180" stroke="#c8b896" stroke-width="0.7"/>
+            <!-- 字母 A -->
+            <text x="100" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" font-style="italic" fill="#6b2c2a">A · I</text>
+            <!-- 羽毛 -->
+            <path d="M 145 5 Q 175 30 165 90 Q 155 70 140 55 Q 130 38 145 5 Z"
+                  fill="url(#g1)" stroke="#1a2332" stroke-width="1.2"/>
+            <path d="M 145 12 L 150 55 M 150 25 L 158 50 M 142 38 L 152 60" stroke="#1a2332" stroke-width="0.6" fill="none"/>
+            <!-- 笔尖 -->
+            <path d="M 155 88 L 142 110 L 138 100 Z" fill="#1a2332"/>
+            <!-- 墨水滴 -->
+            <circle cx="135" cy="118" r="3.5" fill="#1a2332"/>
+            <circle cx="128" cy="125" r="1.5" fill="#1a2332"/>
+          </svg>
+        </div>
+        <p class="quill-cap">"Words are, of course, the most powerful drug used by mankind."<br/>— Rudyard Kipling</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 四阶段进度 ========== -->
+<section class="wrap" style="margin-top: 4rem;">
+  <p class="eyebrow">§ I &nbsp;·&nbsp; The Four Stages</p>
+  <h2 style="margin-top: 0.4rem;">四个学习阶段 · 循序渐进</h2>
+  <p style="max-width: 720px; margin-top: 0.6rem;">
+    最常见的失败方式，是直接拿一本剑桥真题猛刷，被打击信心后放弃。
+    本网站把备考拆成<strong>四个台阶</strong>，每一阶完成才向上走。
+  </p>
+
+  <div class="stages reveal reveal-2">
+    <div class="stage">
+      <div class="stage-roman">I</div>
+      <div class="stage-title">奠基</div>
+      <div class="stage-meta">Week 1–4 · CET-4 → 5</div>
+      <ul class="stage-list">
+        <li>1500 基础词汇巩固</li>
+        <li>简单句结构 + 听力数字、字母</li>
+        <li>每天 30 分钟，建立习惯</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="stage-roman">II</div>
+      <div class="stage-title">入门</div>
+      <div class="stage-meta">Week 5–10 · IELTS 4.5–5.5</div>
+      <ul class="stage-list">
+        <li>2000 IELTS 高频词分主题</li>
+        <li>剑桥 5–7 真题精读</li>
+        <li>认识 13 种阅读题型</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="stage-roman">III</div>
+      <div class="stage-title">强化</div>
+      <div class="stage-meta">Week 11–16 · IELTS 6.0</div>
+      <ul class="stage-list">
+        <li>题型策略 + 限时训练</li>
+        <li>Task 1/2 写作模板与例句</li>
+        <li>P1/P2/P3 口语话题库</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="stage-roman">IV</div>
+      <div class="stage-title">冲刺</div>
+      <div class="stage-meta">Week 17+ · IELTS 6.5+</div>
+      <ul class="stage-list">
+        <li>剑桥 14–19 全套模考</li>
+        <li>学术词汇 + 同义替换</li>
+        <li>错题复盘 · 弱项专项</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: right;"><a href="pages/plan.html">查看完整学习计划 &rarr;</a></p>
+</section>
+
+<!-- ========== 主索引（六大模块） ========== -->
+<section class="wrap" style="margin-top: 5rem;">
+  <p class="eyebrow">§ II &nbsp;·&nbsp; The Index</p>
+  <h2 style="margin-top: 0.4rem;">总索引 · The Cabinet of Studies</h2>
+  <div class="rule-thin"></div>
+
+  <div class="index-grid">
+
+    <a href="pages/vocabulary.html" class="card reveal reveal-1">
+      <span class="card-num">Folio I</span>
+      <p class="eyebrow">VOCABULARY</p>
+      <h3>核心词汇 <span style="color: var(--gold-deep);">·</span> 3500 词</h3>
+      <p>按"基础→入门→强化→冲刺"四阶段编排，附音标、词性、中文释义；每词配 1 条来自真题听力 / 阅读 / 写作范文的例句。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">分阶段</span><span class="tag gold">分主题</span><span class="tag sage">真题例句</span>
+      </div>
+    </a>
+
+    <a href="pages/reading.html" class="card reveal reveal-2">
+      <span class="card-num">Folio II</span>
+      <p class="eyebrow">READING <span style="color:var(--burgundy)">★ 重点</span></p>
+      <h3>阅读方法 <span style="color: var(--gold-deep);">·</span> 13 题型</h3>
+      <p>从 skimming/scanning 总览策略，到 T/F/NG、Heading、Matching、Summary 等 13 类题型的逐项拆解；何时定位、何时通读、何时跳过。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag burgundy">核心章节</span><span class="tag">解题思路</span>
+      </div>
+    </a>
+
+    <a href="pages/listening.html" class="card reveal reveal-3">
+      <span class="card-num">Folio III</span>
+      <p class="eyebrow">LISTENING</p>
+      <h3>听力</h3>
+      <p>四 Section 场景化训练：S1 生活咨询、S2 介绍演讲、S3 学术讨论、S4 大学讲座；高频场景词、连读弱读、答题节奏。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">四 Section</span><span class="tag ochre">场景词</span>
+      </div>
+    </a>
+
+    <a href="pages/writing.html" class="card reveal reveal-4">
+      <span class="card-num">Folio IV</span>
+      <p class="eyebrow">WRITING</p>
+      <h3>写作</h3>
+      <p>Task 1 图表描述六大类（线图/柱图/饼图/表格/流程图/地图）的句式与例句；Task 2 议论文结构、立场表达、论证链与高级替换。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">Task 1</span><span class="tag gold">Task 2</span><span class="tag sage">范文片段</span>
+      </div>
+    </a>
+
+    <a href="pages/speaking.html" class="card reveal reveal-5">
+      <span class="card-num">Folio V</span>
+      <p class="eyebrow">SPEAKING</p>
+      <h3>口语</h3>
+      <p>Part 1 高频话题问答框架，Part 2 卡片三段式答题（What / How / Why-feeling），Part 3 抽象观点表达与连接词。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">P1</span><span class="tag gold">P2 Cue Card</span><span class="tag ochre">P3</span>
+      </div>
+    </a>
+
+    <a href="pages/resources.html" class="card reveal reveal-6">
+      <span class="card-num">Folio VI</span>
+      <p class="eyebrow">RESOURCES</p>
+      <h3>资源与教程</h3>
+      <p>剑桥真题、官方样题、可信网站、播客与 YouTube 频道、推荐书目。本地 PDF 索引与外部权威链接清单。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">PDF</span><span class="tag">官方</span><span class="tag sage">免费</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ========== 引言 & 学习原则 ========== -->
+<section class="wrap" style="margin-top: 6rem;">
+  <p class="eyebrow">§ III &nbsp;·&nbsp; Principles</p>
+  <h2 style="margin-top: 0.4rem;">几条不变的学习原则</h2>
+  <div class="rule-thin"></div>
+
+  <div class="principles">
+    <article>
+      <span class="big-roman">I.</span>
+      <h4>少即是多</h4>
+      <p>与其每天背 200 词只复习一遍，不如每天背 60 词反复滚动。词汇 <strong>看到→听到→读到→用到</strong> 四次以上，才算真正"会"。</p>
+    </article>
+    <article>
+      <span class="big-roman">II.</span>
+      <h4>方法先于刷题</h4>
+      <p>阅读不是看得快就能赢，听力不是听得多就能高。每一种题型背后都有<strong>固定的解题流程</strong>；先学方法，再用真题验证。</p>
+    </article>
+    <article>
+      <span class="big-roman">III.</span>
+      <h4>真题是唯一的尺子</h4>
+      <p>所有例句尽量取自<strong>剑桥真题听力录音、阅读文章、官方范文</strong>。模拟题可作热身，但水平评估只信剑桥真题。</p>
+    </article>
+    <article>
+      <span class="big-roman">IV.</span>
+      <h4>每周一次复盘</h4>
+      <p>错的题不重要，<strong>错的原因</strong>才重要：是单词不认识？句子结构没看懂？还是定位错位？分类标记，逐项消灭。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ========== 路线快查 / 索引列表 ========== -->
+<section class="wrap" style="margin-top: 6rem;">
+  <p class="eyebrow">§ IV &nbsp;·&nbsp; Quick Index</p>
+  <h2 style="margin-top: 0.4rem;">快速索引 · By Theme</h2>
+  <div class="rule-thin"></div>
+
+  <div class="qindex">
+    <div>
+      <h4>词汇主题</h4>
+      <ul>
+        <li><a href="pages/vocabulary.html#education">教育 Education</a></li>
+        <li><a href="pages/vocabulary.html#environment">环境 Environment</a></li>
+        <li><a href="pages/vocabulary.html#technology">科技 Technology</a></li>
+        <li><a href="pages/vocabulary.html#health">健康 Health</a></li>
+        <li><a href="pages/vocabulary.html#society">社会 Society</a></li>
+        <li><a href="pages/vocabulary.html#work">工作 Work</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>阅读题型</h4>
+      <ul>
+        <li><a href="pages/reading.html#tfng">T / F / NG</a></li>
+        <li><a href="pages/reading.html#heading">Matching Headings</a></li>
+        <li><a href="pages/reading.html#info">Matching Information</a></li>
+        <li><a href="pages/reading.html#mcq">Multiple Choice</a></li>
+        <li><a href="pages/reading.html#summary">Summary Completion</a></li>
+        <li><a href="pages/reading.html#sentence">Sentence Completion</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>写作话题</h4>
+      <ul>
+        <li><a href="pages/writing.html#agreedisagree">同意 / 不同意</a></li>
+        <li><a href="pages/writing.html#advdis">利弊</a></li>
+        <li><a href="pages/writing.html#problem">原因 + 对策</a></li>
+        <li><a href="pages/writing.html#discussion">双观点 + 立场</a></li>
+        <li><a href="pages/writing.html#two">两极问答</a></li>
+        <li><a href="pages/writing.html#task1">Task 1 图表</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>口语 Part 2 卡片</h4>
+      <ul>
+        <li><a href="pages/speaking.html#person">人物类</a></li>
+        <li><a href="pages/speaking.html#place">地点类</a></li>
+        <li><a href="pages/speaking.html#object">物品类</a></li>
+        <li><a href="pages/speaking.html#event">事件类</a></li>
+        <li><a href="pages/speaking.html#media">媒体类</a></li>
+        <li><a href="pages/speaking.html#experience">经历类</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <strong style="font-family: var(--serif-display); font-size: 1.2rem; color: var(--ink); letter-spacing: 0; text-transform: none; font-weight: 500;">IELTS · Almanack</strong><br/>
+      Vol. I · Sifan's Personal Study Companion · 2026
+    </div>
+    <div style="text-align: right;">
+      <a href="pages/plan.html">Plan</a> &nbsp;·&nbsp;
+      <a href="pages/vocabulary.html">Vocabulary</a> &nbsp;·&nbsp;
+      <a href="pages/reading.html">Reading</a> &nbsp;·&nbsp;
+      <a href="pages/resources.html">Resources</a><br/>
+      <span style="opacity: 0.6;">"By the work, one knows the workman." — La Fontaine</span>
+    </div>
+  </div>
+</footer>
+
+<div class="totop" title="回到顶部">↑</div>
+
+<style>
+/* === 主页专用 === */
+.masthead { padding: 3rem 0 1rem; }
+.masthead-meta {
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-faded);
+}
+.masthead-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 4rem; align-items: start; }
+@media (max-width: 880px) { .masthead-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+.masthead-right { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.quill { width: 100%; max-width: 240px; }
+.quill svg { width: 100%; height: auto; }
+.quill-cap { font-family: var(--serif-display); font-style: italic; font-size: 0.95rem; color: var(--ink-faded); text-align: center; max-width: 240px; line-height: 1.5; }
+
+/* 索引卡片网格 */
+.index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.6rem; }
+@media (max-width: 960px) { .index-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .index-grid { grid-template-columns: 1fr; } }
+.index-grid .card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--ink); transition: all .3s ease; }
+.index-grid .card:hover { background: var(--ink); color: var(--paper); transform: translateY(-3px); }
+.index-grid .card:hover h3, .index-grid .card:hover p { color: var(--paper); }
+.index-grid .card:hover .card-num { background: var(--ink); color: var(--gold); }
+.index-grid .card:hover .eyebrow { color: var(--gold); }
+.index-grid .card:hover .tag { color: var(--paper); border-color: var(--paper); }
+
+/* 原则 */
+.principles { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; margin-top: 1.5rem; }
+@media (max-width: 720px) { .principles { grid-template-columns: 1fr; } }
+.principles article { padding: 1rem 0; display: grid; grid-template-columns: 50px 1fr; gap: 0.8rem; }
+.big-roman { font-family: var(--serif-display); font-size: 2.4rem; color: var(--gold-deep); font-style: italic; line-height: 1; }
+.principles h4 { color: var(--ink); margin-bottom: 0.3rem; letter-spacing: 0.04em; text-transform: none; font-size: 1.15rem; font-family: var(--serif-display); font-weight: 600;}
+
+/* 快速索引 */
+.qindex { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1.5rem; }
+@media (max-width: 900px) { .qindex { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .qindex { grid-template-columns: 1fr; } }
+.qindex h4 { color: var(--ink); border-bottom: 1px solid var(--gold); padding-bottom: 0.4rem; margin-bottom: 0.8rem; font-size: 0.85rem; letter-spacing: 0.18em; }
+.qindex ul { list-style: none; }
+.qindex li { padding: 0.35rem 0; font-size: 0.95rem; }
+.qindex a { color: var(--ink-soft); border: none; }
+.qindex a:hover { color: var(--gold-deep); padding-left: 0.4rem; }
+</style>
+
+<script src="js/main.js"></script>
+<script>
+  const opt = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('today').textContent = new Date().toLocaleDateString('en-GB', opt).toUpperCase();
+</script>
+
+</body>
+</html>

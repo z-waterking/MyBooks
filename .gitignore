@@ -1,5 +1,11 @@
 # Ignore files larger than GitHub's 100MB limit
 
+# Keep downloaded book/media files local unless explicitly cleared for redistribution
+文学小说/*.epub
+日语学习/*z-library*.pdf
+日语学习/JLPT官方样题/2018/pdf/
+日语学习/JLPT官方样题/2018/mp3/
+
 # 机器学习
 机器学习/《统计学习方法第2版》PDF.pdf
 机器学习/图深度学习.pdf
