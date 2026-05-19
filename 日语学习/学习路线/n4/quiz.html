@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N4 随机测验 · 日语学习路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="../index.html" class="back-link">返回总览</a>
+    <span class="vol">N4 · 随机测验</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-vertical">N<span class="accent">4</span></div>
+    <div class="hero-main">
+      <div class="kicker">第二阶 · 随机测验 · 自我检测</div>
+      <h1 class="hero-title">
+        N4 <span class="num">测验</span>
+        <span class="jp">词汇 · 语法 两类题</span>
+      </h1>
+      <p class="hero-lede">
+        从 N4 题库随机抽题。选 <strong>题型</strong>（词汇 / 语法）和 <strong>题数</strong>，点开始。
+        键盘按 <strong>1 2 3 4</strong> 选答案，按 <strong>Enter</strong> 进入下一题。
+      </p>
+    </div>
+  </section>
+
+  <div class="sublv">
+    <a href="./index.html">讲解<small>EXPLAIN</small></a>
+    <a href="./notes.html">整理笔记<small>NOTES</small></a>
+    <a href="./quiz.html" class="active">随机测验<small>QUIZ</small></a>
+  </div>
+
+  <div id="quiz-root"></div>
+
+  <section class="closing">
+    <div class="closing-kanji">挑</div>
+    <p class="closing-text">测验不是<em>考试</em>，<br>是和自己的<em>对话</em>。</p>
+    <p class="closing-jp">学んだことは試して定着する —— 学过的东西要试出来才能记住。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线 · N4 测验</div>
+  <div>
+    <a href="./index.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 讲解</a>
+    <a href="./notes.html" style="text-transform:none;letter-spacing:.05em">← 笔记</a>
+  </div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+window.QUIZ_DATA = {
+  level: 'N4',
+  vocab: [
+    {jp:'最近',kana:'さいきん',cn:'最近'},{jp:'当時',kana:'とうじ',cn:'当时'},{jp:'最初',kana:'さいしょ',cn:'最初'},{jp:'最後',kana:'さいご',cn:'最后'},{jp:'しばらく',kana:'',cn:'一会儿'},
+    {jp:'たまに',kana:'',cn:'偶尔'},{jp:'急に',kana:'きゅうに',cn:'突然'},{jp:'いつか',kana:'',cn:'某天'},{jp:'すでに',kana:'',cn:'已经'},{jp:'やっと',kana:'',cn:'终于'},
+    {jp:'知り合い',kana:'しりあい',cn:'熟人'},{jp:'同僚',kana:'どうりょう',cn:'同事'},{jp:'先輩',kana:'せんぱい',cn:'前辈'},{jp:'後輩',kana:'こうはい',cn:'后辈'},{jp:'上司',kana:'じょうし',cn:'上司'},
+    {jp:'紹介',kana:'しょうかい',cn:'介绍'},{jp:'約束',kana:'やくそく',cn:'约定'},{jp:'相手',kana:'あいて',cn:'对方'},{jp:'性格',kana:'せいかく',cn:'性格'},{jp:'関係',kana:'かんけい',cn:'关系'},
+    {jp:'社長',kana:'しゃちょう',cn:'社长'},{jp:'部長',kana:'ぶちょう',cn:'部长'},{jp:'出張',kana:'しゅっちょう',cn:'出差'},{jp:'会議',kana:'かいぎ',cn:'会议'},{jp:'面接',kana:'めんせつ',cn:'面试'},
+    {jp:'給料',kana:'きゅうりょう',cn:'工资'},{jp:'残業',kana:'ざんぎょう',cn:'加班'},{jp:'就職',kana:'しゅうしょく',cn:'就业'},{jp:'目標',kana:'もくひょう',cn:'目标'},{jp:'結果',kana:'けっか',cn:'结果'},
+    {jp:'受験',kana:'じゅけん',cn:'考试'},{jp:'合格',kana:'ごうかく',cn:'合格'},{jp:'成績',kana:'せいせき',cn:'成绩'},{jp:'卒業式',kana:'そつぎょうしき',cn:'毕业典礼'},{jp:'講義',kana:'こうぎ',cn:'讲课'},
+    {jp:'政治',kana:'せいじ',cn:'政治'},{jp:'経済',kana:'けいざい',cn:'经济'},{jp:'引っ越し',kana:'ひっこし',cn:'搬家'},{jp:'家賃',kana:'やちん',cn:'房租'},{jp:'駐車場',kana:'ちゅうしゃじょう',cn:'停车场'},
+    {jp:'エレベーター',kana:'',cn:'电梯'},{jp:'廊下',kana:'ろうか',cn:'走廊'},{jp:'家具',kana:'かぐ',cn:'家具'},{jp:'電子レンジ',kana:'でんしレンジ',cn:'微波炉'},{jp:'洗濯機',kana:'せんたくき',cn:'洗衣机'},
+    {jp:'駅前',kana:'えきまえ',cn:'站前'},{jp:'商店街',kana:'しょうてんがい',cn:'商店街'},{jp:'マンション',kana:'',cn:'公寓'},{jp:'信号',kana:'しんごう',cn:'信号灯'},{jp:'横断歩道',kana:'おうだんほどう',cn:'人行横道'},
+    {jp:'許可',kana:'きょか',cn:'许可'},{jp:'禁止',kana:'きんし',cn:'禁止'},{jp:'安全',kana:'あんぜん',cn:'安全'},{jp:'危険',kana:'きけん',cn:'危险'},{jp:'事故',kana:'じこ',cn:'事故'},
+    {jp:'乗り換え',kana:'のりかえ',cn:'换乘'},{jp:'改札',kana:'かいさつ',cn:'检票口'},{jp:'運賃',kana:'うんちん',cn:'车费'},{jp:'急行',kana:'きゅうこう',cn:'快车'},{jp:'特急',kana:'とっきゅう',cn:'特快'},
+    {jp:'渋滞',kana:'じゅうたい',cn:'堵车'},{jp:'地図',kana:'ちず',cn:'地图'},{jp:'観光',kana:'かんこう',cn:'观光'},{jp:'温泉',kana:'おんせん',cn:'温泉'},{jp:'お土産',kana:'おみやげ',cn:'特产'},
+    {jp:'環境',kana:'かんきょう',cn:'环境'},{jp:'空気',kana:'くうき',cn:'空气'},{jp:'地球',kana:'ちきゅう',cn:'地球'},{jp:'汚染',kana:'おせん',cn:'污染'},{jp:'森林',kana:'しんりん',cn:'森林'},
+    {jp:'地震',kana:'じしん',cn:'地震'},{jp:'台風',kana:'たいふう',cn:'台风'},{jp:'被害',kana:'ひがい',cn:'受害'},{jp:'災害',kana:'さいがい',cn:'灾害'},{jp:'季節',kana:'きせつ',cn:'季节'},
+    {jp:'起こす',kana:'おこす',cn:'引发'},{jp:'起こる',kana:'おこる',cn:'发生'},{jp:'増える',kana:'ふえる',cn:'增加'},{jp:'減る',kana:'へる',cn:'减少'},{jp:'集まる',kana:'あつまる',cn:'聚集'},
+    {jp:'始まる',kana:'はじまる',cn:'开始（自）'},{jp:'続く',kana:'つづく',cn:'持续'},{jp:'続ける',kana:'つづける',cn:'继续'},{jp:'止まる',kana:'とまる',cn:'停止（自）'},{jp:'変わる',kana:'かわる',cn:'变化'},
+    {jp:'戻る',kana:'もどる',cn:'返回'},{jp:'進む',kana:'すすむ',cn:'前进'},{jp:'過ぎる',kana:'すぎる',cn:'经过'},{jp:'合う',kana:'あう',cn:'合适'},{jp:'消える',kana:'きえる',cn:'消失'},
+    {jp:'開く',kana:'ひらく',cn:'打开'},{jp:'閉まる',kana:'しまる',cn:'关闭（自）'},{jp:'汚す',kana:'よごす',cn:'弄脏'},{jp:'片付ける',kana:'かたづける',cn:'收拾'},{jp:'運ぶ',kana:'はこぶ',cn:'搬运'},
+    {jp:'貸す',kana:'かす',cn:'借出'},{jp:'借りる',kana:'かりる',cn:'借入'},{jp:'返す',kana:'かえす',cn:'归还'},{jp:'比べる',kana:'くらべる',cn:'比较'},{jp:'調べる',kana:'しらべる',cn:'调查'},
+    {jp:'覚える',kana:'おぼえる',cn:'记住'},{jp:'忘れる',kana:'わすれる',cn:'忘记'},{jp:'間違える',kana:'まちがえる',cn:'弄错'},{jp:'急ぐ',kana:'いそぐ',cn:'着急'},{jp:'頑張る',kana:'がんばる',cn:'努力'},
+    {jp:'信じる',kana:'しんじる',cn:'相信'},{jp:'考える',kana:'かんがえる',cn:'思考'},{jp:'感じる',kana:'かんじる',cn:'感觉'},{jp:'迷う',kana:'まよう',cn:'迷茫'},{jp:'悩む',kana:'なやむ',cn:'烦恼'},
+    {jp:'楽しむ',kana:'たのしむ',cn:'享受'},{jp:'喜ぶ',kana:'よろこぶ',cn:'高兴'},{jp:'驚く',kana:'おどろく',cn:'吃惊'},{jp:'反対する',kana:'はんたいする',cn:'反对'},{jp:'賛成する',kana:'さんせいする',cn:'赞成'},
+    {jp:'厳しい',kana:'きびしい',cn:'严厉'},{jp:'深い',kana:'ふかい',cn:'深'},{jp:'細い',kana:'ほそい',cn:'细'},{jp:'固い',kana:'かたい',cn:'硬'},{jp:'柔らかい',kana:'やわらかい',cn:'软'},
+    {jp:'恥ずかしい',kana:'はずかしい',cn:'害羞'},{jp:'懐かしい',kana:'なつかしい',cn:'怀念'},{jp:'珍しい',kana:'めずらしい',cn:'稀有'},{jp:'激しい',kana:'はげしい',cn:'激烈'},{jp:'甘い',kana:'あまい',cn:'甜'},
+    {jp:'複雑',kana:'ふくざつ',cn:'复杂'},{jp:'丁寧',kana:'ていねい',cn:'郑重'},{jp:'失礼',kana:'しつれい',cn:'失礼'},{jp:'必要',kana:'ひつよう',cn:'必要'},{jp:'十分',kana:'じゅうぶん',cn:'充分'},
+    {jp:'可能',kana:'かのう',cn:'可能'},{jp:'確か',kana:'たしか',cn:'确实'},{jp:'特別',kana:'とくべつ',cn:'特别'},{jp:'なかなか',kana:'',cn:'相当'},{jp:'ぜひ',kana:'',cn:'务必'},
+    {jp:'必ず',kana:'かならず',cn:'一定'},{jp:'もしかして',kana:'',cn:'也许'},{jp:'はっきり',kana:'',cn:'清楚'},{jp:'ちょうど',kana:'',cn:'正好'},{jp:'まったく',kana:'',cn:'完全'},
+    {jp:'経験',kana:'けいけん',cn:'经验'},{jp:'努力',kana:'どりょく',cn:'努力'},{jp:'能力',kana:'のうりょく',cn:'能力'},{jp:'知識',kana:'ちしき',cn:'知识'},{jp:'情報',kana:'じょうほう',cn:'信息'},
+    {jp:'理由',kana:'りゆう',cn:'理由'},{jp:'原因',kana:'げんいん',cn:'原因'},{jp:'結果',kana:'けっか',cn:'结果'},{jp:'目的',kana:'もくてき',cn:'目的'},{jp:'方法',kana:'ほうほう',cn:'方法'},
+    {jp:'習慣',kana:'しゅうかん',cn:'习惯'},{jp:'気持ち',kana:'きもち',cn:'心情'},{jp:'気分',kana:'きぶん',cn:'感受'},{jp:'意見',kana:'いけん',cn:'意见'}
+  ],
+  grammar: [
+    {q:'日本語が___ます。', a:'話せ', options:['話せ','話し','話す','話して'], hint:'可能形'},
+    {q:'一緒に行こ___！', a:'う', options:['う','か','よ','ね'], hint:'意志形'},
+    {q:'早く来___！(命令)', a:'い', options:['い','う','る','て'], hint:'命令形'},
+    {q:'行く___！(禁止)', a:'な', options:['な','の','よ','ね'], hint:'禁止形'},
+    {q:'先生に褒め___ました。', a:'られ', options:['られ','せ','させ','れ'], hint:'被动'},
+    {q:'子供に薬を飲___せる。', a:'ま', options:['ま','み','む','め'], hint:'使役（I 类）'},
+    {q:'長い宿題を___られた。', a:'させ', options:['させ','し','する','し'], hint:'使役被动'},
+    {q:'ドアが___（自）。', a:'開く', options:['開く','開ける','開けて','開けた'], hint:'自动词'},
+    {q:'押す___開く。', a:'と', options:['と','ば','たら','なら'], hint:'必然结果'},
+    {q:'時間が___ば行く。', a:'あれ', options:['あれ','あった','ある','あり'], hint:'ば 条件'},
+    {q:'家に着い___電話して。', a:'たら', options:['と','ば','たら','なら'], hint:'具体未来事件'},
+    {q:'日本へ行く___京都を。', a:'なら', options:['と','ば','たら','なら'], hint:'话题假设'},
+    {q:'雨が降っ___行く。', a:'ても', options:['ても','たら','と','ば'], hint:'即使…也'},
+    {q:'時間さえ___ば行く。', a:'あれ', options:['あれ','ある','あった','あり'], hint:'只要…就'},
+    {q:'おいし___！', a:'そう', options:['そう','らしい','みたい','よう'], hint:'看起来'},
+    {q:'雨が降る___だ。(听说)', a:'そう', options:['そう','らしい','みたい','よう'], hint:'伝聞'},
+    {q:'彼は来ない___。', a:'らしい', options:['そう','らしい','みたい','よう'], hint:'听说/像'},
+    {q:'雨___に泣いた。', a:'みたい', options:['そう','らしい','みたい','よう'], hint:'像…一样'},
+    {q:'明日来る___です。', a:'はず', options:['はず','わけ','つもり','よう'], hint:'应该'},
+    {q:'そんな___がない。', a:'はず', options:['はず','わけ','こと','もの'], hint:'不可能'},
+    {q:'明日行く___です。(打算)', a:'つもり', options:['つもり','予定','こと','よう'], hint:'主观打算'},
+    {q:'来週出張する___です。', a:'予定', options:['つもり','予定','こと','よう'], hint:'计划'},
+    {q:'毎日運動する___にした。', a:'こと', options:['こと','よう','つもり','の'], hint:'决定（主观）'},
+    {q:'東京に転勤する___なった。', a:'ことに', options:['ことに','ように','ために','つもり'], hint:'被决定'},
+    {q:'日本語が話せる___なった。', a:'ように', options:['ように','ことに','ために','つもりに'], hint:'变得能…'},
+    {q:'聞こえる___大きい声で。', a:'ように', options:['ように','ために','ようと','ことに'], hint:'为了能…'},
+    {q:'健康___運動する。', a:'のために', options:['のために','のように','のせいで','のおかげで'], hint:'为了…'},
+    {q:'寒い___コートを着る。', a:'ので', options:['ので','のに','から','が'], hint:'柔和原因'},
+    {q:'雨___遅刻した。(由于)', a:'のせいで', options:['のせいで','のおかげで','のために','のように'], hint:'负面原因'},
+    {q:'夏休みの___旅行した。', a:'間', options:['間','間に','うちに','時'], hint:'期间'},
+    {q:'寝ている___泥棒が入った。', a:'間に', options:['間','間に','うちに','時に'], hint:'…期间内'},
+    {q:'若い___勉強すべき。', a:'うちに', options:['間','間に','うちに','時に'], hint:'趁…还…'},
+    {q:'今出かける___です。', a:'ところ', options:['ところ','とき','ばかり','まえ'], hint:'正要做'},
+    {q:'食べた___です。', a:'ばかり', options:['ところ','とき','ばかり','まえ'], hint:'刚刚做完'},
+    {q:'マンガ___読む。', a:'ばかり', options:['ばかり','だけ','しか','ほど'], hint:'净是'},
+    {q:'頑張った___失敗した。', a:'のに', options:['のに','ので','けど','が'], hint:'明明…却'},
+    {q:'読めば読む___面白い。', a:'ほど', options:['ほど','くらい','だけ','ばかり'], hint:'越…越…'},
+    {q:'私は彼___背が高くない。', a:'ほど', options:['ほど','くらい','より','と'], hint:'不及…'},
+    {q:'早く起き___！(命令轻)', a:'なさい', options:['なさい','な','てください','ましょう'], hint:'命令（轻）'},
+    {q:'手伝って___です。', a:'ほしい', options:['ほしい','たい','よう','つもり'], hint:'希望某人做'}
+  ]
+};
+</script>
+<script src="../assets/quiz.js"></script>
+
+<script>
+const progress=document.getElementById('progress');
+function up(){const h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'}
+window.addEventListener('scroll',up,{passive:true});up();
+</script>
+
+</body>
+</html>

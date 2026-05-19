@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N3 随机测验 · 日语学习路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="../index.html" class="back-link">返回总览</a>
+    <span class="vol">N3 · 随机测验</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-vertical">N<span class="accent">3</span></div>
+    <div class="hero-main">
+      <div class="kicker">第三阶 · 随机测验 · 自我检测</div>
+      <h1 class="hero-title">
+        N3 <span class="num">测验</span>
+        <span class="jp">词汇 · 语法</span>
+      </h1>
+      <p class="hero-lede">
+        N3 题库随机抽题。键盘 <strong>1-4</strong> 选答，<strong>Enter</strong> 下一题。
+      </p>
+    </div>
+  </section>
+
+  <div class="sublv">
+    <a href="./index.html">讲解<small>EXPLAIN</small></a>
+    <a href="./notes.html">整理笔记<small>NOTES</small></a>
+    <a href="./quiz.html" class="active">随机测验<small>QUIZ</small></a>
+  </div>
+
+  <div id="quiz-root"></div>
+
+  <section class="closing">
+    <div class="closing-kanji">磨</div>
+    <p class="closing-text">每错一题，<br>就把<em>感觉</em>磨得更细。</p>
+    <p class="closing-jp">磨けば磨くほど光る —— 越磨越亮。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线 · N3 测验</div>
+  <div>
+    <a href="./index.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 讲解</a>
+    <a href="./notes.html" style="text-transform:none;letter-spacing:.05em">← 笔记</a>
+  </div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+window.QUIZ_DATA = {
+  level: 'N3',
+  vocab: [
+    {jp:'普段',kana:'ふだん',cn:'平时'},{jp:'瞬間',kana:'しゅんかん',cn:'瞬间'},{jp:'突然',kana:'とつぜん',cn:'突然'},{jp:'徐々に',kana:'じょじょに',cn:'渐渐'},{jp:'再び',kana:'ふたたび',cn:'再次'},
+    {jp:'当然',kana:'とうぜん',cn:'当然'},{jp:'現状',kana:'げんじょう',cn:'现状'},{jp:'今後',kana:'こんご',cn:'今后'},{jp:'近頃',kana:'ちかごろ',cn:'近来'},{jp:'たちまち',kana:'',cn:'立即'},
+    {jp:'取引',kana:'とりひき',cn:'交易'},{jp:'契約',kana:'けいやく',cn:'合同'},{jp:'交渉',kana:'こうしょう',cn:'谈判'},{jp:'提案',kana:'ていあん',cn:'提案'},{jp:'説得',kana:'せっとく',cn:'说服'},
+    {jp:'企業',kana:'きぎょう',cn:'企业'},{jp:'業界',kana:'ぎょうかい',cn:'业界'},{jp:'責任',kana:'せきにん',cn:'责任'},{jp:'義務',kana:'ぎむ',cn:'义务'},{jp:'権利',kana:'けんり',cn:'权利'},
+    {jp:'信頼',kana:'しんらい',cn:'信赖'},{jp:'評価',kana:'ひょうか',cn:'评价'},{jp:'競争',kana:'きょうそう',cn:'竞争'},{jp:'協力',kana:'きょうりょく',cn:'合作'},{jp:'相談',kana:'そうだん',cn:'商量'},
+    {jp:'政府',kana:'せいふ',cn:'政府'},{jp:'政策',kana:'せいさく',cn:'政策'},{jp:'選挙',kana:'せんきょ',cn:'选举'},{jp:'首相',kana:'しゅしょう',cn:'首相'},{jp:'法律',kana:'ほうりつ',cn:'法律'},
+    {jp:'平和',kana:'へいわ',cn:'和平'},{jp:'自由',kana:'じゆう',cn:'自由'},{jp:'平等',kana:'びょうどう',cn:'平等'},{jp:'差別',kana:'さべつ',cn:'歧视'},{jp:'貧困',kana:'ひんこん',cn:'贫困'},
+    {jp:'人口',kana:'じんこう',cn:'人口'},{jp:'伝統',kana:'でんとう',cn:'传统'},{jp:'国際',kana:'こくさい',cn:'国际'},{jp:'教養',kana:'きょうよう',cn:'教养'},{jp:'判断',kana:'はんだん',cn:'判断'},
+    {jp:'分析',kana:'ぶんせき',cn:'分析'},{jp:'結論',kana:'けつろん',cn:'结论'},{jp:'論理',kana:'ろんり',cn:'逻辑'},{jp:'観点',kana:'かんてん',cn:'观点'},{jp:'視点',kana:'してん',cn:'视角'},
+    {jp:'意見',kana:'いけん',cn:'意见'},{jp:'解釈',kana:'かいしゃく',cn:'解释'},{jp:'説明',kana:'せつめい',cn:'说明'},{jp:'定義',kana:'ていぎ',cn:'定义'},{jp:'概念',kana:'がいねん',cn:'概念'},
+    {jp:'感情',kana:'かんじょう',cn:'情感'},{jp:'感動',kana:'かんどう',cn:'感动'},{jp:'印象',kana:'いんしょう',cn:'印象'},{jp:'関心',kana:'かんしん',cn:'关心'},{jp:'興味',kana:'きょうみ',cn:'兴趣'},
+    {jp:'不安',kana:'ふあん',cn:'不安'},{jp:'緊張',kana:'きんちょう',cn:'紧张'},{jp:'満足',kana:'まんぞく',cn:'满足'},{jp:'不満',kana:'ふまん',cn:'不满'},{jp:'希望',kana:'きぼう',cn:'希望'},
+    {jp:'自信',kana:'じしん',cn:'自信'},{jp:'勇気',kana:'ゆうき',cn:'勇气'},{jp:'忍耐',kana:'にんたい',cn:'忍耐'},{jp:'文化',kana:'ぶんか',cn:'文化'},{jp:'芸術',kana:'げいじゅつ',cn:'艺术'},
+    {jp:'伝統',kana:'でんとう',cn:'传统'},{jp:'祭り',kana:'まつり',cn:'节日'},{jp:'宗教',kana:'しゅうきょう',cn:'宗教'},{jp:'情報',kana:'じょうほう',cn:'信息'},{jp:'報道',kana:'ほうどう',cn:'报道'},
+    {jp:'記事',kana:'きじ',cn:'报导'},{jp:'広告',kana:'こうこく',cn:'广告'},{jp:'宣伝',kana:'せんでん',cn:'宣传'},{jp:'通信',kana:'つうしん',cn:'通信'},{jp:'連絡',kana:'れんらく',cn:'联系'},
+    {jp:'取り組む',kana:'とりくむ',cn:'致力于'},{jp:'引き受ける',kana:'ひきうける',cn:'接受'},{jp:'思い出す',kana:'おもいだす',cn:'想起'},{jp:'思いつく',kana:'おもいつく',cn:'想到'},{jp:'思い込む',kana:'おもいこむ',cn:'误以为'},
+    {jp:'話し合う',kana:'はなしあう',cn:'商量'},{jp:'立ち上がる',kana:'たちあがる',cn:'站起'},{jp:'立ち止まる',kana:'たちどまる',cn:'停下'},{jp:'見つめる',kana:'みつめる',cn:'凝视'},{jp:'見直す',kana:'みなおす',cn:'重新看'},
+    {jp:'聞き取る',kana:'ききとる',cn:'听清'},{jp:'申し込む',kana:'もうしこむ',cn:'申请'},{jp:'付き合う',kana:'つきあう',cn:'交往'},{jp:'引っ越す',kana:'ひっこす',cn:'搬家'},{jp:'追いつく',kana:'おいつく',cn:'追上'},
+    {jp:'近づく',kana:'ちかづく',cn:'接近'},{jp:'振り返る',kana:'ふりかえる',cn:'回头'},{jp:'発見する',kana:'はっけんする',cn:'发现'},{jp:'発表する',kana:'はっぴょうする',cn:'发表'},{jp:'発達する',kana:'はったつする',cn:'发展'},
+    {jp:'解決する',kana:'かいけつする',cn:'解决'},{jp:'改善する',kana:'かいぜんする',cn:'改善'},{jp:'達成する',kana:'たっせいする',cn:'达成'},{jp:'実現する',kana:'じつげんする',cn:'实现'},{jp:'実行する',kana:'じっこうする',cn:'实行'},
+    {jp:'含む',kana:'ふくむ',cn:'包含'},{jp:'与える',kana:'あたえる',cn:'给予'},{jp:'提供する',kana:'ていきょうする',cn:'提供'},{jp:'要求する',kana:'ようきゅうする',cn:'要求'},{jp:'否定する',kana:'ひていする',cn:'否定'},
+    {jp:'許す',kana:'ゆるす',cn:'允许'},{jp:'許可する',kana:'きょかする',cn:'许可'},{jp:'保護する',kana:'ほごする',cn:'保护'},{jp:'維持する',kana:'いじする',cn:'维持'},{jp:'継続する',kana:'けいぞくする',cn:'继续'},
+    {jp:'変更する',kana:'へんこうする',cn:'变更'},{jp:'確認する',kana:'かくにんする',cn:'确认'},{jp:'検討する',kana:'けんとうする',cn:'探讨'},{jp:'判断する',kana:'はんだんする',cn:'判断'},{jp:'選択する',kana:'せんたくする',cn:'选择'},
+    {jp:'鋭い',kana:'するどい',cn:'锐利'},{jp:'賢い',kana:'かしこい',cn:'聪明'},{jp:'たくましい',kana:'',cn:'强壮'},{jp:'許せない',kana:'ゆるせない',cn:'不可饶恕'},{jp:'苦しい',kana:'くるしい',cn:'痛苦'},
+    {jp:'貧しい',kana:'まずしい',cn:'贫穷'},{jp:'豊か',kana:'ゆたか',cn:'丰富'},{jp:'激しい',kana:'はげしい',cn:'激烈'},{jp:'確実',kana:'かくじつ',cn:'确实'},{jp:'明確',kana:'めいかく',cn:'明确'},
+    {jp:'貴重',kana:'きちょう',cn:'宝贵'},{jp:'合理的',kana:'ごうりてき',cn:'合理'},{jp:'効率的',kana:'こうりつてき',cn:'高效'},{jp:'積極的',kana:'せっきょくてき',cn:'积极'},{jp:'消極的',kana:'しょうきょくてき',cn:'消极'},
+    {jp:'独立',kana:'どくりつ',cn:'独立'},{jp:'慎重',kana:'しんちょう',cn:'慎重'},{jp:'柔軟',kana:'じゅうなん',cn:'灵活'},{jp:'論理的',kana:'ろんりてき',cn:'逻辑的'},{jp:'客観的',kana:'きゃっかんてき',cn:'客观'},
+    {jp:'主観的',kana:'しゅかんてき',cn:'主观'},{jp:'根本的',kana:'こんぽんてき',cn:'根本'},{jp:'確実に',kana:'かくじつに',cn:'确实地'},{jp:'明らかに',kana:'あきらかに',cn:'明显地'},{jp:'おそらく',kana:'',cn:'恐怕'},
+    {jp:'まさか',kana:'',cn:'难道'},{jp:'意外と',kana:'いがいと',cn:'意外地'},{jp:'わざと',kana:'',cn:'故意'},{jp:'わざわざ',kana:'',cn:'特意'},{jp:'たちまち',kana:'',cn:'立即'},
+    {jp:'観念',kana:'かんねん',cn:'观念'},{jp:'認識',kana:'にんしき',cn:'认识'},{jp:'覚悟',kana:'かくご',cn:'觉悟'},{jp:'目標',kana:'もくひょう',cn:'目标'},{jp:'本質',kana:'ほんしつ',cn:'本质'},
+    {jp:'傾向',kana:'けいこう',cn:'倾向'},{jp:'影響',kana:'えいきょう',cn:'影响'},{jp:'価値',kana:'かち',cn:'价值'},{jp:'品質',kana:'ひんしつ',cn:'品质'},{jp:'特性',kana:'とくせい',cn:'特性'}
+  ],
+  grammar: [
+    {q:'子供___、母は中心です。', a:'にとって', options:['にとって','について','として','によって'], hint:'对…来说'},
+    {q:'環境問題___発言する。', a:'にかんして', options:['について','にかんして','にとって','として'], hint:'就…而言（正式）'},
+    {q:'質問___答える。', a:'にたいして', options:['にたいして','にとって','について','として'], hint:'对/针对'},
+    {q:'医者___働く。', a:'として', options:['として','について','にとって','にたいして'], hint:'作为身份'},
+    {q:'国___習慣が違う。', a:'によって', options:['によって','によると','にとって','として'], hint:'取决于'},
+    {q:'天気予報___雨。', a:'によると', options:['によって','によると','について','にとって'], hint:'据…说'},
+    {q:'寝不足___頭が痛い。', a:'のせいで', options:['のせいで','のおかげで','のために','のように'], hint:'负面原因'},
+    {q:'遅刻した___叱られた。', a:'ばかりに', options:['ばかりに','せいで','ために','ように'], hint:'就因为'},
+    {q:'写真を見る___思い出す。', a:'たびに', options:['たびに','につれて','うちに','あいだに'], hint:'每次…就'},
+    {q:'年を取る___記憶力が落ちる。', a:'につれて', options:['たびに','につれて','しだいに','うちに'], hint:'随着…逐渐'},
+    {q:'考えれば考える___分からない。', a:'ほど', options:['くらい','ほど','だけ','ばかり'], hint:'越…越…'},
+    {q:'どう___ない。', a:'しよう', options:['しよう','しろう','すれば','する'], hint:'无法'},
+    {q:'人生は短い___だ。', a:'もの', options:['もの','こと','の','わけ'], hint:'本来就是'},
+    {q:'できる___ならやってみろ。', a:'もの', options:['もの','こと','の','とき'], hint:'如果可能'},
+    {q:'負ける___か！', a:'もの', options:['もの','こと','の','わけ'], hint:'决不…'},
+    {q:'買った___、使わない。', a:'ものの', options:['ものの','ものなら','ものか','ものだ'], hint:'虽然…但'},
+    {q:'驚いた___に彼が来た。', a:'こと', options:['こと','とき','もの','の'], hint:'…的是'},
+    {q:'彼の___だから来ない。', a:'こと', options:['こと','もの','とき','わけ'], hint:'因为是…'},
+    {q:'休む___なく働く。', a:'こと', options:['こと','もの','とき','の'], hint:'不…而'},
+    {q:'心配する___はない。', a:'こと', options:['こと','もの','の','わけ'], hint:'没必要'},
+    {q:'それで遅れた___か。', a:'わけ', options:['わけ','もの','こと','の'], hint:'怪不得'},
+    {q:'嫌いな___ではない。', a:'わけ', options:['わけ','こと','もの','の'], hint:'并非'},
+    {q:'断る___にはいかない。', a:'わけ', options:['わけ','こと','もの','とき'], hint:'不能'},
+    {q:'この字は読み___。', a:'やすい', options:['やすい','にくい','がたい','よい'], hint:'容易…'},
+    {q:'この靴は歩き___。', a:'にくい', options:['やすい','にくい','がたい','よい'], hint:'难…'},
+    {q:'信じ___話。', a:'がたい', options:['やすい','にくい','がたい','よい'], hint:'难以'},
+    {q:'子供___分かる。(连…都)', a:'さえ', options:['さえ','こそ','だけ','しか'], hint:'连…都'},
+    {q:'時間___あれば行く。', a:'さえ', options:['さえ','こそ','だけ','しか'], hint:'只要…就'},
+    {q:'日本___なく世界中で。', a:'だけで', options:['だけで','ばかりで','しかで','こそで'], hint:'不仅…'},
+    {q:'今___チャンスだ。', a:'こそ', options:['こそ','さえ','だけ','しか'], hint:'正是'},
+    {q:'日本語___中国語も話せる。', a:'ばかりか', options:['ばかりか','どころか','にすぎない','以上'], hint:'不仅…还…'},
+    {q:'嬉しい___悲しい。', a:'どころか', options:['ばかりか','どころか','にすぎない','以外'], hint:'岂止…反而'},
+    {q:'冗談___すぎない。', a:'に', options:['に','で','と','が'], hint:'只不过是'},
+    {q:'若い___勉強する。', a:'うちに', options:['うちに','あいだに','あいだ','まえに'], hint:'趁…还…'},
+    {q:'寝ている___泥棒が入った。', a:'あいだに', options:['うちに','あいだに','とき','たびに'], hint:'…期间内'},
+    {q:'食事の___電話が鳴った。', a:'最中に', options:['最中に','うちに','まえに','あとに'], hint:'正…的时候'},
+    {q:'食べ___のパン。', a:'かけ', options:['かけ','ながら','つつ','がてら'], hint:'做了一半'},
+    {q:'散歩___買い物をする。', a:'がてら', options:['がてら','ながら','つつ','かけ'], hint:'顺便'},
+    {q:'家を出た___雨が降ってきた。', a:'とたん', options:['とたん','うちに','ところ','あとで'], hint:'刚一…就'},
+    {q:'知ってる___教えない。', a:'くせに', options:['のに','くせに','ながら','けど'], hint:'明明…却（带责备）'},
+    {q:'雨___かかわらず行った。', a:'にも', options:['にも','とも','でも','まで'], hint:'尽管…'},
+    {q:'便利な___、危険もある。', a:'反面', options:['反面','一方','こと','とは'], hint:'另一面'},
+    {q:'忘れ___な性格。', a:'がち', options:['がち','気味','っぽい','よう'], hint:'容易…'},
+    {q:'疲れ___です。', a:'気味', options:['がち','気味','っぽい','よう'], hint:'有点…的样子'},
+    {q:'子供___人。', a:'っぽい', options:['がち','気味','っぽい','ように'], hint:'像…似的'},
+    {q:'疲れ___った。', a:'切', options:['切','終','果','つく'], hint:'完全…'},
+    {q:'雨が降り___めた。', a:'始', options:['始','出','終','切'], hint:'开始…'},
+    {q:'少々お待ち___。', a:'ください', options:['ください','いただく','します','いたします'], hint:'请…（敬）'},
+    {q:'お持ち___ます。(我来)', a:'いたし', options:['なり','いたし','し','し'], hint:'更谦让'},
+    {q:'けがをせず___済んだ。', a:'に', options:['に','で','が','の'], hint:'幸亏没…'}
+  ]
+};
+</script>
+<script src="../assets/quiz.js"></script>
+
+<script>
+const progress=document.getElementById('progress');
+function up(){const h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'}
+window.addEventListener('scroll',up,{passive:true});up();
+</script>
+
+</body>
+</html>

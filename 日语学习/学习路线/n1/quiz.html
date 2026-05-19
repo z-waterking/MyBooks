@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N1 随机测验 · 日语学习路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="../index.html" class="back-link">返回总览</a>
+    <span class="vol">N1 · 随机测验</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-vertical">N<span class="accent">1</span></div>
+    <div class="hero-main">
+      <div class="kicker">第五阶 · 随机测验</div>
+      <h1 class="hero-title">N1 <span class="num">测验</span><span class="jp">词汇 · 语法</span></h1>
+      <p class="hero-lede">N1 题库随机抽题。键盘 <strong>1-4</strong> 选答。</p>
+    </div>
+  </section>
+
+  <div class="sublv">
+    <a href="./index.html">讲解<small>EXPLAIN</small></a>
+    <a href="./notes.html">整理笔记<small>NOTES</small></a>
+    <a href="./quiz.html" class="active">随机测验<small>QUIZ</small></a>
+  </div>
+
+  <div id="quiz-root"></div>
+
+  <section class="closing">
+    <div class="closing-kanji">継</div>
+    <p class="closing-text">N1 之后，<br>是一辈子的<em>继续</em>。</p>
+    <p class="closing-jp">継続は力なり —— 持续就是力量。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线 · N1 测验</div>
+  <div><a href="./index.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 讲解</a><a href="./notes.html" style="text-transform:none;letter-spacing:.05em">← 笔记</a></div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+window.QUIZ_DATA = {
+  level: 'N1',
+  vocab: [
+    {jp:'巧み',kana:'たくみ',cn:'巧妙'},{jp:'繊細',kana:'せんさい',cn:'纤细'},{jp:'緻密',kana:'ちみつ',cn:'缜密'},{jp:'優雅',kana:'ゆうが',cn:'优雅'},{jp:'雄大',kana:'ゆうだい',cn:'雄伟'},
+    {jp:'荘厳',kana:'そうごん',cn:'庄严'},{jp:'神聖',kana:'しんせい',cn:'神圣'},{jp:'清廉',kana:'せいれん',cn:'清廉'},{jp:'潔白',kana:'けっぱく',cn:'清白'},{jp:'悠久',kana:'ゆうきゅう',cn:'悠久'},
+    {jp:'無限',kana:'むげん',cn:'无限'},{jp:'絶対',kana:'ぜったい',cn:'绝对'},{jp:'本来',kana:'ほんらい',cn:'本来'},{jp:'根源',kana:'こんげん',cn:'根源'},{jp:'真理',kana:'しんり',cn:'真理'},
+    {jp:'虚偽',kana:'きょぎ',cn:'虚伪'},{jp:'空想',kana:'くうそう',cn:'空想'},{jp:'錯覚',kana:'さっかく',cn:'错觉'},{jp:'誤解',kana:'ごかい',cn:'误解'},{jp:'思惟',kana:'しい',cn:'思维'},
+    {jp:'概念',kana:'がいねん',cn:'概念'},{jp:'観念',kana:'かんねん',cn:'观念'},{jp:'思想',kana:'しそう',cn:'思想'},{jp:'理念',kana:'りねん',cn:'理念'},{jp:'信念',kana:'しんねん',cn:'信念'},
+    {jp:'原理',kana:'げんり',cn:'原理'},{jp:'原則',kana:'げんそく',cn:'原则'},{jp:'法則',kana:'ほうそく',cn:'法则'},{jp:'規範',kana:'きはん',cn:'规范'},{jp:'基準',kana:'きじゅん',cn:'基准'},
+    {jp:'尺度',kana:'しゃくど',cn:'尺度'},{jp:'指標',kana:'しひょう',cn:'指标'},{jp:'本質',kana:'ほんしつ',cn:'本质'},{jp:'要旨',kana:'ようし',cn:'要旨'},{jp:'格差',kana:'かくさ',cn:'差距'},
+    {jp:'偏見',kana:'へんけん',cn:'偏见'},{jp:'迫害',kana:'はくがい',cn:'迫害'},{jp:'抑圧',kana:'よくあつ',cn:'压迫'},{jp:'抗議',kana:'こうぎ',cn:'抗议'},{jp:'抵抗',kana:'ていこう',cn:'抵抗'},
+    {jp:'革命',kana:'かくめい',cn:'革命'},{jp:'変革',kana:'へんかく',cn:'变革'},{jp:'是正',kana:'ぜせい',cn:'纠正'},{jp:'撤廃',kana:'てっぱい',cn:'废除'},{jp:'対峙',kana:'たいじ',cn:'对峙'},
+    {jp:'葛藤',kana:'かっとう',cn:'纠葛'},{jp:'紛争',kana:'ふんそう',cn:'纷争'},{jp:'科学',kana:'かがく',cn:'科学'},{jp:'物理',kana:'ぶつり',cn:'物理'},{jp:'医学',kana:'いがく',cn:'医学'},
+    {jp:'工学',kana:'こうがく',cn:'工学'},{jp:'技術',kana:'ぎじゅつ',cn:'技术'},{jp:'装置',kana:'そうち',cn:'装置'},{jp:'施設',kana:'しせつ',cn:'设施'},{jp:'システム',kana:'',cn:'系统'},
+    {jp:'憂鬱',kana:'ゆううつ',cn:'忧郁'},{jp:'悲哀',kana:'ひあい',cn:'悲哀'},{jp:'嫉妬',kana:'しっと',cn:'嫉妒'},{jp:'羨望',kana:'せんぼう',cn:'羡慕'},{jp:'軽蔑',kana:'けいべつ',cn:'蔑视'},
+    {jp:'敬愛',kana:'けいあい',cn:'敬爱'},{jp:'献身',kana:'けんしん',cn:'献身'},{jp:'忠誠',kana:'ちゅうせい',cn:'忠诚'},{jp:'誠実',kana:'せいじつ',cn:'诚实'},{jp:'信頼',kana:'しんらい',cn:'信赖'},
+    {jp:'悪意',kana:'あくい',cn:'恶意'},{jp:'敵意',kana:'てきい',cn:'敌意'},{jp:'慈悲',kana:'じひ',cn:'慈悲'},{jp:'憧れ',kana:'あこがれ',cn:'憧憬'},{jp:'執着',kana:'しゅうちゃく',cn:'执着'},
+    {jp:'古典',kana:'こてん',cn:'古典'},{jp:'由緒',kana:'ゆいしょ',cn:'由来'},{jp:'起源',kana:'きげん',cn:'起源'},{jp:'創造',kana:'そうぞう',cn:'创造'},{jp:'開拓',kana:'かいたく',cn:'开拓'},
+    {jp:'貴族',kana:'きぞく',cn:'贵族'},{jp:'庶民',kana:'しょみん',cn:'庶民'},{jp:'僧侶',kana:'そうりょ',cn:'僧侣'},{jp:'儀式',kana:'ぎしき',cn:'仪式'},{jp:'外交',kana:'がいこう',cn:'外交'},
+    {jp:'同盟',kana:'どうめい',cn:'同盟'},{jp:'条約',kana:'じょうやく',cn:'条约'},{jp:'宣言',kana:'せんげん',cn:'宣言'},{jp:'声明',kana:'せいめい',cn:'声明'},{jp:'首脳',kana:'しゅのう',cn:'首脑'},
+    {jp:'官僚',kana:'かんりょう',cn:'官僚'},{jp:'内閣',kana:'ないかく',cn:'内阁'},{jp:'閣議',kana:'かくぎ',cn:'内阁会议'},{jp:'答弁',kana:'とうべん',cn:'答辩'},{jp:'審議',kana:'しんぎ',cn:'审议'},
+    {jp:'財政',kana:'ざいせい',cn:'财政'},{jp:'関税',kana:'かんぜい',cn:'关税'},{jp:'円高',kana:'えんだか',cn:'日元升值'},{jp:'円安',kana:'えんやす',cn:'日元贬值'},{jp:'投機',kana:'とうき',cn:'投机'},
+    {jp:'上場',kana:'じょうじょう',cn:'上市'},{jp:'貸借',kana:'たいしゃく',cn:'借贷'},{jp:'貿易',kana:'ぼうえき',cn:'贸易'},{jp:'輸出',kana:'ゆしゅつ',cn:'出口'},{jp:'輸入',kana:'ゆにゅう',cn:'进口'},
+    {jp:'称える',kana:'たたえる',cn:'赞颂'},{jp:'唱える',kana:'となえる',cn:'倡导'},{jp:'論じる',kana:'ろんじる',cn:'论述'},{jp:'討議する',kana:'とうぎする',cn:'讨论'},{jp:'奪う',kana:'うばう',cn:'夺取'},
+    {jp:'回顧する',kana:'かいこする',cn:'回顾'},{jp:'推測する',kana:'すいそくする',cn:'推测'},{jp:'推察する',kana:'すいさつする',cn:'推察'},{jp:'見抜く',kana:'みぬく',cn:'看穿'},{jp:'見破る',kana:'みやぶる',cn:'识破'},
+    {jp:'見極める',kana:'みきわめる',cn:'看清'},{jp:'見届ける',kana:'みとどける',cn:'看到结果'},{jp:'目を凝らす',kana:'めをこらす',cn:'凝视'},{jp:'計る',kana:'はかる',cn:'测量'},{jp:'企てる',kana:'くわだてる',cn:'企图'},
+    {jp:'考案する',kana:'こうあんする',cn:'设计'},{jp:'追求する',kana:'ついきゅうする',cn:'追求'},{jp:'追究する',kana:'ついきゅうする',cn:'追究'},{jp:'追及する',kana:'ついきゅうする',cn:'追问'},{jp:'探求する',kana:'たんきゅうする',cn:'探求'},
+    {jp:'励む',kana:'はげむ',cn:'勤勉'},{jp:'奮起する',kana:'ふんきする',cn:'振奋'},{jp:'佇む',kana:'たたずむ',cn:'伫立'},{jp:'異なる',kana:'ことなる',cn:'不同'},{jp:'隔てる',kana:'へだてる',cn:'隔开'},
+    {jp:'区別する',kana:'くべつする',cn:'区别'},{jp:'分類する',kana:'ぶんるいする',cn:'分类'},{jp:'整える',kana:'ととのえる',cn:'整理'},{jp:'纏める',kana:'まとめる',cn:'总结'},{jp:'独占する',kana:'どくせんする',cn:'独占'},
+    {jp:'分担する',kana:'ぶんたんする',cn:'分担'},{jp:'分配する',kana:'ぶんぱいする',cn:'分配'},{jp:'維持する',kana:'いじする',cn:'维持'},{jp:'進化する',kana:'しんかする',cn:'进化'},{jp:'退化する',kana:'たいかする',cn:'退化'},
+    {jp:'衰退する',kana:'すいたいする',cn:'衰退'},{jp:'転落する',kana:'てんらくする',cn:'坠落'},{jp:'達する',kana:'たっする',cn:'到达'},{jp:'伴う',kana:'ともなう',cn:'伴随'},{jp:'矛盾する',kana:'むじゅんする',cn:'矛盾'},
+    {jp:'著しい',kana:'いちじるしい',cn:'显著'},{jp:'夥しい',kana:'おびただしい',cn:'庞大'},{jp:'目覚ましい',kana:'めざましい',cn:'惊人'},{jp:'奥ゆかしい',kana:'おくゆかしい',cn:'优雅'},{jp:'逞しい',kana:'たくましい',cn:'强壮'},
+    {jp:'厳粛',kana:'げんしゅく',cn:'严肃'},{jp:'寛容',kana:'かんよう',cn:'宽容'},{jp:'温厚',kana:'おんこう',cn:'温厚'},{jp:'円滑',kana:'えんかつ',cn:'圆滑'},{jp:'平穏',kana:'へいおん',cn:'平稳'},
+    {jp:'堅実',kana:'けんじつ',cn:'踏实'},{jp:'純粋',kana:'じゅんすい',cn:'纯粹'},{jp:'明朗',kana:'めいろう',cn:'开朗'},{jp:'曖昧',kana:'あいまい',cn:'暧昧'},{jp:'巧妙',kana:'こうみょう',cn:'巧妙'},
+    {jp:'一概に',kana:'いちがいに',cn:'一概'},{jp:'もろともに',kana:'',cn:'一同'},{jp:'概して',kana:'がいして',cn:'大致'},{jp:'おおむね',kana:'',cn:'大致'},{jp:'もっぱら',kana:'',cn:'专门'},
+    {jp:'ひたすら',kana:'',cn:'一味地'},{jp:'つくづく',kana:'',cn:'深切'},{jp:'しみじみ',kana:'',cn:'深切'},{jp:'かねがね',kana:'',cn:'早就'},{jp:'予め',kana:'あらかじめ',cn:'预先'},
+    {jp:'いずれ',kana:'',cn:'某天'},{jp:'なにしろ',kana:'',cn:'毕竟'},{jp:'ともあれ',kana:'',cn:'总之'},{jp:'兆し',kana:'きざし',cn:'征兆'},{jp:'徴候',kana:'ちょうこう',cn:'征兆'},
+    {jp:'事象',kana:'じしょう',cn:'现象'},{jp:'情勢',kana:'じょうせい',cn:'局势'},{jp:'業績',kana:'ぎょうせき',cn:'业绩'},{jp:'実績',kana:'じっせき',cn:'实绩'},{jp:'功績',kana:'こうせき',cn:'功绩'},
+    {jp:'栄誉',kana:'えいよ',cn:'荣誉'},{jp:'繁栄',kana:'はんえい',cn:'繁荣'},{jp:'没落',kana:'ぼつらく',cn:'没落'},{jp:'絶頂',kana:'ぜっちょう',cn:'巅峰'},{jp:'極致',kana:'きょくち',cn:'极致'}
+  ],
+  grammar: [
+    {q:'家を出る___雨。', a:'や否や', options:['や否や','が早いか','次第','たとたん'], hint:'刚一…就（书面）'},
+    {q:'飲み始めた___止まらない。', a:'が最後', options:['が最後','がてら','とともに','ばこそ'], hint:'一旦…就完了'},
+    {q:'天気___で決める。', a:'次第', options:['次第','どおり','まま','ように'], hint:'取决于'},
+    {q:'このような時代___。', a:'にあって', options:['にあって','にして','において','として'], hint:'处于…'},
+    {q:'医者___作家。', a:'にして', options:['にあって','にして','において','として'], hint:'既是…又是'},
+    {q:'学生___勉強すべき。', a:'たるもの', options:['たるもの','ともなると','にして','として'], hint:'身为…的人'},
+    {q:'社長___責任が重い。', a:'ともなると', options:['たるもの','ともなると','にあって','として'], hint:'到了…'},
+    {q:'先生___人が嘘を。', a:'ともあろう', options:['たるもの','ともなると','ともあろう','ともすれば'], hint:'堂堂…竟然'},
+    {q:'衝撃を与え___おかない。', a:'ずには', options:['ずには','ないと','たり','まで'], hint:'必然引起'},
+    {q:'謝ら___すまない。', a:'ずには', options:['ずには','ないと','たら','たり'], hint:'不…不行'},
+    {q:'食べ___ではいられない。', a:'ない', options:['ない','ます','た','て'], hint:'忍不住'},
+    {q:'事実を述べた___だ。', a:'まで', options:['まで','こと','の','ばかり'], hint:'仅是…而已'},
+    {q:'旅行___の話ではない。', a:'どころ', options:['どころ','まで','こと','ばかり'], hint:'根本谈不上'},
+    {q:'一日___休まない。', a:'たりとも', options:['たりとも','までも','ばかり','どころか'], hint:'连一…都不'},
+    {q:'努力した___成功した。', a:'からこそ', options:['からこそ','ばこそ','からして','ばかり'], hint:'正因…才'},
+    {q:'どんな理由___許せない。', a:'であれ', options:['であれ','にしろ','として','にあって'], hint:'即使是（书面）'},
+    {q:'何___健康。', a:'にもまして', options:['にもまして','にとって','について','として'], hint:'比…更'},
+    {q:'昨日___今日は寒い。', a:'にひきかえ', options:['にひきかえ','にもまして','において','として'], hint:'相反'},
+    {q:'国内___海外でも。', a:'にとどまらず', options:['にとどまらず','に限らず','に限り','として'], hint:'不止于'},
+    {q:'今日___辞める。', a:'を限りに', options:['を限りに','にあたって','において','をもって'], hint:'以…为限'},
+    {q:'不愉快___。', a:'極まる', options:['極まる','の極み','の至り','まで'], hint:'极其'},
+    {q:'光栄___です。', a:'の極み', options:['極まる','の極み','の至り','まで'], hint:'…的极致'},
+    {q:'感激___です。', a:'の至り', options:['極まる','の極み','の至り','まで'], hint:'…之至'},
+    {q:'遅れ___叱られる。', a:'ようものなら', options:['ようものなら','ものを','ものから','ような'], hint:'要是…的话（坏后果）'},
+    {q:'言ってくれればいい___。', a:'ものを', options:['ものを','ものなら','ものか','ものだ'], hint:'要是…就好了'},
+    {q:'勝つ___負けた。', a:'と思いきや', options:['と思いきや','というか','というのに','と思って'], hint:'本以为…却'},
+    {q:'仕事の___研究する。', a:'かたわら', options:['かたわら','かたがた','がてら','ながら'], hint:'一边…一边（书面）'},
+    {q:'お礼___伺います。', a:'かたがた', options:['かたわら','かたがた','がてら','ながら'], hint:'顺便（敬体）'},
+    {q:'東京___全国公演。', a:'を皮切りに', options:['を皮切りに','をきっかけに','を契機に','を機に'], hint:'以…为开端'},
+    {q:'若さ___の過ち。', a:'ゆえ', options:['ゆえ','とも','して','として'], hint:'因…（书面）'},
+    {q:'努力___成功。', a:'あればこそ', options:['あればこそ','があれば','があって','にあって'], hint:'正因为有…'},
+    {q:'最後には泣き出す___だ。', a:'始末', options:['始末','次第','とおり','まま'], hint:'最终竟然…'},
+    {q:'信頼___人物。', a:'に足る', options:['に足る','に値する','に等しい','にあたる'], hint:'值得（人）'},
+    {q:'称賛___。', a:'に値する', options:['に足る','に値する','に等しい','にあたる'], hint:'值得'},
+    {q:'それは盗み___。', a:'に等しい', options:['に足る','に値する','に等しい','にあたる'], hint:'等于'},
+    {q:'黒___の服装。', a:'ずくめ', options:['ずくめ','まみれ','だらけ','がち'], hint:'清一色'},
+    {q:'泥___。', a:'まみれ', options:['ずくめ','まみれ','だらけ','がち'], hint:'沾满'},
+    {q:'間違い___。', a:'だらけ', options:['ずくめ','まみれ','だらけ','がち'], hint:'满是'},
+    {q:'家族___で応援。', a:'ぐるみ', options:['ずくめ','まみれ','ぐるみ','ぐらい'], hint:'连同…一起'},
+    {q:'押し付け___。', a:'がましい', options:['がましい','じみる','っぽい','がち'], hint:'像…似的（贬）'},
+    {q:'子供___態度。', a:'じみた', options:['じみた','がましい','っぽい','がち'], hint:'像…似的'},
+    {q:'発表___ていただきます。', a:'させ', options:['させ','し','して','する'], hint:'请允许我'},
+    {q:'先生___いらっしゃる。', a:'で', options:['で','が','と','の'], hint:'です 最敬'},
+    {q:'お席にお戻り___ます。', a:'願い', options:['願い','し','なり','頂き'], hint:'请…（敬）'},
+    {q:'お越しいただきたく___。', a:'存じます', options:['存じます','申します','頂きます','致します'], hint:'最敬'},
+    {q:'努力と才能が___。', a:'相まって', options:['相まって','合わせて','つれて','つつ'], hint:'相结合'},
+    {q:'今日___終了する。', a:'をもって', options:['をもって','として','について','にあたって'], hint:'以…为期'},
+    {q:'愛して___ない。', a:'やま', options:['やま','たまら','しょう','ばかり'], hint:'不停地'},
+    {q:'お客様___商売だ。', a:'あっての', options:['あっての','があって','として','について'], hint:'有了…才有'},
+    {q:'起こる___起こった。', a:'べくして', options:['べくして','べからず','べきで','ように'], hint:'注定要…'}
+  ]
+};
+</script>
+<script src="../assets/quiz.js"></script>
+
+<script>
+const progress=document.getElementById('progress');
+function up(){const h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'}
+window.addEventListener('scroll',up,{passive:true});up();
+</script>
+
+</body>
+</html>

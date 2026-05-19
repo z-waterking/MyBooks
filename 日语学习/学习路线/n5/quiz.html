@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N5 随机测验 · 日语学习路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="../index.html" class="back-link">返回总览</a>
+    <span class="vol">N5 · 随机测验</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-vertical">N<span class="accent">5</span></div>
+    <div class="hero-main">
+      <div class="kicker">第一阶 · 随机测验 · 自我检测</div>
+      <h1 class="hero-title">
+        N5 <span class="num">测验</span>
+        <span class="jp">假名 · 词汇 · 语法 三类题</span>
+      </h1>
+      <p class="hero-lede">
+        从题库里随机抽题。选 <strong>题型</strong>（假名 / 词汇 / 语法）和 <strong>题数</strong>（10–50），点开始。
+        键盘按 <strong>1 2 3 4</strong> 选答案，按 <strong>Enter</strong> 进入下一题。
+      </p>
+    </div>
+  </section>
+
+  <div class="sublv">
+    <a href="./index.html">讲解<small>EXPLAIN</small></a>
+    <a href="./notes.html">整理笔记<small>NOTES</small></a>
+    <a href="./quiz.html" class="active">随机测验<small>QUIZ</small></a>
+  </div>
+
+  <div id="quiz-root"></div>
+
+  <section class="closing">
+    <div class="closing-kanji">試</div>
+    <p class="closing-text">错题是<em>礼物</em>，<br>它告诉你下一步该补哪里。</p>
+    <p class="closing-jp">失敗は成功の母 —— 失败是成功之母。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线 · N5 测验</div>
+  <div>
+    <a href="./index.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 讲解</a>
+    <a href="./notes.html" style="text-transform:none;letter-spacing:.05em">← 笔记</a>
+  </div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+window.QUIZ_DATA = {
+  level: 'N5',
+  kana: [
+    {q:'あ',a:'a'},{q:'い',a:'i'},{q:'う',a:'u'},{q:'え',a:'e'},{q:'お',a:'o'},
+    {q:'か',a:'ka'},{q:'き',a:'ki'},{q:'く',a:'ku'},{q:'け',a:'ke'},{q:'こ',a:'ko'},
+    {q:'さ',a:'sa'},{q:'し',a:'shi'},{q:'す',a:'su'},{q:'せ',a:'se'},{q:'そ',a:'so'},
+    {q:'た',a:'ta'},{q:'ち',a:'chi'},{q:'つ',a:'tsu'},{q:'て',a:'te'},{q:'と',a:'to'},
+    {q:'な',a:'na'},{q:'に',a:'ni'},{q:'ぬ',a:'nu'},{q:'ね',a:'ne'},{q:'の',a:'no'},
+    {q:'は',a:'ha'},{q:'ひ',a:'hi'},{q:'ふ',a:'fu'},{q:'へ',a:'he'},{q:'ほ',a:'ho'},
+    {q:'ま',a:'ma'},{q:'み',a:'mi'},{q:'む',a:'mu'},{q:'め',a:'me'},{q:'も',a:'mo'},
+    {q:'や',a:'ya'},{q:'ゆ',a:'yu'},{q:'よ',a:'yo'},
+    {q:'ら',a:'ra'},{q:'り',a:'ri'},{q:'る',a:'ru'},{q:'れ',a:'re'},{q:'ろ',a:'ro'},
+    {q:'わ',a:'wa'},{q:'を',a:'wo'},{q:'ん',a:'n'},
+    {q:'ア',a:'a'},{q:'イ',a:'i'},{q:'ウ',a:'u'},{q:'エ',a:'e'},{q:'オ',a:'o'},
+    {q:'カ',a:'ka'},{q:'キ',a:'ki'},{q:'ク',a:'ku'},{q:'ケ',a:'ke'},{q:'コ',a:'ko'},
+    {q:'サ',a:'sa'},{q:'シ',a:'shi'},{q:'ス',a:'su'},{q:'セ',a:'se'},{q:'ソ',a:'so'},
+    {q:'タ',a:'ta'},{q:'チ',a:'chi'},{q:'ツ',a:'tsu'},{q:'テ',a:'te'},{q:'ト',a:'to'},
+    {q:'ナ',a:'na'},{q:'ニ',a:'ni'},{q:'ヌ',a:'nu'},{q:'ネ',a:'ne'},{q:'ノ',a:'no'},
+    {q:'ハ',a:'ha'},{q:'ヒ',a:'hi'},{q:'フ',a:'fu'},{q:'ヘ',a:'he'},{q:'ホ',a:'ho'},
+    {q:'マ',a:'ma'},{q:'ミ',a:'mi'},{q:'ム',a:'mu'},{q:'メ',a:'me'},{q:'モ',a:'mo'},
+    {q:'ヤ',a:'ya'},{q:'ユ',a:'yu'},{q:'ヨ',a:'yo'},
+    {q:'ラ',a:'ra'},{q:'リ',a:'ri'},{q:'ル',a:'ru'},{q:'レ',a:'re'},{q:'ロ',a:'ro'},
+    {q:'ワ',a:'wa'},{q:'ヲ',a:'wo'},{q:'ン',a:'n'}
+  ],
+  vocab: [
+    {jp:'一',kana:'いち',cn:'一'},{jp:'二',kana:'に',cn:'二'},{jp:'三',kana:'さん',cn:'三'},{jp:'四',kana:'よん',cn:'四'},{jp:'五',kana:'ご',cn:'五'},
+    {jp:'六',kana:'ろく',cn:'六'},{jp:'七',kana:'なな',cn:'七'},{jp:'八',kana:'はち',cn:'八'},{jp:'九',kana:'きゅう',cn:'九'},{jp:'十',kana:'じゅう',cn:'十'},
+    {jp:'今日',kana:'きょう',cn:'今天'},{jp:'明日',kana:'あした',cn:'明天'},{jp:'昨日',kana:'きのう',cn:'昨天'},{jp:'朝',kana:'あさ',cn:'早上'},{jp:'夜',kana:'よる',cn:'夜晚'},
+    {jp:'午前',kana:'ごぜん',cn:'上午'},{jp:'午後',kana:'ごご',cn:'下午'},{jp:'時間',kana:'じかん',cn:'时间'},{jp:'毎日',kana:'まいにち',cn:'每天'},{jp:'月曜日',kana:'げつようび',cn:'周一'},
+    {jp:'家族',kana:'かぞく',cn:'家庭'},{jp:'父',kana:'ちち',cn:'父亲'},{jp:'母',kana:'はは',cn:'母亲'},{jp:'兄',kana:'あに',cn:'哥哥'},{jp:'姉',kana:'あね',cn:'姐姐'},
+    {jp:'弟',kana:'おとうと',cn:'弟弟'},{jp:'妹',kana:'いもうと',cn:'妹妹'},{jp:'子供',kana:'こども',cn:'孩子'},{jp:'友達',kana:'ともだち',cn:'朋友'},{jp:'人',kana:'ひと',cn:'人'},
+    {jp:'男',kana:'おとこ',cn:'男'},{jp:'女',kana:'おんな',cn:'女'},
+    {jp:'頭',kana:'あたま',cn:'头'},{jp:'目',kana:'め',cn:'眼睛'},{jp:'耳',kana:'みみ',cn:'耳朵'},{jp:'鼻',kana:'はな',cn:'鼻子'},{jp:'口',kana:'くち',cn:'嘴'},
+    {jp:'手',kana:'て',cn:'手'},{jp:'足',kana:'あし',cn:'脚'},{jp:'体',kana:'からだ',cn:'身体'},
+    {jp:'ご飯',kana:'ごはん',cn:'米饭'},{jp:'パン',kana:'',cn:'面包'},{jp:'水',kana:'みず',cn:'水'},{jp:'お茶',kana:'おちゃ',cn:'茶'},{jp:'コーヒー',kana:'',cn:'咖啡'},
+    {jp:'肉',kana:'にく',cn:'肉'},{jp:'魚',kana:'さかな',cn:'鱼'},{jp:'野菜',kana:'やさい',cn:'蔬菜'},{jp:'果物',kana:'くだもの',cn:'水果'},{jp:'寿司',kana:'すし',cn:'寿司'},
+    {jp:'服',kana:'ふく',cn:'衣服'},{jp:'シャツ',kana:'',cn:'衬衫'},{jp:'靴',kana:'くつ',cn:'鞋'},{jp:'帽子',kana:'ぼうし',cn:'帽子'},{jp:'鞄',kana:'かばん',cn:'包'},
+    {jp:'家',kana:'いえ',cn:'家'},{jp:'部屋',kana:'へや',cn:'房间'},{jp:'机',kana:'つくえ',cn:'桌'},{jp:'椅子',kana:'いす',cn:'椅'},{jp:'本',kana:'ほん',cn:'书'},
+    {jp:'電話',kana:'でんわ',cn:'电话'},{jp:'テレビ',kana:'',cn:'电视'},
+    {jp:'学校',kana:'がっこう',cn:'学校'},{jp:'会社',kana:'かいしゃ',cn:'公司'},{jp:'病院',kana:'びょういん',cn:'医院'},{jp:'駅',kana:'えき',cn:'车站'},{jp:'公園',kana:'こうえん',cn:'公园'},
+    {jp:'店',kana:'みせ',cn:'店'},{jp:'銀行',kana:'ぎんこう',cn:'银行'},
+    {jp:'上',kana:'うえ',cn:'上'},{jp:'下',kana:'した',cn:'下'},{jp:'前',kana:'まえ',cn:'前'},{jp:'後ろ',kana:'うしろ',cn:'后'},{jp:'右',kana:'みぎ',cn:'右'},{jp:'左',kana:'ひだり',cn:'左'},
+    {jp:'車',kana:'くるま',cn:'车'},{jp:'電車',kana:'でんしゃ',cn:'电车'},{jp:'バス',kana:'',cn:'公交车'},{jp:'自転車',kana:'じてんしゃ',cn:'自行车'},{jp:'飛行機',kana:'ひこうき',cn:'飞机'},
+    {jp:'山',kana:'やま',cn:'山'},{jp:'川',kana:'かわ',cn:'河'},{jp:'海',kana:'うみ',cn:'海'},{jp:'空',kana:'そら',cn:'天空'},{jp:'雨',kana:'あめ',cn:'雨'},
+    {jp:'雪',kana:'ゆき',cn:'雪'},{jp:'風',kana:'かぜ',cn:'风'},{jp:'天気',kana:'てんき',cn:'天气'},
+    {jp:'赤',kana:'あか',cn:'红'},{jp:'青',kana:'あお',cn:'蓝'},{jp:'白',kana:'しろ',cn:'白'},{jp:'黒',kana:'くろ',cn:'黑'},{jp:'緑',kana:'みどり',cn:'绿'},
+    {jp:'犬',kana:'いぬ',cn:'狗'},{jp:'猫',kana:'ねこ',cn:'猫'},{jp:'鳥',kana:'とり',cn:'鸟'},
+    {jp:'勉強',kana:'べんきょう',cn:'学习'},{jp:'先生',kana:'せんせい',cn:'老师'},{jp:'学生',kana:'がくせい',cn:'学生'},
+    {jp:'行く',kana:'いく',cn:'去'},{jp:'来る',kana:'くる',cn:'来'},{jp:'食べる',kana:'たべる',cn:'吃'},{jp:'飲む',kana:'のむ',cn:'喝'},{jp:'見る',kana:'みる',cn:'看'},
+    {jp:'聞く',kana:'きく',cn:'听'},{jp:'読む',kana:'よむ',cn:'读'},{jp:'書く',kana:'かく',cn:'写'},{jp:'話す',kana:'はなす',cn:'说'},{jp:'買う',kana:'かう',cn:'买'},
+    {jp:'会う',kana:'あう',cn:'见面'},{jp:'寝る',kana:'ねる',cn:'睡'},
+    {jp:'大きい',kana:'おおきい',cn:'大'},{jp:'小さい',kana:'ちいさい',cn:'小'},{jp:'新しい',kana:'あたらしい',cn:'新'},{jp:'古い',kana:'ふるい',cn:'旧'},{jp:'高い',kana:'たかい',cn:'高/贵'},
+    {jp:'安い',kana:'やすい',cn:'便宜'},{jp:'寒い',kana:'さむい',cn:'冷'},{jp:'暑い',kana:'あつい',cn:'热'},{jp:'楽しい',kana:'たのしい',cn:'快乐'},{jp:'面白い',kana:'おもしろい',cn:'有趣'},
+    {jp:'静か',kana:'しずか',cn:'安静'},{jp:'きれい',kana:'',cn:'漂亮'},{jp:'好き',kana:'すき',cn:'喜欢'},{jp:'有名',kana:'ゆうめい',cn:'有名'},{jp:'大切',kana:'たいせつ',cn:'重要'},
+    {jp:'いつも',kana:'',cn:'总是'},{jp:'少し',kana:'すこし',cn:'一点'},{jp:'たくさん',kana:'',cn:'很多'},{jp:'もう',kana:'',cn:'已经'},{jp:'まだ',kana:'',cn:'还'}
+  ],
+  grammar: [
+    {q:'私___学生です。', a:'は', options:['は','が','を','に'], hint:'主题助词'},
+    {q:'雨___降ります。', a:'が', options:['は','が','を','で'], hint:'描述自然现象'},
+    {q:'本___読みます。', a:'を', options:['は','が','を','に'], hint:'宾语助词'},
+    {q:'七時___起きます。', a:'に', options:['に','で','を','は'], hint:'时间点'},
+    {q:'学校___勉強します。', a:'で', options:['に','で','を','へ'], hint:'动作场所'},
+    {q:'日本___行きます。', a:'へ', options:['に','で','へ','を'], hint:'方向（也可用に）'},
+    {q:'友達___話します。', a:'と', options:['と','や','も','に'], hint:'伴随'},
+    {q:'私___行きます（也去）。', a:'も', options:['は','が','と','も'], hint:'也、都'},
+    {q:'これは私___本です。', a:'の', options:['は','の','を','が'], hint:'所属'},
+    {q:'九時___始まります。', a:'から', options:['から','まで','に','で'], hint:'起点'},
+    {q:'五時___働きます。', a:'まで', options:['から','まで','に','と'], hint:'终点'},
+    {q:'机の上___本があります。', a:'に', options:['で','に','を','は'], hint:'存在场所'},
+    {q:'教室___学生がいます。', a:'に', options:['で','に','を','と'], hint:'人/动物存在'},
+    {q:'ここで写真を___ください。', a:'撮って', options:['撮って','撮る','撮った','撮らない'], hint:'请做某事'},
+    {q:'今、本を読んで___。', a:'います', options:['います','あります','います','ます'], hint:'正在做'},
+    {q:'心配___ないでください。', a:'し', options:['し','する','した','しない'], hint:'请别...'},
+    {q:'宿題を___なければなりません。', a:'し', options:['し','する','して','した'], hint:'必须做'},
+    {q:'日本へ___たいです。', a:'行き', options:['行き','行く','行った','行って'], hint:'想去'},
+    {q:'ピアノが___ます。', a:'でき', options:['でき','する','なり','し'], hint:'会某项技能'},
+    {q:'寒い → 寒___ない', a:'く', options:['く','い','な','で'], hint:'イ形否定'},
+    {q:'静か → 静か___ない', a:'では', options:['く','で','は','では'], hint:'ナ形否定'},
+    {q:'寒い → 寒___なりました。', a:'く', options:['く','い','に','な'], hint:'变得（イ形）'},
+    {q:'静か → 静か___なりました。', a:'に', options:['く','に','な','で'], hint:'变得（ナ形）'},
+    {q:'一緒に食べ___。', a:'ましょう', options:['ません','ましょう','ました','ます'], hint:'邀请'},
+    {q:'一緒に行き___か。', a:'ません', options:['ません','ましょう','ました','ます'], hint:'邀请（不…吗）'},
+    {q:'明日は雨だ___思います。', a:'と', options:['と','が','を','に'], hint:'我认为'},
+    {q:'明日は雨___しれません。', a:'かも', options:['でも','かも','では','とも'], hint:'也许'},
+    {q:'寝る___に歯を磨きます。', a:'前', options:['前','後','時','間'], hint:'之前'},
+    {q:'食事の___散歩します。', a:'後で', options:['前に','後で','時に','間に'], hint:'之后'},
+    {q:'音楽を聞き___勉強します。', a:'ながら', options:['ながら','てから','ないで','たり'], hint:'一边…一边'},
+    {q:'寒い___コートを着ます。', a:'から', options:['から','まで','が','けど'], hint:'因为'},
+    {q:'高いです___買います。', a:'が', options:['から','ので','が','と'], hint:'但是'},
+    {q:'日本___中国のほうが大きい。', a:'より', options:['より','から','ほど','まで'], hint:'比…'},
+    {q:'一番好きな___は寿司です。', a:'の', options:['の','こと','もの','で'], hint:'名词化'},
+    {q:'日本へ___ことがあります。', a:'行った', options:['行く','行って','行った','行きます'], hint:'曾经'},
+    {q:'早く寝た___がいいです。', a:'ほう', options:['ほう','こと','もの','の'], hint:'最好'},
+    {q:'週末は読書___たり、映画を見たりします。', a:'し', options:['し','する','した','して'], hint:'又…又'},
+    {q:'昨日は雨___。', a:'でした', options:['です','でした','だった','ではない'], hint:'名词过去'},
+    {q:'医者___なりたいです。', a:'に', options:['に','が','を','と'], hint:'成为'},
+    {q:'この本___私のです。', a:'は', options:['は','が','を','に'], hint:'主题'}
+  ]
+};
+</script>
+<script src="../assets/quiz.js"></script>
+
+<script>
+const progress=document.getElementById('progress');
+function up(){const h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'}
+window.addEventListener('scroll',up,{passive:true});up();
+</script>
+
+</body>
+</html>
