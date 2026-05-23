@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五十音造句练习 · 92 句 · 日语学习路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/style.css">
+<style>
+.sen-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:38px}
+.sen-card{background:rgba(255,255,255,.5);border:1px solid var(--line-soft);padding:16px 18px;position:relative;transition:background .2s, transform .2s}
+.sen-card:hover{background:rgba(255,255,255,.85);transform:translateY(-2px)}
+.sen-head{display:flex;align-items:baseline;gap:12px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px dashed var(--line)}
+.sen-kana{font-family:var(--serif-jp);font-size:34px;font-weight:700;color:var(--vermillion);line-height:1}
+.sen-word{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.sen-word .jp{font-family:var(--serif-jp);font-size:17px;font-weight:700;color:var(--ink)}
+.sen-word .furi{font-family:var(--serif-jp);font-size:11px;color:var(--vermillion-d)}
+.sen-word .cn{font-size:12.5px;color:var(--ink-3);margin-left:4px}
+.sen-jp{font-family:var(--serif-jp);font-size:16px;font-weight:500;color:var(--ink);line-height:1.55;margin-bottom:4px}
+.sen-read{font-family:var(--serif-jp);font-size:11.5px;color:var(--ink-3);margin-bottom:8px;letter-spacing:.04em;font-style:normal}
+.sen-cn{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin-bottom:10px;font-style:italic}
+.sen-cn::before{content:"→ ";color:var(--vermillion);font-style:normal;font-weight:600}
+.sen-tag{display:inline-block;font-family:var(--serif-jp);font-size:11px;font-weight:600;color:var(--vermillion-d);background:rgba(200,54,45,.08);padding:3px 9px;border-radius:2px;letter-spacing:.04em}
+.row-label{font-family:var(--serif-jp);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.05em;margin:18px 0 14px;padding:6px 0;border-bottom:1px solid var(--ink);display:flex;align-items:baseline;gap:14px}
+.row-label .en{font-family:var(--serif-display);font-style:italic;font-size:12px;color:var(--ink-3);font-weight:400;letter-spacing:.1em}
+.row-label .count{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;letter-spacing:.05em}
+.note-special{margin-top:30px;padding:18px 22px;background:rgba(168,132,59,.06);border-left:3px solid var(--gold);font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.note-special strong{color:var(--vermillion-d);font-family:var(--serif-jp);font-weight:700}
+
+.sen-kana{display:inline-flex;align-items:baseline;gap:8px}
+.sen-kana .ro{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:500;letter-spacing:.05em;font-style:italic}
+
+@media print {
+  body::before, body::after { display: none !important; }
+  .progress, .nav { display: none !important; }
+  .masthead, .rule-double { display: none !important; }
+  .hero { padding: 8px 0 14px; display:block; grid-template-columns:none; }
+  .hero-vertical { display: none !important; }
+  .hero-main { margin-left: 0 !important; padding-top: 0 !important; }
+  .hero-title { font-size: 24pt !important; line-height: 1.1; margin-bottom: 8px; }
+  .hero-title .jp { font-size: 11pt !important; margin-top: 4px; }
+  .kicker { font-size: 9pt !important; margin-bottom: 6px; }
+  .hero-lede { font-size: 9.5pt !important; max-width:none; line-height:1.5; }
+  .stats { display: none !important; }
+  .closing, footer { display: none !important; }
+  .section { padding: 0; border-bottom: none; page-break-before: always; }
+  .section:first-of-type { page-break-before: auto; }
+  .section-label { font-size: 8pt !important; margin-bottom: 4px; }
+  .section-h { font-size: 16pt !important; margin-bottom: 6px; }
+  .section-h .jp { font-size: 9pt !important; margin-top: 4px; }
+  .section-intro { font-size: 9pt !important; margin-bottom: 8px; line-height: 1.5; }
+  .row-label { page-break-after: avoid; break-after: avoid; margin: 8px 0 6px; padding: 3px 0; font-size: 11pt !important; }
+  .row-label .en { font-size: 9pt !important; }
+  .row-label .count { font-size: 8pt !important; }
+  .sen-list { gap: 6px !important; margin-bottom: 12px; }
+  .sen-card { 
+    page-break-inside: avoid !important; 
+    break-inside: avoid !important; 
+    padding: 6px 9px !important;
+    background: white !important; 
+    border: 1px solid #aaa !important;
+  }
+  .sen-card:hover { transform: none !important; background: white !important; }
+  .sen-head { padding-bottom: 5px; margin-bottom: 5px; gap: 8px; }
+  .sen-kana { font-size: 20pt !important; }
+  .sen-kana .ro { font-size: 9pt !important; }
+  .sen-word { font-size: 9pt; gap: 4px; }
+  .sen-word .jp { font-size: 11pt !important; }
+  .sen-word .furi { font-size: 8pt !important; }
+  .sen-word .cn { font-size: 8pt !important; }
+  .sen-jp { font-size: 10pt !important; margin-bottom: 1px; line-height: 1.4; }
+  .sen-read { font-size: 8.5pt !important; margin-bottom: 3px; line-height:1.3; }
+  .sen-cn { font-size: 8.5pt !important; margin-bottom: 4px; line-height:1.4; }
+  .sen-tag { font-size: 8pt !important; padding: 1px 5px; }
+  .note-special { font-size: 8.5pt !important; padding: 8px 10px; margin-top: 10px; }
+  body { background: white !important; color: black; font-size: 10pt; }
+  .page { padding: 0 !important; max-width: none !important; }
+  @page { size: A4; margin: 1cm 0.7cm; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="./index.html" class="back-link">返回总览</a>
+    <span class="vol">五十音造句练习</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-vertical">五<span class="accent">十</span>音</div>
+    <div class="hero-main">
+      <div class="kicker">N5 · 假名 + 语法 双重记忆</div>
+      <h1 class="hero-title">
+        92 句 <span class="num">造句</span>
+        <span class="jp">每个假名一个词，每句一个语法</span>
+      </h1>
+      <p class="hero-lede">
+        平假名 <strong>46</strong> + 片假名 <strong>46</strong>。
+        每个假名选一个常用词，配一句使用<strong>不同语法点</strong>的例句 ──
+        既复习假名，又复习语法。
+        卡片包含：<strong>词 · 例句 · 假名读法 · 中文 · 语法标签</strong>。
+      </p>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">46<small>句</small></div><div class="stat-label">平假名造句</div></div>
+    <div class="stat"><div class="stat-num">46<small>句</small></div><div class="stat-label">片假名造句</div></div>
+    <div class="stat"><div class="stat-num">92<small>条</small></div><div class="stat-label">总例句</div></div>
+    <div class="stat"><div class="stat-num">70+<small>个</small></div><div class="stat-label">语法点覆盖</div></div>
+    <div class="stat"><div class="stat-num">N5<small></small></div><div class="stat-label">难度</div></div>
+  </div>
+
+  <!-- ============== 平假名 ============== -->
+  <section class="section" id="hiragana">
+    <div class="section-label">第一部分 · 平假名</div>
+    <h2 class="section-h">ひらがな <em>46 句</em>。<span class="jp">按 50 音表顺序</span></h2>
+
+    <div class="row-label">あ行 <span class="en">a-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">あ<small class="ro">a</small></span><span class="sen-word"><span class="jp">朝</span><span class="furi">あさ</span><span class="cn">早上</span></span></div>
+        <div class="sen-jp">朝ご飯を食べました。</div>
+        <div class="sen-read">あさごはん を たべました。</div>
+        <div class="sen-cn">我吃了早饭。</div>
+        <span class="sen-tag">～ました（过去时）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">い<small class="ro">i</small></span><span class="sen-word"><span class="jp">妹</span><span class="furi">いもうと</span><span class="cn">妹妹</span></span></div>
+        <div class="sen-jp">妹がいます。</div>
+        <div class="sen-read">いもうと が います。</div>
+        <div class="sen-cn">我有妹妹。</div>
+        <span class="sen-tag">～がいます（人/动物存在）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">う<small class="ro">u</small></span><span class="sen-word"><span class="jp">海</span><span class="furi">うみ</span><span class="cn">海</span></span></div>
+        <div class="sen-jp">夏に海へ行きます。</div>
+        <div class="sen-read">なつ に うみ へ いきます。</div>
+        <div class="sen-cn">夏天去海边。</div>
+        <span class="sen-tag">～へ行く（方向）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">え<small class="ro">e</small></span><span class="sen-word"><span class="jp">駅</span><span class="furi">えき</span><span class="cn">车站</span></span></div>
+        <div class="sen-jp">駅はあそこにあります。</div>
+        <div class="sen-read">えき は あそこ に あります。</div>
+        <div class="sen-cn">车站在那里。</div>
+        <span class="sen-tag">～は～にあります</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">お<small class="ro">o</small></span><span class="sen-word"><span class="jp">お茶</span><span class="furi">おちゃ</span><span class="cn">茶</span></span></div>
+        <div class="sen-jp">毎日お茶を飲みます。</div>
+        <div class="sen-read">まいにち おちゃ を のみます。</div>
+        <div class="sen-cn">每天喝茶。</div>
+        <span class="sen-tag">～を + 动词（宾语）</span>
+      </div>
+    </div>
+
+    <div class="row-label">か行 <span class="en">ka-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">か<small class="ro">ka</small></span><span class="sen-word"><span class="jp">学校</span><span class="furi">がっこう</span><span class="cn">学校</span></span></div>
+        <div class="sen-jp">学校で日本語を勉強します。</div>
+        <div class="sen-read">がっこう で にほんご を べんきょうします。</div>
+        <div class="sen-cn">在学校学日语。</div>
+        <span class="sen-tag">～で（动作场所）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">き<small class="ro">ki</small></span><span class="sen-word"><span class="jp">木</span><span class="furi">き</span><span class="cn">树</span></span></div>
+        <div class="sen-jp">庭に大きい木があります。</div>
+        <div class="sen-read">にわ に おおきい き が あります。</div>
+        <div class="sen-cn">院子里有一棵大树。</div>
+        <span class="sen-tag">形容词 + 名词</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">く<small class="ro">ku</small></span><span class="sen-word"><span class="jp">車</span><span class="furi">くるま</span><span class="cn">车</span></span></div>
+        <div class="sen-jp">車で会社へ行きます。</div>
+        <div class="sen-read">くるま で かいしゃ へ いきます。</div>
+        <div class="sen-cn">开车去公司。</div>
+        <span class="sen-tag">～で（手段）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">け<small class="ro">ke</small></span><span class="sen-word"><span class="jp">携帯</span><span class="furi">けいたい</span><span class="cn">手机</span></span></div>
+        <div class="sen-jp">携帯を使ってもいいですか。</div>
+        <div class="sen-read">けいたい を つかって も いい です か。</div>
+        <div class="sen-cn">可以用手机吗？</div>
+        <span class="sen-tag">～てもいいです（可以）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">こ<small class="ro">ko</small></span><span class="sen-word"><span class="jp">子供</span><span class="furi">こども</span><span class="cn">孩子</span></span></div>
+        <div class="sen-jp">子供が好きです。</div>
+        <div class="sen-read">こども が すき です。</div>
+        <div class="sen-cn">喜欢孩子。</div>
+        <span class="sen-tag">～が好き（喜好）</span>
+      </div>
+    </div>
+
+    <div class="row-label">さ行 <span class="en">sa-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">さ<small class="ro">sa</small></span><span class="sen-word"><span class="jp">寒い</span><span class="furi">さむい</span><span class="cn">冷</span></span></div>
+        <div class="sen-jp">寒いから、コートを着ます。</div>
+        <div class="sen-read">さむい から、コート を きます。</div>
+        <div class="sen-cn">因为冷，所以穿外套。</div>
+        <span class="sen-tag">～から（原因）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">し<small class="ro">shi</small></span><span class="sen-word"><span class="jp">写真</span><span class="furi">しゃしん</span><span class="cn">照片</span></span></div>
+        <div class="sen-jp">ここで写真を撮ってください。</div>
+        <div class="sen-read">ここ で しゃしん を とって ください。</div>
+        <div class="sen-cn">请在这里拍照。</div>
+        <span class="sen-tag">～てください（请做）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">す<small class="ro">su</small></span><span class="sen-word"><span class="jp">寿司</span><span class="furi">すし</span><span class="cn">寿司</span></span></div>
+        <div class="sen-jp">寿司が食べたいです。</div>
+        <div class="sen-read">すし が たべたい です。</div>
+        <div class="sen-cn">想吃寿司。</div>
+        <span class="sen-tag">～たいです（想做）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">せ<small class="ro">se</small></span><span class="sen-word"><span class="jp">先生</span><span class="furi">せんせい</span><span class="cn">老师</span></span></div>
+        <div class="sen-jp">先生と一緒に話します。</div>
+        <div class="sen-read">せんせい と いっしょ に はなします。</div>
+        <div class="sen-cn">和老师一起说话。</div>
+        <span class="sen-tag">～と一緒に（一起）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">そ<small class="ro">so</small></span><span class="sen-word"><span class="jp">空</span><span class="furi">そら</span><span class="cn">天空</span></span></div>
+        <div class="sen-jp">空が青いですね。</div>
+        <div class="sen-read">そら が あおい です ね。</div>
+        <div class="sen-cn">天空真蓝啊。</div>
+        <span class="sen-tag">ね（确认/共感）</span>
+      </div>
+    </div>
+
+    <div class="row-label">た行 <span class="en">ta-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">た<small class="ro">ta</small></span><span class="sen-word"><span class="jp">食べる</span><span class="furi">たべる</span><span class="cn">吃</span></span></div>
+        <div class="sen-jp">今、ご飯を食べています。</div>
+        <div class="sen-read">いま、ごはん を たべて います。</div>
+        <div class="sen-cn">现在正在吃饭。</div>
+        <span class="sen-tag">～ています（正在）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ち<small class="ro">chi</small></span><span class="sen-word"><span class="jp">父</span><span class="furi">ちち</span><span class="cn">父亲</span></span></div>
+        <div class="sen-jp">父は医者です。</div>
+        <div class="sen-read">ちち は いしゃ です。</div>
+        <div class="sen-cn">我父亲是医生。</div>
+        <span class="sen-tag">～は～です</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">つ<small class="ro">tsu</small></span><span class="sen-word"><span class="jp">机</span><span class="furi">つくえ</span><span class="cn">桌子</span></span></div>
+        <div class="sen-jp">机の上に本があります。</div>
+        <div class="sen-read">つくえ の うえ に ほん が あります。</div>
+        <div class="sen-cn">桌上有书。</div>
+        <span class="sen-tag">～の上に（位置）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">て<small class="ro">te</small></span><span class="sen-word"><span class="jp">手紙</span><span class="furi">てがみ</span><span class="cn">信</span></span></div>
+        <div class="sen-jp">友達に手紙を書きました。</div>
+        <div class="sen-read">ともだち に てがみ を かきました。</div>
+        <div class="sen-cn">给朋友写了信。</div>
+        <span class="sen-tag">～に（对象）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">と<small class="ro">to</small></span><span class="sen-word"><span class="jp">友達</span><span class="furi">ともだち</span><span class="cn">朋友</span></span></div>
+        <div class="sen-jp">友達と映画を見ませんか。</div>
+        <div class="sen-read">ともだち と えいが を みません か。</div>
+        <div class="sen-cn">要不要和朋友看电影？</div>
+        <span class="sen-tag">～ませんか（邀请）</span>
+      </div>
+    </div>
+
+    <div class="row-label">な行 <span class="en">na-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">な<small class="ro">na</small></span><span class="sen-word"><span class="jp">夏</span><span class="furi">なつ</span><span class="cn">夏天</span></span></div>
+        <div class="sen-jp">夏は暑くて、長いです。</div>
+        <div class="sen-read">なつ は あつくて、ながい です。</div>
+        <div class="sen-cn">夏天又热又长。</div>
+        <span class="sen-tag">～くて（イ形连用）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">に<small class="ro">ni</small></span><span class="sen-word"><span class="jp">日本</span><span class="furi">にほん</span><span class="cn">日本</span></span></div>
+        <div class="sen-jp">日本から来ました。</div>
+        <div class="sen-read">にほん から きました。</div>
+        <div class="sen-cn">从日本来的。</div>
+        <span class="sen-tag">～から（起点）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ぬ<small class="ro">nu</small></span><span class="sen-word"><span class="jp">脱ぐ</span><span class="furi">ぬぐ</span><span class="cn">脱</span></span></div>
+        <div class="sen-jp">玄関で靴を脱ぎます。</div>
+        <div class="sen-read">げんかん で くつ を ぬぎます。</div>
+        <div class="sen-cn">在玄关脱鞋。</div>
+        <span class="sen-tag">ます形（礼貌现在）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ね<small class="ro">ne</small></span><span class="sen-word"><span class="jp">猫</span><span class="furi">ねこ</span><span class="cn">猫</span></span></div>
+        <div class="sen-jp">私も猫が好きです。</div>
+        <div class="sen-read">わたし も ねこ が すき です。</div>
+        <div class="sen-cn">我也喜欢猫。</div>
+        <span class="sen-tag">～も～です（也）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">の<small class="ro">no</small></span><span class="sen-word"><span class="jp">飲む</span><span class="furi">のむ</span><span class="cn">喝</span></span></div>
+        <div class="sen-jp">薬を飲んだほうがいいです。</div>
+        <div class="sen-read">くすり を のんだ ほう が いい です。</div>
+        <div class="sen-cn">最好吃药。</div>
+        <span class="sen-tag">～たほうがいい（最好）</span>
+      </div>
+    </div>
+
+    <div class="row-label">は行 <span class="en">ha-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">は<small class="ro">ha</small></span><span class="sen-word"><span class="jp">花</span><span class="furi">はな</span><span class="cn">花</span></span></div>
+        <div class="sen-jp">この花はきれいですね。</div>
+        <div class="sen-read">この はな は きれい です ね。</div>
+        <div class="sen-cn">这花真漂亮啊。</div>
+        <span class="sen-tag">この + 名词</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ひ<small class="ro">hi</small></span><span class="sen-word"><span class="jp">飛行機</span><span class="furi">ひこうき</span><span class="cn">飞机</span></span></div>
+        <div class="sen-jp">飛行機に乗ったことがあります。</div>
+        <div class="sen-read">ひこうき に のった こと が あります。</div>
+        <div class="sen-cn">坐过飞机。</div>
+        <span class="sen-tag">～たことがある（经验）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ふ<small class="ro">fu</small></span><span class="sen-word"><span class="jp">冬</span><span class="furi">ふゆ</span><span class="cn">冬天</span></span></div>
+        <div class="sen-jp">冬は寒いですが、好きです。</div>
+        <div class="sen-read">ふゆ は さむい です が、すき です。</div>
+        <div class="sen-cn">冬天虽然冷但喜欢。</div>
+        <span class="sen-tag">～が（但是）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">へ<small class="ro">he</small></span><span class="sen-word"><span class="jp">部屋</span><span class="furi">へや</span><span class="cn">房间</span></span></div>
+        <div class="sen-jp">部屋に弟がいます。</div>
+        <div class="sen-read">へや に おとうと が います。</div>
+        <div class="sen-cn">房间里有弟弟。</div>
+        <span class="sen-tag">～に～がいます</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ほ<small class="ro">ho</small></span><span class="sen-word"><span class="jp">本</span><span class="furi">ほん</span><span class="cn">书</span></span></div>
+        <div class="sen-jp">寝る前に本を読みます。</div>
+        <div class="sen-read">ねる まえ に ほん を よみます。</div>
+        <div class="sen-cn">睡前读书。</div>
+        <span class="sen-tag">～前に（之前）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ま行 <span class="en">ma-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ま<small class="ro">ma</small></span><span class="sen-word"><span class="jp">毎日</span><span class="furi">まいにち</span><span class="cn">每天</span></span></div>
+        <div class="sen-jp">毎日学校へ行きます。</div>
+        <div class="sen-read">まいにち がっこう へ いきます。</div>
+        <div class="sen-cn">每天去学校。</div>
+        <span class="sen-tag">頻度副词 + ます</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">み<small class="ro">mi</small></span><span class="sen-word"><span class="jp">水</span><span class="furi">みず</span><span class="cn">水</span></span></div>
+        <div class="sen-jp">水がほしいです。</div>
+        <div class="sen-read">みず が ほしい です。</div>
+        <div class="sen-cn">想要水。</div>
+        <span class="sen-tag">～がほしい（想要物）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">む<small class="ro">mu</small></span><span class="sen-word"><span class="jp">難しい</span><span class="furi">むずかしい</span><span class="cn">难</span></span></div>
+        <div class="sen-jp">日本語は難しくないです。</div>
+        <div class="sen-read">にほんご は むずかしく ない です。</div>
+        <div class="sen-cn">日语不难。</div>
+        <span class="sen-tag">イ形否定（～くない）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">め<small class="ro">me</small></span><span class="sen-word"><span class="jp">眼鏡</span><span class="furi">めがね</span><span class="cn">眼镜</span></span></div>
+        <div class="sen-jp">眼鏡をかけている人は誰ですか。</div>
+        <div class="sen-read">めがね を かけて いる ひと は だれ です か。</div>
+        <div class="sen-cn">戴眼镜的那个人是谁？</div>
+        <span class="sen-tag">～ている（状态修饰）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">も<small class="ro">mo</small></span><span class="sen-word"><span class="jp">桃</span><span class="furi">もも</span><span class="cn">桃子</span></span></div>
+        <div class="sen-jp">桃やりんごを買いました。</div>
+        <div class="sen-read">もも や りんご を かいました。</div>
+        <div class="sen-cn">买了桃子、苹果（等）。</div>
+        <span class="sen-tag">～や～（列举不全）</span>
+      </div>
+    </div>
+
+    <div class="row-label">や行 <span class="en">ya-row</span><span class="count">3 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">や<small class="ro">ya</small></span><span class="sen-word"><span class="jp">山</span><span class="furi">やま</span><span class="cn">山</span></span></div>
+        <div class="sen-jp">富士山は日本で一番高い山です。</div>
+        <div class="sen-read">ふじさん は にほん で いちばん たかい やま です。</div>
+        <div class="sen-cn">富士山是日本最高的山。</div>
+        <span class="sen-tag">一番（最）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ゆ<small class="ro">yu</small></span><span class="sen-word"><span class="jp">雪</span><span class="furi">ゆき</span><span class="cn">雪</span></span></div>
+        <div class="sen-jp">明日は雪が降るでしょう。</div>
+        <div class="sen-read">あした は ゆき が ふる でしょう。</div>
+        <div class="sen-cn">明天大概会下雪。</div>
+        <span class="sen-tag">～でしょう（推测）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">よ<small class="ro">yo</small></span><span class="sen-word"><span class="jp">読む</span><span class="furi">よむ</span><span class="cn">读</span></span></div>
+        <div class="sen-jp">音楽を聞きながら本を読みます。</div>
+        <div class="sen-read">おんがく を ききながら ほん を よみます。</div>
+        <div class="sen-cn">边听音乐边读书。</div>
+        <span class="sen-tag">～ながら（一边…一边）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ら行 <span class="en">ra-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ら<small class="ro">ra</small></span><span class="sen-word"><span class="jp">来年</span><span class="furi">らいねん</span><span class="cn">明年</span></span></div>
+        <div class="sen-jp">来年日本へ行きたいです。</div>
+        <div class="sen-read">らいねん にほん へ いきたい です。</div>
+        <div class="sen-cn">明年想去日本。</div>
+        <span class="sen-tag">未来时间 + ～たい</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">り<small class="ro">ri</small></span><span class="sen-word"><span class="jp">旅行</span><span class="furi">りょこう</span><span class="cn">旅行</span></span></div>
+        <div class="sen-jp">旅行に行きましょう。</div>
+        <div class="sen-read">りょこう に いきましょう。</div>
+        <div class="sen-cn">一起去旅行吧。</div>
+        <span class="sen-tag">～ましょう（一起做）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">る<small class="ro">ru</small></span><span class="sen-word"><span class="jp">留守</span><span class="furi">るす</span><span class="cn">不在家</span></span></div>
+        <div class="sen-jp">父は今、留守です。</div>
+        <div class="sen-read">ちち は いま、るす です。</div>
+        <div class="sen-cn">父亲现在不在家。</div>
+        <span class="sen-tag">名词 + です（状态）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">れ<small class="ro">re</small></span><span class="sen-word"><span class="jp">冷蔵庫</span><span class="furi">れいぞうこ</span><span class="cn">冰箱</span></span></div>
+        <div class="sen-jp">冷蔵庫の中にビールがあります。</div>
+        <div class="sen-read">れいぞうこ の なか に ビール が あります。</div>
+        <div class="sen-cn">冰箱里有啤酒。</div>
+        <span class="sen-tag">～の中に（在…里面）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ろ<small class="ro">ro</small></span><span class="sen-word"><span class="jp">六時</span><span class="furi">ろくじ</span><span class="cn">六点</span></span></div>
+        <div class="sen-jp">毎朝六時に起きます。</div>
+        <div class="sen-read">まいあさ ろくじ に おきます。</div>
+        <div class="sen-cn">每天早上六点起床。</div>
+        <span class="sen-tag">时刻 + に（时间点）</span>
+      </div>
+    </div>
+
+    <div class="row-label">わ行・ん <span class="en">wa-row &amp; n</span><span class="count">3 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">わ<small class="ro">wa</small></span><span class="sen-word"><span class="jp">私</span><span class="furi">わたし</span><span class="cn">我</span></span></div>
+        <div class="sen-jp">私は中国人です。</div>
+        <div class="sen-read">わたし は ちゅうごくじん です。</div>
+        <div class="sen-cn">我是中国人。</div>
+        <span class="sen-tag">～は～です（自我介绍）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">を<small class="ro">wo</small></span><span class="sen-word"><span class="jp">本</span><span class="furi">ほん</span><span class="cn">书 / 借助词を</span></span></div>
+        <div class="sen-jp">毎晩本を読みます。</div>
+        <div class="sen-read">まいばん ほん を よみます。</div>
+        <div class="sen-cn">每晚读书。</div>
+        <span class="sen-tag">を（宾语助词专用）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ん<small class="ro">n</small></span><span class="sen-word"><span class="jp">みかん</span><span class="furi">みかん</span><span class="cn">橘子</span></span></div>
+        <div class="sen-jp">みかんが三つあります。</div>
+        <div class="sen-read">みかん が みっつ あります。</div>
+        <div class="sen-cn">有三个橘子。</div>
+        <span class="sen-tag">数量词（～つ）</span>
+      </div>
+    </div>
+
+    <div class="note-special">
+      <strong>关于 を 和 ん：</strong>
+      を 是宾语助词，<strong>不能</strong>作词头（除古文外）；ん 在现代日语中<strong>不出现在词首</strong>。
+      所以这两个假名只能通过"出现在词中/句中"来记。を 例句展示了它作为助词的用法；ん 例句展示了它在词尾的常见用法。
+    </div>
+  </section>
+
+  <!-- ============== 片假名 ============== -->
+  <section class="section" id="katakana">
+    <div class="section-label">第二部分 · 片假名</div>
+    <h2 class="section-h">カタカナ <em>46 句</em>。<span class="jp">外来语 + 不同语法点</span></h2>
+    <p class="section-intro">片假名主要用于<strong>外来语</strong>。下面每个片假名搭配一个常用外来词，配不同语法的例句。</p>
+
+    <div class="row-label">ア行 <span class="en">a-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ア<small class="ro">a</small></span><span class="sen-word"><span class="jp">アメリカ</span><span class="cn">美国</span></span></div>
+        <div class="sen-jp">アメリカへ行ったことがあります。</div>
+        <div class="sen-read">アメリカ へ いった こと が あります。</div>
+        <div class="sen-cn">去过美国。</div>
+        <span class="sen-tag">～たことがある（经验）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">イ<small class="ro">i</small></span><span class="sen-word"><span class="jp">インターネット</span><span class="cn">互联网</span></span></div>
+        <div class="sen-jp">インターネットで調べました。</div>
+        <div class="sen-read">インターネット で しらべました。</div>
+        <div class="sen-cn">在网上查了。</div>
+        <span class="sen-tag">～で（手段）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ウ<small class="ro">u</small></span><span class="sen-word"><span class="jp">ウーロン茶</span><span class="cn">乌龙茶</span></span></div>
+        <div class="sen-jp">ウーロン茶は飲みません。</div>
+        <div class="sen-read">ウーロンちゃ は のみません。</div>
+        <div class="sen-cn">不喝乌龙茶。</div>
+        <span class="sen-tag">～ません（礼貌否定）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">エ<small class="ro">e</small></span><span class="sen-word"><span class="jp">エアコン</span><span class="cn">空调</span></span></div>
+        <div class="sen-jp">暑いから、エアコンをつけます。</div>
+        <div class="sen-read">あつい から、エアコン を つけます。</div>
+        <div class="sen-cn">因为热，开空调。</div>
+        <span class="sen-tag">～から（原因）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">オ<small class="ro">o</small></span><span class="sen-word"><span class="jp">オレンジ</span><span class="cn">橙子</span></span></div>
+        <div class="sen-jp">オレンジは甘いです。</div>
+        <div class="sen-read">オレンジ は あまい です。</div>
+        <div class="sen-cn">橙子很甜。</div>
+        <span class="sen-tag">～は + イ形 + です</span>
+      </div>
+    </div>
+
+    <div class="row-label">カ行 <span class="en">ka-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">カ<small class="ro">ka</small></span><span class="sen-word"><span class="jp">カメラ</span><span class="cn">相机</span></span></div>
+        <div class="sen-jp">新しいカメラがほしいです。</div>
+        <div class="sen-read">あたらしい カメラ が ほしい です。</div>
+        <div class="sen-cn">想要新相机。</div>
+        <span class="sen-tag">～がほしい（想要物）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">キ<small class="ro">ki</small></span><span class="sen-word"><span class="jp">キムチ</span><span class="cn">泡菜</span></span></div>
+        <div class="sen-jp">キムチも好きです。</div>
+        <div class="sen-read">キムチ も すき です。</div>
+        <div class="sen-cn">泡菜也喜欢。</div>
+        <span class="sen-tag">～も～です（也）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ク<small class="ro">ku</small></span><span class="sen-word"><span class="jp">クッキー</span><span class="cn">饼干</span></span></div>
+        <div class="sen-jp">母とクッキーを作ります。</div>
+        <div class="sen-read">はは と クッキー を つくります。</div>
+        <div class="sen-cn">和妈妈一起做饼干。</div>
+        <span class="sen-tag">～と（伴随）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ケ<small class="ro">ke</small></span><span class="sen-word"><span class="jp">ケーキ</span><span class="cn">蛋糕</span></span></div>
+        <div class="sen-jp">誕生日にケーキを食べました。</div>
+        <div class="sen-read">たんじょうび に ケーキ を たべました。</div>
+        <div class="sen-cn">生日吃了蛋糕。</div>
+        <span class="sen-tag">特殊日 + に（时间点）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">コ<small class="ro">ko</small></span><span class="sen-word"><span class="jp">コーヒー</span><span class="cn">咖啡</span></span></div>
+        <div class="sen-jp">コーヒーと紅茶とどちらが好きですか。</div>
+        <div class="sen-read">コーヒー と こうちゃ と どちら が すき です か。</div>
+        <div class="sen-cn">咖啡和红茶你更喜欢哪个？</div>
+        <span class="sen-tag">A と B とどちら（比较）</span>
+      </div>
+    </div>
+
+    <div class="row-label">サ行 <span class="en">sa-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">サ<small class="ro">sa</small></span><span class="sen-word"><span class="jp">サッカー</span><span class="cn">足球</span></span></div>
+        <div class="sen-jp">サッカーをしませんか。</div>
+        <div class="sen-read">サッカー を しません か。</div>
+        <div class="sen-cn">要不要踢足球？</div>
+        <span class="sen-tag">～ませんか（邀请）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">シ<small class="ro">shi</small></span><span class="sen-word"><span class="jp">シャツ</span><span class="cn">衬衫</span></span></div>
+        <div class="sen-jp">このシャツは安いです。</div>
+        <div class="sen-read">この シャツ は やすい です。</div>
+        <div class="sen-cn">这件衬衫便宜。</div>
+        <span class="sen-tag">この + 名词</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ス<small class="ro">su</small></span><span class="sen-word"><span class="jp">スポーツ</span><span class="cn">运动</span></span></div>
+        <div class="sen-jp">スポーツが上手です。</div>
+        <div class="sen-read">スポーツ が じょうず です。</div>
+        <div class="sen-cn">擅长运动。</div>
+        <span class="sen-tag">～が上手（擅长）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">セ<small class="ro">se</small></span><span class="sen-word"><span class="jp">セーター</span><span class="cn">毛衣</span></span></div>
+        <div class="sen-jp">寒い時にセーターを着ます。</div>
+        <div class="sen-read">さむい とき に セーター を きます。</div>
+        <div class="sen-cn">冷的时候穿毛衣。</div>
+        <span class="sen-tag">～時に（…的时候）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ソ<small class="ro">so</small></span><span class="sen-word"><span class="jp">ソファー</span><span class="cn">沙发</span></span></div>
+        <div class="sen-jp">ソファーで休んでいます。</div>
+        <div class="sen-read">ソファー で やすんで います。</div>
+        <div class="sen-cn">在沙发上休息。</div>
+        <span class="sen-tag">～で + ～ている</span>
+      </div>
+    </div>
+
+    <div class="row-label">タ行 <span class="en">ta-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">タ<small class="ro">ta</small></span><span class="sen-word"><span class="jp">タクシー</span><span class="cn">出租车</span></span></div>
+        <div class="sen-jp">タクシーで行きましょう。</div>
+        <div class="sen-read">タクシー で いきましょう。</div>
+        <div class="sen-cn">坐出租车去吧。</div>
+        <span class="sen-tag">～で（手段）+ ましょう</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">チ<small class="ro">chi</small></span><span class="sen-word"><span class="jp">チョコレート</span><span class="cn">巧克力</span></span></div>
+        <div class="sen-jp">チョコレートは甘くておいしいです。</div>
+        <div class="sen-read">チョコレート は あまくて おいしい です。</div>
+        <div class="sen-cn">巧克力又甜又好吃。</div>
+        <span class="sen-tag">～くて～（イ形并列）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ツ<small class="ro">tsu</small></span><span class="sen-word"><span class="jp">ツアー</span><span class="cn">旅行团</span></span></div>
+        <div class="sen-jp">ツアーに参加したいです。</div>
+        <div class="sen-read">ツアー に さんかしたい です。</div>
+        <div class="sen-cn">想参加旅行团。</div>
+        <span class="sen-tag">～に参加する + たい</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">テ<small class="ro">te</small></span><span class="sen-word"><span class="jp">テレビ</span><span class="cn">电视</span></span></div>
+        <div class="sen-jp">テレビを見ながらご飯を食べます。</div>
+        <div class="sen-read">テレビ を みながら ごはん を たべます。</div>
+        <div class="sen-cn">边看电视边吃饭。</div>
+        <span class="sen-tag">～ながら</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ト<small class="ro">to</small></span><span class="sen-word"><span class="jp">トマト</span><span class="cn">番茄</span></span></div>
+        <div class="sen-jp">トマトが嫌いです。</div>
+        <div class="sen-read">トマト が きらい です。</div>
+        <div class="sen-cn">讨厌番茄。</div>
+        <span class="sen-tag">～が嫌い（讨厌）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ナ行 <span class="en">na-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ナ<small class="ro">na</small></span><span class="sen-word"><span class="jp">ナイフ</span><span class="cn">刀</span></span></div>
+        <div class="sen-jp">ナイフでパンを切ります。</div>
+        <div class="sen-read">ナイフ で パン を きります。</div>
+        <div class="sen-cn">用刀切面包。</div>
+        <span class="sen-tag">～で（工具）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ニ<small class="ro">ni</small></span><span class="sen-word"><span class="jp">ニュース</span><span class="cn">新闻</span></span></div>
+        <div class="sen-jp">毎朝ニュースを見ます。</div>
+        <div class="sen-read">まいあさ ニュース を みます。</div>
+        <div class="sen-cn">每天早上看新闻。</div>
+        <span class="sen-tag">頻度副词 + ます</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヌ<small class="ro">nu</small></span><span class="sen-word"><span class="jp">ヌードル</span><span class="cn">面条</span></span></div>
+        <div class="sen-jp">カップヌードルを食べたことがあります。</div>
+        <div class="sen-read">カップヌードル を たべた こと が あります。</div>
+        <div class="sen-cn">吃过杯面。</div>
+        <span class="sen-tag">～たことがある</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ネ<small class="ro">ne</small></span><span class="sen-word"><span class="jp">ネクタイ</span><span class="cn">领带</span></span></div>
+        <div class="sen-jp">青いネクタイをしている人は父です。</div>
+        <div class="sen-read">あおい ネクタイ を して いる ひと は ちち です。</div>
+        <div class="sen-cn">系着蓝色领带的那个人是我父亲。</div>
+        <span class="sen-tag">～ている人（连体修饰）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ノ<small class="ro">no</small></span><span class="sen-word"><span class="jp">ノート</span><span class="cn">笔记本</span></span></div>
+        <div class="sen-jp">ノートに名前を書いてください。</div>
+        <div class="sen-read">ノート に なまえ を かいて ください。</div>
+        <div class="sen-cn">请在笔记本上写名字。</div>
+        <span class="sen-tag">～てください（请做）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ハ行 <span class="en">ha-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ハ<small class="ro">ha</small></span><span class="sen-word"><span class="jp">ハンバーガー</span><span class="cn">汉堡</span></span></div>
+        <div class="sen-jp">昼ごはんはハンバーガーでした。</div>
+        <div class="sen-read">ひるごはん は ハンバーガー でした。</div>
+        <div class="sen-cn">午饭是汉堡。</div>
+        <span class="sen-tag">～でした（名词过去）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヒ<small class="ro">hi</small></span><span class="sen-word"><span class="jp">ヒーター</span><span class="cn">电暖器</span></span></div>
+        <div class="sen-jp">寒いので、ヒーターをつけました。</div>
+        <div class="sen-read">さむい ので、ヒーター を つけました。</div>
+        <div class="sen-cn">因为冷，开了电暖器。</div>
+        <span class="sen-tag">～ので（柔和因果）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">フ<small class="ro">fu</small></span><span class="sen-word"><span class="jp">フランス</span><span class="cn">法国</span></span></div>
+        <div class="sen-jp">フランスへ旅行に行きます。</div>
+        <div class="sen-read">フランス へ りょこう に いきます。</div>
+        <div class="sen-cn">去法国旅游。</div>
+        <span class="sen-tag">～に行く（目的）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヘ<small class="ro">he</small></span><span class="sen-word"><span class="jp">ヘリコプター</span><span class="cn">直升机</span></span></div>
+        <div class="sen-jp">ヘリコプターに乗ったことがありません。</div>
+        <div class="sen-read">ヘリコプター に のった こと が ありません。</div>
+        <div class="sen-cn">没坐过直升机。</div>
+        <span class="sen-tag">～たことがない（无经验）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ホ<small class="ro">ho</small></span><span class="sen-word"><span class="jp">ホテル</span><span class="cn">酒店</span></span></div>
+        <div class="sen-jp">駅の近くにホテルがあります。</div>
+        <div class="sen-read">えき の ちかく に ホテル が あります。</div>
+        <div class="sen-cn">车站附近有酒店。</div>
+        <span class="sen-tag">～の近くに</span>
+      </div>
+    </div>
+
+    <div class="row-label">マ行 <span class="en">ma-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">マ<small class="ro">ma</small></span><span class="sen-word"><span class="jp">マンゴー</span><span class="cn">芒果</span></span></div>
+        <div class="sen-jp">マンゴーが一番好きです。</div>
+        <div class="sen-read">マンゴー が いちばん すき です。</div>
+        <div class="sen-cn">最喜欢芒果。</div>
+        <span class="sen-tag">一番（最）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ミ<small class="ro">mi</small></span><span class="sen-word"><span class="jp">ミルク</span><span class="cn">牛奶</span></span></div>
+        <div class="sen-jp">朝はミルクしか飲みません。</div>
+        <div class="sen-read">あさ は ミルク しか のみません。</div>
+        <div class="sen-cn">早上只喝牛奶。</div>
+        <span class="sen-tag">～しか…ない（只）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ム<small class="ro">mu</small></span><span class="sen-word"><span class="jp">ムード</span><span class="cn">气氛</span></span></div>
+        <div class="sen-jp">ここはムードがいいですね。</div>
+        <div class="sen-read">ここ は ムード が いい です ね。</div>
+        <div class="sen-cn">这里气氛真好啊。</div>
+        <span class="sen-tag">ね（共感）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">メ<small class="ro">me</small></span><span class="sen-word"><span class="jp">メール</span><span class="cn">邮件</span></span></div>
+        <div class="sen-jp">先生にメールを送りました。</div>
+        <div class="sen-read">せんせい に メール を おくりました。</div>
+        <div class="sen-cn">给老师发了邮件。</div>
+        <span class="sen-tag">～に（对象）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">モ<small class="ro">mo</small></span><span class="sen-word"><span class="jp">モニター</span><span class="cn">显示器</span></span></div>
+        <div class="sen-jp">大きいモニターがほしいです。</div>
+        <div class="sen-read">おおきい モニター が ほしい です。</div>
+        <div class="sen-cn">想要大显示器。</div>
+        <span class="sen-tag">形容词 + 名词 + がほしい</span>
+      </div>
+    </div>
+
+    <div class="row-label">ヤ行 <span class="en">ya-row</span><span class="count">3 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヤ<small class="ro">ya</small></span><span class="sen-word"><span class="jp">ヤング</span><span class="cn">年轻</span></span></div>
+        <div class="sen-jp">ヤングな考え方が好きです。</div>
+        <div class="sen-read">ヤング な かんがえかた が すき です。</div>
+        <div class="sen-cn">喜欢年轻的思维方式。</div>
+        <span class="sen-tag">ナ形 + な + 名词</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ユ<small class="ro">yu</small></span><span class="sen-word"><span class="jp">ユーモア</span><span class="cn">幽默</span></span></div>
+        <div class="sen-jp">彼にはユーモアがあります。</div>
+        <div class="sen-read">かれ に は ユーモア が あります。</div>
+        <div class="sen-cn">他有幽默感。</div>
+        <span class="sen-tag">～には～がある</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヨ<small class="ro">yo</small></span><span class="sen-word"><span class="jp">ヨガ</span><span class="cn">瑜伽</span></span></div>
+        <div class="sen-jp">毎週ヨガをしています。</div>
+        <div class="sen-read">まいしゅう ヨガ を して います。</div>
+        <div class="sen-cn">每周做瑜伽。</div>
+        <span class="sen-tag">～ています（习惯性动作）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ラ行 <span class="en">ra-row</span><span class="count">5 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ラ<small class="ro">ra</small></span><span class="sen-word"><span class="jp">ラーメン</span><span class="cn">拉面</span></span></div>
+        <div class="sen-jp">ラーメンが食べたくなりました。</div>
+        <div class="sen-read">ラーメン が たべたく なりました。</div>
+        <div class="sen-cn">变得想吃拉面了。</div>
+        <span class="sen-tag">～たくなる（变得想做）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">リ<small class="ro">ri</small></span><span class="sen-word"><span class="jp">リーダー</span><span class="cn">领导者</span></span></div>
+        <div class="sen-jp">彼はチームのリーダーです。</div>
+        <div class="sen-read">かれ は チーム の リーダー です。</div>
+        <div class="sen-cn">他是团队的领导者。</div>
+        <span class="sen-tag">～の～（所属）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ル<small class="ro">ru</small></span><span class="sen-word"><span class="jp">ルール</span><span class="cn">规则</span></span></div>
+        <div class="sen-jp">ルールを守らなければなりません。</div>
+        <div class="sen-read">ルール を まもらなければ なりません。</div>
+        <div class="sen-cn">必须遵守规则。</div>
+        <span class="sen-tag">～なければなりません（必须）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">レ<small class="ro">re</small></span><span class="sen-word"><span class="jp">レストラン</span><span class="cn">餐厅</span></span></div>
+        <div class="sen-jp">あのレストランで食事しましょう。</div>
+        <div class="sen-read">あの レストラン で しょくじしましょう。</div>
+        <div class="sen-cn">在那家餐厅吃饭吧。</div>
+        <span class="sen-tag">あの + 名词 + ましょう</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ロ<small class="ro">ro</small></span><span class="sen-word"><span class="jp">ロボット</span><span class="cn">机器人</span></span></div>
+        <div class="sen-jp">ロボットを作ることができます。</div>
+        <div class="sen-read">ロボット を つくる こと が できます。</div>
+        <div class="sen-cn">能做机器人。</div>
+        <span class="sen-tag">～ことができる（能做）</span>
+      </div>
+    </div>
+
+    <div class="row-label">ワ行・ン <span class="en">wa-row &amp; n</span><span class="count">3 句</span></div>
+    <div class="sen-list">
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ワ<small class="ro">wa</small></span><span class="sen-word"><span class="jp">ワイン</span><span class="cn">葡萄酒</span></span></div>
+        <div class="sen-jp">フランスのワインはおいしいです。</div>
+        <div class="sen-read">フランス の ワイン は おいしい です。</div>
+        <div class="sen-cn">法国的葡萄酒好喝。</div>
+        <span class="sen-tag">国 + の + 名词</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ヲ<small class="ro">wo</small></span><span class="sen-word"><span class="jp">パンを</span><span class="cn">面包を / 借助词ヲ</span></span></div>
+        <div class="sen-jp">パンを買いに行きます。</div>
+        <div class="sen-read">パン を かい に いきます。</div>
+        <div class="sen-cn">去买面包。</div>
+        <span class="sen-tag">～に行く（目的）</span>
+      </div>
+      <div class="sen-card">
+        <div class="sen-head"><span class="sen-kana">ン<small class="ro">n</small></span><span class="sen-word"><span class="jp">パン</span><span class="cn">面包</span></span></div>
+        <div class="sen-jp">朝パンとコーヒーを飲みます。</div>
+        <div class="sen-read">あさ パン と コーヒー を のみます。</div>
+        <div class="sen-cn">早上吃面包配咖啡。</div>
+        <span class="sen-tag">～と（并列）</span>
+      </div>
+    </div>
+
+    <div class="note-special">
+      <strong>关于 ヲ 和 ン（片假名）：</strong>
+      ヲ 与平假名 を 同样是助词，<strong>不能作词头</strong>，几乎只在艺术/标语等特殊场合用片假名形式。
+      ン 不能作词头，但作为<strong>词尾的 ん 音</strong>极常见（パン、ラーメン、サイン...）。
+      所以这两个假名同样通过"出现在词中/句中"来记。
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="closing-kanji">音</div>
+    <p class="closing-text">每一个假名都<em>认得出</em>，<br>每一个语法都<em>用得上</em>。</p>
+    <p class="closing-jp">音と文法、二兎を追う —— 一石二鸟。</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 日语学习路线 · 五十音造句</div>
+  <div><a href="./index.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 总览</a><a href="./n5/notes.html" style="text-transform:none;letter-spacing:.05em">→ N5 完整笔记</a></div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+const progress=document.getElementById('progress');
+function up(){const h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'}
+window.addEventListener('scroll',up,{passive:true});up();
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.section,.closing').forEach(el=>{el.classList.add('reveal');io.observe(el)});
+</script>
+
+</body>
+</html>
