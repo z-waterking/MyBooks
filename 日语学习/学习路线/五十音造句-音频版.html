@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五十音造句 · 音频版 · 92 句</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/style.css">
+<style>
+:root {
+  --bell:#c8362d;
+  --bell-deep:#963227;
+  --paper:#faf6ef;
+  --paper-warm:#f0e6d3;
+}
+
+/* === 顶部控制面板 === */
+.audio-bar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250,246,239,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--ink);
+  padding: 14px 0;
+  margin-bottom: 22px;
+}
+.audio-bar-inner {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  max-width: 1300px; margin: 0 auto; padding: 0 22px;
+}
+.audio-bar h2 {
+  font-family: var(--serif-jp); font-size: 18px; font-weight: 700;
+  color: var(--ink); margin: 0; letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 8px;
+}
+.audio-bar h2 small {
+  font-family: var(--mono); font-size: 11px; font-weight: 400;
+  color: var(--ink-3); letter-spacing: 0.1em;
+}
+.ctrl-group {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+.ctrl-group label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-3); letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ctrl-group input[type=range] {
+  width: 80px; cursor: pointer;
+}
+.ctrl-group select {
+  background: transparent; border: none; outline: none;
+  font-family: var(--serif-jp); font-size: 13px; color: var(--ink);
+  cursor: pointer; padding: 2px 4px;
+}
+.btn-control {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  background: var(--ink); color: var(--paper);
+  border: 1px solid var(--ink); cursor: pointer;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+.btn-control:hover { background: var(--bell-deep); border-color: var(--bell-deep); }
+.btn-control.active { background: var(--bell); border-color: var(--bell); }
+.btn-control.outline { background: transparent; color: var(--ink); }
+.btn-control.outline:hover { background: var(--ink); color: var(--paper); }
+
+.status-pill {
+  margin-left: auto; font-family: var(--mono); font-size: 11px;
+  color: var(--ink-3); letter-spacing: 0.08em;
+}
+.status-pill .num { color: var(--bell); font-weight: 700; }
+
+/* === 句子卡片 === */
+.sen-list-aud {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 14px;
+  margin-bottom: 38px;
+}
+.sa {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--line-soft);
+  padding: 14px 16px 14px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.sa:hover {
+  background: rgba(255,255,255,0.92);
+  border-color: var(--bell);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(150,50,39,0.08);
+}
+.sa.playing {
+  background: rgba(200,54,45,0.06);
+  border-color: var(--bell);
+  border-left-width: 3px;
+}
+
+.sa-head {
+  display: flex; align-items: baseline; gap: 10px;
+  padding-bottom: 8px; margin-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+.sa-kana {
+  font-family: var(--serif-jp); font-size: 30px; font-weight: 700;
+  color: var(--bell); line-height: 1;
+  display: inline-flex; align-items: baseline; gap: 6px;
+}
+.sa-kana .ro {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-3); font-weight: 500;
+  letter-spacing: 0.05em; font-style: italic;
+}
+.sa-word { display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; }
+.sa-word .jp { font-family: var(--serif-jp); font-size: 15px; font-weight: 700; color: var(--ink); }
+.sa-word .furi { font-family: var(--serif-jp); font-size: 10px; color: var(--bell-deep); }
+.sa-word .cn { font-size: 11px; color: var(--ink-3); margin-left: 3px; }
+
+.sa-body { position: relative; padding-right: 44px; }
+.sa-jp {
+  font-family: var(--serif-jp); font-size: 17px; font-weight: 500;
+  color: var(--ink); line-height: 1.5; margin-bottom: 4px;
+  cursor: pointer;
+}
+.sa-jp:hover { color: var(--bell); }
+.sa-read {
+  font-family: var(--serif-jp); font-size: 11.5px;
+  color: var(--ink-3); margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.sa-cn {
+  font-size: 12.5px; color: var(--ink-2);
+  line-height: 1.5; margin-bottom: 8px; font-style: italic;
+}
+.sa-cn::before {
+  content: "→ "; color: var(--bell);
+  font-style: normal; font-weight: 600;
+}
+.sa-tag {
+  display: inline-block;
+  font-family: var(--serif-jp); font-size: 10.5px; font-weight: 600;
+  color: var(--bell-deep); background: rgba(200,54,45,0.07);
+  padding: 2px 8px; border-radius: 2px; letter-spacing: 0.04em;
+}
+
+/* === 播放按钮 === */
+.play-btn {
+  position: absolute; top: 0; right: 0;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+}
+.play-btn:hover {
+  background: var(--ink); border-color: var(--ink);
+}
+.play-btn:hover svg { fill: var(--paper); }
+.play-btn svg { width: 14px; height: 14px; fill: var(--ink); transition: fill 0.2s ease; }
+.sa.playing .play-btn {
+  background: var(--bell); border-color: var(--bell);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.sa.playing .play-btn svg { fill: var(--paper); }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,54,45,0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(200,54,45,0); }
+}
+
+/* === 行标 === */
+.row-label-aud {
+  font-family: var(--serif-jp); font-size: 16px; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.05em;
+  margin: 22px 0 14px; padding: 6px 0;
+  border-bottom: 1px solid var(--ink);
+  display: flex; align-items: baseline; gap: 14px;
+}
+.row-label-aud .en {
+  font-family: var(--serif-display); font-style: italic;
+  font-size: 12px; color: var(--ink-3); font-weight: 400; letter-spacing: 0.1em;
+}
+.row-label-aud .count {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  letter-spacing: 0.05em;
+}
+.row-label-aud .row-play {
+  margin-left: auto;
+  padding: 3px 10px;
+  background: transparent; border: 1px solid var(--ink);
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--ink); cursor: pointer; text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+.row-label-aud .row-play:hover { background: var(--ink); color: var(--paper); }
+
+/* === 音色不可用提示 === */
+.no-voice-warn {
+  background: rgba(200,54,45,0.08);
+  border: 1px solid var(--bell);
+  padding: 14px 18px;
+  margin: 16px 0 24px;
+  font-size: 13px;
+  color: var(--bell-deep);
+  display: none;
+}
+.no-voice-warn.show { display: block; }
+.no-voice-warn strong { font-family: var(--serif-jp); }
+
+/* === 进度浮条 === */
+.now-playing {
+  position: fixed; bottom: 20px; left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--ink); color: var(--paper);
+  padding: 12px 22px;
+  font-family: var(--serif-jp); font-size: 14px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  z-index: 100;
+  transition: transform 0.3s ease;
+  display: flex; align-items: center; gap: 14px;
+  max-width: 90%;
+}
+.now-playing.show { transform: translateX(-50%) translateY(0); }
+.now-playing .np-stop {
+  background: var(--bell); border: none; color: var(--paper);
+  padding: 4px 12px; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+}
+
+/* === 节标题 === */
+.aud-hero {
+  padding: 32px 0 18px;
+}
+.aud-hero h1 {
+  font-family: var(--serif-jp); font-size: 38px; font-weight: 800;
+  color: var(--ink); margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+.aud-hero p {
+  font-size: 14px; color: var(--ink-2);
+  line-height: 1.6; max-width: 780px;
+}
+.aud-hero .tip {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--paper-warm);
+  border-left: 2px solid var(--bell);
+  font-size: 12px; color: var(--ink-2); line-height: 1.55;
+}
+.aud-hero .tip code {
+  background: rgba(0,0,0,0.06); padding: 1px 5px;
+  font-family: var(--mono); font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  .audio-bar-inner { gap: 10px; padding: 0 14px; }
+  .audio-bar h2 { font-size: 15px; }
+  .ctrl-group { padding: 4px 8px; gap: 6px; }
+  .ctrl-group input[type=range] { width: 60px; }
+  .btn-control { padding: 5px 10px; font-size: 10px; }
+  .status-pill { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="left">
+    <span class="dot"></span>
+    <a href="./index.html" class="back-link">返回总览</a>
+    <span class="vol">五十音造句 · 音频版</span>
+  </div>
+  <div>2026 · 春</div>
+</header>
+
+<div class="rule-double"><hr><hr></div>
+
+<main class="page">
+  <section class="aud-hero">
+    <span class="kicker" style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-3);text-transform:uppercase;">Audio Practice · 92 Sentences</span>
+    <h1>五十音造句 · 音频学习</h1>
+    <p>92 句完整覆盖所有平假名 + 片假名。<strong>点击每句右上角 ▶ 按钮即可播放日语发音</strong>；可调语速、自动连播、单行连播。本页使用浏览器原生 Web Speech API，无需联网。</p>
+    <div class="tip">
+      <strong>音源说明：</strong>默认使用 <code>本地 Nanami Neural mp3</code>（用 Microsoft Edge TTS 真人音质预先生成的 92 段，离线可用，最自然）。备选：<code>Google 翻译</code>（联网）/ <code>系统语音</code>（离线，机械感强）。如果本地 mp3 丢失会<strong>自动回退</strong>。
+    </div>
+    <div id="noVoiceWarn" class="no-voice-warn">
+      <strong>⚠ 没检测到日语语音。</strong>请安装日语语音包：Windows 在「设置 → 时间和语言 → 语言 → 添加首选语言」中加入「日本語」并下载语音包；Mac 在「系统偏好设置 → 辅助功能 → 语音内容 → 系统语音」中下载 Kyoko 等日语语音。
+    </div>
+  </section>
+
+  <!-- 顶部音频控制面板 -->
+  <div class="audio-bar">
+    <div class="audio-bar-inner">
+      <h2>音频控制 <small>· AUDIO PANEL</small></h2>
+      <div class="ctrl-group">
+        <label>音源:</label>
+        <select id="engineSel">
+          <option value="local">本地 Nanami（最自然）★</option>
+          <option value="google">Google 翻译（联网）</option>
+          <option value="native">系统语音（机械）</option>
+        </select>
+      </div>
+      <div class="ctrl-group" id="voiceGroup" style="display:none;">
+        <label>语音:</label>
+        <select id="voiceSel"></select>
+      </div>
+      <div class="ctrl-group">
+        <label>语速:</label>
+        <input type="range" id="rateSel" min="0.5" max="1.4" step="0.05" value="0.9">
+        <span id="rateVal" style="font-family:var(--mono);font-size:11px;color:var(--ink);min-width:32px;">0.9x</span>
+      </div>
+      <button class="btn-control outline" id="autoNext">▸ 连播</button>
+      <button class="btn-control outline" id="repeat">↺ 单句循环</button>
+      <button class="btn-control" id="playAll">▶ 播放全部 (92)</button>
+      <button class="btn-control" id="stopAll">■ 停止</button>
+      <span class="status-pill">已加载 <span class="num" id="totalCnt">0</span> 句</span>
+    </div>
+  </div>
+
+  <!-- 句子容器 -->
+  <div id="audioContainer"></div>
+
+</main>
+
+<div id="nowPlaying" class="now-playing">
+  <span id="nowPlayingText">正在播放...</span>
+  <button class="np-stop" id="npStop">停止</button>
+</div>
+
+<footer>
+  <div>© 日语学习路线 · 五十音造句音频版</div>
+  <div>
+    <a href="./五十音造句.html" style="text-transform:none;letter-spacing:.05em;margin-right:14px">← 原版（打印用）</a>
+    <a href="./index.html" style="text-transform:none;letter-spacing:.05em">→ 总览</a>
+  </div>
+  <div>2026 · 春</div>
+</footer>
+
+<script>
+// ========== 92 句数据 ==========
+const DATA = [
+  // 平假名 46 句
+  { sec:"hira", row:"a",  rowLabel:"あ行", rowEn:"a-row",
+    items:[
+      { k:"あ", ro:"a",   w:"朝", f:"あさ", cn:"早上",   jp:"朝ご飯を食べました。",  read:"あさごはん を たべました。",   tr:"我吃了早饭。",       tag:"～ました（过去时）" },
+      { k:"い", ro:"i",   w:"妹", f:"いもうと", cn:"妹妹", jp:"妹がいます。",          read:"いもうと が います。",         tr:"我有妹妹。",         tag:"～がいます（人/动物存在）" },
+      { k:"う", ro:"u",   w:"海", f:"うみ", cn:"海",      jp:"夏に海へ行きます。",     read:"なつ に うみ へ いきます。",   tr:"夏天去海边。",       tag:"～へ行く（方向）" },
+      { k:"え", ro:"e",   w:"駅", f:"えき", cn:"车站",    jp:"駅はあそこにあります。", read:"えき は あそこ に あります。", tr:"车站在那里。",       tag:"～は～にあります" },
+      { k:"お", ro:"o",   w:"お茶", f:"おちゃ", cn:"茶",  jp:"毎日お茶を飲みます。",   read:"まいにち おちゃ を のみます。",tr:"每天喝茶。",         tag:"～を + 动词（宾语）" },
+    ]
+  },
+  { sec:"hira", row:"ka", rowLabel:"か行", rowEn:"ka-row",
+    items:[
+      { k:"か", ro:"ka", w:"学校", f:"がっこう", cn:"学校", jp:"学校で日本語を勉強します。", read:"がっこう で にほんご を べんきょうします。", tr:"在学校学日语。", tag:"～で（动作场所）" },
+      { k:"き", ro:"ki", w:"木", f:"き", cn:"树",       jp:"庭に大きい木があります。",  read:"にわ に おおきい き が あります。", tr:"院子里有一棵大树。",   tag:"形容词 + 名词" },
+      { k:"く", ro:"ku", w:"車", f:"くるま", cn:"车",    jp:"車で会社へ行きます。",      read:"くるま で かいしゃ へ いきます。",  tr:"开车去公司。",         tag:"～で（手段）" },
+      { k:"け", ro:"ke", w:"携帯", f:"けいたい", cn:"手机", jp:"携帯を使ってもいいですか。", read:"けいたい を つかって も いい です か。", tr:"可以用手机吗？", tag:"～てもいいです（可以）" },
+      { k:"こ", ro:"ko", w:"子供", f:"こども", cn:"孩子",  jp:"子供が好きです。",          read:"こども が すき です。",            tr:"喜欢孩子。",            tag:"～が好き（喜好）" },
+    ]
+  },
+  { sec:"hira", row:"sa", rowLabel:"さ行", rowEn:"sa-row",
+    items:[
+      { k:"さ", ro:"sa", w:"寒い", f:"さむい", cn:"冷",   jp:"寒いから、コートを着ます。", read:"さむい から、コート を きます。", tr:"因为冷，所以穿外套。", tag:"～から（原因）" },
+      { k:"し", ro:"shi", w:"写真", f:"しゃしん", cn:"照片", jp:"ここで写真を撮ってください。", read:"ここ で しゃしん を とって ください。", tr:"请在这里拍照。", tag:"～てください（请做）" },
+      { k:"す", ro:"su", w:"寿司", f:"すし", cn:"寿司",   jp:"寿司が食べたいです。",      read:"すし が たべたい です。",          tr:"想吃寿司。",          tag:"～たいです（想做）" },
+      { k:"せ", ro:"se", w:"先生", f:"せんせい", cn:"老师", jp:"先生と一緒に話します。",    read:"せんせい と いっしょ に はなします。", tr:"和老师一起说话。",     tag:"～と一緒に（一起）" },
+      { k:"そ", ro:"so", w:"空", f:"そら", cn:"天空",    jp:"空が青いですね。",          read:"そら が あおい です ね。",         tr:"天空真蓝啊。",         tag:"ね（确认/共感）" },
+    ]
+  },
+  { sec:"hira", row:"ta", rowLabel:"た行", rowEn:"ta-row",
+    items:[
+      { k:"た", ro:"ta", w:"食べる", f:"たべる", cn:"吃",   jp:"今、ご飯を食べています。",  read:"いま、ごはん を たべて います。",  tr:"现在正在吃饭。",        tag:"～ています（正在）" },
+      { k:"ち", ro:"chi", w:"父", f:"ちち", cn:"父亲",     jp:"父は医者です。",           read:"ちち は いしゃ です。",            tr:"我父亲是医生。",        tag:"～は～です" },
+      { k:"つ", ro:"tsu", w:"机", f:"つくえ", cn:"桌子",   jp:"机の上に本があります。",   read:"つくえ の うえ に ほん が あります。", tr:"桌上有书。",           tag:"～の上に（位置）" },
+      { k:"て", ro:"te", w:"手紙", f:"てがみ", cn:"信",    jp:"友達に手紙を書きました。", read:"ともだち に てがみ を かきました。", tr:"给朋友写了信。",        tag:"～に（对象）" },
+      { k:"と", ro:"to", w:"友達", f:"ともだち", cn:"朋友", jp:"友達と映画を見ませんか。", read:"ともだち と えいが を みません か。", tr:"要不要和朋友看电影？", tag:"～ませんか（邀请）" },
+    ]
+  },
+  { sec:"hira", row:"na", rowLabel:"な行", rowEn:"na-row",
+    items:[
+      { k:"な", ro:"na", w:"夏", f:"なつ", cn:"夏天",     jp:"夏は暑くて、長いです。",   read:"なつ は あつくて、ながい です。", tr:"夏天又热又长。",        tag:"～くて（イ形连用）" },
+      { k:"に", ro:"ni", w:"日本", f:"にほん", cn:"日本", jp:"日本から来ました。",       read:"にほん から きました。",        tr:"从日本来的。",          tag:"～から（起点）" },
+      { k:"ぬ", ro:"nu", w:"脱ぐ", f:"ぬぐ", cn:"脱",     jp:"玄関で靴を脱ぎます。",     read:"げんかん で くつ を ぬぎます。", tr:"在玄关脱鞋。",          tag:"ます形（礼貌现在）" },
+      { k:"ね", ro:"ne", w:"猫", f:"ねこ", cn:"猫",       jp:"私も猫が好きです。",       read:"わたし も ねこ が すき です。",  tr:"我也喜欢猫。",          tag:"～も～です（也）" },
+      { k:"の", ro:"no", w:"飲む", f:"のむ", cn:"喝",     jp:"薬を飲んだほうがいいです。", read:"くすり を のんだ ほう が いい です。", tr:"最好吃药。",      tag:"～たほうがいい（最好）" },
+    ]
+  },
+  { sec:"hira", row:"ha", rowLabel:"は行", rowEn:"ha-row",
+    items:[
+      { k:"は", ro:"ha", w:"花", f:"はな", cn:"花",       jp:"この花はきれいですね。",   read:"この はな は きれい です ね。", tr:"这花真漂亮啊。",        tag:"この + 名词" },
+      { k:"ひ", ro:"hi", w:"飛行機", f:"ひこうき", cn:"飞机", jp:"飛行機に乗ったことがあります。", read:"ひこうき に のった こと が あります。", tr:"坐过飞机。", tag:"～たことがある（经验）" },
+      { k:"ふ", ro:"fu", w:"冬", f:"ふゆ", cn:"冬天",     jp:"冬は寒いですが、好きです。", read:"ふゆ は さむい です が、すき です。", tr:"冬天虽然冷但喜欢。",   tag:"～が（但是）" },
+      { k:"へ", ro:"he", w:"部屋", f:"へや", cn:"房间",   jp:"部屋に弟がいます。",        read:"へや に おとうと が います。",    tr:"房间里有弟弟。",        tag:"～に～がいます" },
+      { k:"ほ", ro:"ho", w:"本", f:"ほん", cn:"书",       jp:"寝る前に本を読みます。",   read:"ねる まえ に ほん を よみます。", tr:"睡前读书。",            tag:"～前に（之前）" },
+    ]
+  },
+  { sec:"hira", row:"ma", rowLabel:"ま行", rowEn:"ma-row",
+    items:[
+      { k:"ま", ro:"ma", w:"毎日", f:"まいにち", cn:"每天", jp:"毎日学校へ行きます。",     read:"まいにち がっこう へ いきます。", tr:"每天去学校。",          tag:"頻度副词 + ます" },
+      { k:"み", ro:"mi", w:"水", f:"みず", cn:"水",       jp:"水がほしいです。",          read:"みず が ほしい です。",          tr:"想要水。",              tag:"～がほしい（想要物）" },
+      { k:"む", ro:"mu", w:"難しい", f:"むずかしい", cn:"难", jp:"日本語は難しくないです。", read:"にほんご は むずかしく ない です。", tr:"日语不难。",         tag:"イ形否定（～くない）" },
+      { k:"め", ro:"me", w:"眼鏡", f:"めがね", cn:"眼镜", jp:"眼鏡をかけている人は誰ですか。", read:"めがね を かけて いる ひと は だれ です か。", tr:"戴眼镜的那个人是谁？", tag:"～ている（状态修饰）" },
+      { k:"も", ro:"mo", w:"桃", f:"もも", cn:"桃子",     jp:"桃やりんごを買いました。", read:"もも や りんご を かいました。", tr:"买了桃子、苹果（等）。", tag:"～や～（列举不全）" },
+    ]
+  },
+  { sec:"hira", row:"ya", rowLabel:"や行", rowEn:"ya-row",
+    items:[
+      { k:"や", ro:"ya", w:"山", f:"やま", cn:"山",       jp:"富士山は日本で一番高い山です。", read:"ふじさん は にほん で いちばん たかい やま です。", tr:"富士山是日本最高的山。", tag:"一番（最）" },
+      { k:"ゆ", ro:"yu", w:"雪", f:"ゆき", cn:"雪",       jp:"明日は雪が降るでしょう。", read:"あした は ゆき が ふる でしょう。", tr:"明天大概会下雪。",      tag:"～でしょう（推测）" },
+      { k:"よ", ro:"yo", w:"読む", f:"よむ", cn:"读",     jp:"音楽を聞きながら本を読みます。", read:"おんがく を ききながら ほん を よみます。", tr:"边听音乐边读书。", tag:"～ながら（一边…一边）" },
+    ]
+  },
+  { sec:"hira", row:"ra", rowLabel:"ら行", rowEn:"ra-row",
+    items:[
+      { k:"ら", ro:"ra", w:"来年", f:"らいねん", cn:"明年", jp:"来年日本へ行きたいです。", read:"らいねん にほん へ いきたい です。", tr:"明年想去日本。",        tag:"未来时间 + ～たい" },
+      { k:"り", ro:"ri", w:"旅行", f:"りょこう", cn:"旅行", jp:"旅行に行きましょう。",     read:"りょこう に いきましょう。",      tr:"一起去旅行吧。",        tag:"～ましょう（一起做）" },
+      { k:"る", ro:"ru", w:"留守", f:"るす", cn:"不在家",   jp:"父は今、留守です。",       read:"ちち は いま、るす です。",        tr:"父亲现在不在家。",      tag:"名词 + です（状态）" },
+      { k:"れ", ro:"re", w:"冷蔵庫", f:"れいぞうこ", cn:"冰箱", jp:"冷蔵庫の中にビールがあります。", read:"れいぞうこ の なか に ビール が あります。", tr:"冰箱里有啤酒。", tag:"～の中に（在…里面）" },
+      { k:"ろ", ro:"ro", w:"六時", f:"ろくじ", cn:"六点",  jp:"毎朝六時に起きます。",    read:"まいあさ ろくじ に おきます。",   tr:"每天早上六点起床。",    tag:"时刻 + に（时间点）" },
+    ]
+  },
+  { sec:"hira", row:"wa", rowLabel:"わ行・ん", rowEn:"wa-row & n",
+    items:[
+      { k:"わ", ro:"wa", w:"私", f:"わたし", cn:"我",     jp:"私は中国人です。",         read:"わたし は ちゅうごくじん です。", tr:"我是中国人。",          tag:"～は～です（自我介绍）" },
+      { k:"を", ro:"wo", w:"本", f:"ほん", cn:"书 / 借助词を", jp:"毎晩本を読みます。",   read:"まいばん ほん を よみます。",    tr:"每晚读书。",            tag:"を（宾语助词专用）" },
+      { k:"ん", ro:"n",  w:"みかん", f:"みかん", cn:"橘子", jp:"みかんが三つあります。",  read:"みかん が みっつ あります。",     tr:"有三个橘子。",          tag:"数量词（～つ）" },
+    ]
+  },
+
+  // 片假名 46 句
+  { sec:"kata", row:"a",  rowLabel:"ア行", rowEn:"a-row",
+    items:[
+      { k:"ア", ro:"a",  w:"アメリカ", cn:"美国",         jp:"アメリカへ行ったことがあります。", read:"アメリカ へ いった こと が あります。", tr:"去过美国。",        tag:"～たことがある（经验）" },
+      { k:"イ", ro:"i",  w:"インターネット", cn:"互联网", jp:"インターネットで調べました。",      read:"インターネット で しらべました。",       tr:"在网上查了。",      tag:"～で（手段）" },
+      { k:"ウ", ro:"u",  w:"ウーロン茶", cn:"乌龙茶",     jp:"ウーロン茶は飲みません。",          read:"ウーロンちゃ は のみません。",            tr:"不喝乌龙茶。",      tag:"～ません（礼貌否定）" },
+      { k:"エ", ro:"e",  w:"エアコン", cn:"空调",         jp:"暑いから、エアコンをつけます。",    read:"あつい から、エアコン を つけます。",     tr:"因为热，开空调。", tag:"～から（原因）" },
+      { k:"オ", ro:"o",  w:"オレンジ", cn:"橙子",         jp:"オレンジは甘いです。",              read:"オレンジ は あまい です。",               tr:"橙子很甜。",       tag:"～は + イ形 + です" },
+    ]
+  },
+  { sec:"kata", row:"ka", rowLabel:"カ行", rowEn:"ka-row",
+    items:[
+      { k:"カ", ro:"ka", w:"カメラ", cn:"相机",           jp:"新しいカメラがほしいです。",        read:"あたらしい カメラ が ほしい です。",      tr:"想要新相机。",      tag:"～がほしい（想要物）" },
+      { k:"キ", ro:"ki", w:"キムチ", cn:"泡菜",           jp:"キムチも好きです。",                read:"キムチ も すき です。",                   tr:"泡菜也喜欢。",      tag:"～も～です（也）" },
+      { k:"ク", ro:"ku", w:"クッキー", cn:"饼干",         jp:"母とクッキーを作ります。",          read:"はは と クッキー を つくります。",        tr:"和妈妈一起做饼干。", tag:"～と（伴随）" },
+      { k:"ケ", ro:"ke", w:"ケーキ", cn:"蛋糕",           jp:"誕生日にケーキを食べました。",      read:"たんじょうび に ケーキ を たべました。", tr:"生日吃了蛋糕。",    tag:"特殊日 + に（时间点）" },
+      { k:"コ", ro:"ko", w:"コーヒー", cn:"咖啡",         jp:"コーヒーと紅茶とどちらが好きですか。", read:"コーヒー と こうちゃ と どちら が すき です か。", tr:"咖啡和红茶你更喜欢哪个？", tag:"A と B とどちら（比较）" },
+    ]
+  },
+  { sec:"kata", row:"sa", rowLabel:"サ行", rowEn:"sa-row",
+    items:[
+      { k:"サ", ro:"sa", w:"サッカー", cn:"足球",         jp:"サッカーをしませんか。",            read:"サッカー を しません か。",               tr:"要不要踢足球？",    tag:"～ませんか（邀请）" },
+      { k:"シ", ro:"shi", w:"シャツ", cn:"衬衫",          jp:"このシャツは安いです。",            read:"この シャツ は やすい です。",            tr:"这件衬衫便宜。",    tag:"この + 名词" },
+      { k:"ス", ro:"su", w:"スポーツ", cn:"运动",         jp:"スポーツが上手です。",              read:"スポーツ が じょうず です。",             tr:"擅长运动。",        tag:"～が上手（擅长）" },
+      { k:"セ", ro:"se", w:"セーター", cn:"毛衣",         jp:"寒い時にセーターを着ます。",        read:"さむい とき に セーター を きます。",     tr:"冷的时候穿毛衣。", tag:"～時に（…的时候）" },
+      { k:"ソ", ro:"so", w:"ソファー", cn:"沙发",         jp:"ソファーで休んでいます。",          read:"ソファー で やすんで います。",           tr:"在沙发上休息。",    tag:"～で + ～ている" },
+    ]
+  },
+  { sec:"kata", row:"ta", rowLabel:"タ行", rowEn:"ta-row",
+    items:[
+      { k:"タ", ro:"ta", w:"タクシー", cn:"出租车",       jp:"タクシーで行きましょう。",          read:"タクシー で いきましょう。",              tr:"坐出租车去吧。",    tag:"～で（手段）+ ましょう" },
+      { k:"チ", ro:"chi", w:"チョコレート", cn:"巧克力",  jp:"チョコレートは甘くておいしいです。", read:"チョコレート は あまくて おいしい です。", tr:"巧克力又甜又好吃。", tag:"～くて～（イ形并列）" },
+      { k:"ツ", ro:"tsu", w:"ツアー", cn:"旅行团",        jp:"ツアーに参加したいです。",          read:"ツアー に さんかしたい です。",           tr:"想参加旅行团。",    tag:"～に参加する + たい" },
+      { k:"テ", ro:"te", w:"テレビ", cn:"电视",           jp:"テレビを見ながらご飯を食べます。",  read:"テレビ を みながら ごはん を たべます。", tr:"边看电视边吃饭。", tag:"～ながら" },
+      { k:"ト", ro:"to", w:"トマト", cn:"番茄",           jp:"トマトが嫌いです。",                read:"トマト が きらい です。",                 tr:"讨厌番茄。",        tag:"～が嫌い（讨厌）" },
+    ]
+  },
+  { sec:"kata", row:"na", rowLabel:"ナ行", rowEn:"na-row",
+    items:[
+      { k:"ナ", ro:"na", w:"ナイフ", cn:"刀",             jp:"ナイフでパンを切ります。",          read:"ナイフ で パン を きります。",            tr:"用刀切面包。",      tag:"～で（工具）" },
+      { k:"ニ", ro:"ni", w:"ニュース", cn:"新闻",         jp:"毎朝ニュースを見ます。",            read:"まいあさ ニュース を みます。",           tr:"每天早上看新闻。", tag:"頻度副词 + ます" },
+      { k:"ヌ", ro:"nu", w:"ヌードル", cn:"面条",         jp:"カップヌードルを食べたことがあります。", read:"カップヌードル を たべた こと が あります。", tr:"吃过杯面。",    tag:"～たことがある" },
+      { k:"ネ", ro:"ne", w:"ネクタイ", cn:"领带",         jp:"青いネクタイをしている人は父です。", read:"あおい ネクタイ を して いる ひと は ちち です。", tr:"系着蓝色领带的那个人是我父亲。", tag:"～ている人（连体修饰）" },
+      { k:"ノ", ro:"no", w:"ノート", cn:"笔记本",         jp:"ノートに名前を書いてください。",    read:"ノート に なまえ を かいて ください。",   tr:"请在笔记本上写名字。", tag:"～てください（请做）" },
+    ]
+  },
+  { sec:"kata", row:"ha", rowLabel:"ハ行", rowEn:"ha-row",
+    items:[
+      { k:"ハ", ro:"ha", w:"ハンバーガー", cn:"汉堡",     jp:"昼ごはんはハンバーガーでした。",    read:"ひるごはん は ハンバーガー でした。",     tr:"午饭是汉堡。",      tag:"～でした（名词过去）" },
+      { k:"ヒ", ro:"hi", w:"ヒーター", cn:"电暖器",       jp:"寒いので、ヒーターをつけました。",  read:"さむい ので、ヒーター を つけました。",   tr:"因为冷，开了电暖器。", tag:"～ので（柔和因果）" },
+      { k:"フ", ro:"fu", w:"フランス", cn:"法国",         jp:"フランスへ旅行に行きます。",        read:"フランス へ りょこう に いきます。",     tr:"去法国旅游。",      tag:"～に行く（目的）" },
+      { k:"ヘ", ro:"he", w:"ヘリコプター", cn:"直升机",   jp:"ヘリコプターに乗ったことがありません。", read:"ヘリコプター に のった こと が ありません。", tr:"没坐过直升机。", tag:"～たことがない（无经验）" },
+      { k:"ホ", ro:"ho", w:"ホテル", cn:"酒店",           jp:"駅の近くにホテルがあります。",      read:"えき の ちかく に ホテル が あります。",  tr:"车站附近有酒店。", tag:"～の近くに" },
+    ]
+  },
+  { sec:"kata", row:"ma", rowLabel:"マ行", rowEn:"ma-row",
+    items:[
+      { k:"マ", ro:"ma", w:"マンゴー", cn:"芒果",         jp:"マンゴーが一番好きです。",          read:"マンゴー が いちばん すき です。",        tr:"最喜欢芒果。",      tag:"一番（最）" },
+      { k:"ミ", ro:"mi", w:"ミルク", cn:"牛奶",           jp:"朝はミルクしか飲みません。",        read:"あさ は ミルク しか のみません。",        tr:"早上只喝牛奶。",    tag:"～しか…ない（只）" },
+      { k:"ム", ro:"mu", w:"ムード", cn:"气氛",           jp:"ここはムードがいいですね。",        read:"ここ は ムード が いい です ね。",        tr:"这里气氛真好啊。", tag:"ね（共感）" },
+      { k:"メ", ro:"me", w:"メール", cn:"邮件",           jp:"先生にメールを送りました。",        read:"せんせい に メール を おくりました。",    tr:"给老师发了邮件。", tag:"～に（对象）" },
+      { k:"モ", ro:"mo", w:"モニター", cn:"显示器",       jp:"大きいモニターがほしいです。",      read:"おおきい モニター が ほしい です。",      tr:"想要大显示器。",   tag:"形容词 + 名词 + がほしい" },
+    ]
+  },
+  { sec:"kata", row:"ya", rowLabel:"ヤ行", rowEn:"ya-row",
+    items:[
+      { k:"ヤ", ro:"ya", w:"ヤング", cn:"年轻",           jp:"ヤングな考え方が好きです。",        read:"ヤング な かんがえかた が すき です。",   tr:"喜欢年轻的思维方式。", tag:"ナ形 + な + 名词" },
+      { k:"ユ", ro:"yu", w:"ユーモア", cn:"幽默",         jp:"彼にはユーモアがあります。",        read:"かれ に は ユーモア が あります。",       tr:"他有幽默感。",      tag:"～には～がある" },
+      { k:"ヨ", ro:"yo", w:"ヨガ", cn:"瑜伽",             jp:"毎週ヨガをしています。",            read:"まいしゅう ヨガ を して います。",        tr:"每周做瑜伽。",      tag:"～ています（习惯性动作）" },
+    ]
+  },
+  { sec:"kata", row:"ra", rowLabel:"ラ行", rowEn:"ra-row",
+    items:[
+      { k:"ラ", ro:"ra", w:"ラーメン", cn:"拉面",         jp:"ラーメンが食べたくなりました。",    read:"ラーメン が たべたく なりました。",       tr:"变得想吃拉面了。", tag:"～たくなる（变得想做）" },
+      { k:"リ", ro:"ri", w:"リーダー", cn:"领导者",       jp:"彼はチームのリーダーです。",        read:"かれ は チーム の リーダー です。",       tr:"他是团队的领导者。", tag:"～の～（所属）" },
+      { k:"ル", ro:"ru", w:"ルール", cn:"规则",           jp:"ルールを守らなければなりません。",  read:"ルール を まもらなければ なりません。",   tr:"必须遵守规则。",    tag:"～なければなりません（必须）" },
+      { k:"レ", ro:"re", w:"レストラン", cn:"餐厅",       jp:"あのレストランで食事しましょう。",  read:"あの レストラン で しょくじしましょう。", tr:"在那家餐厅吃饭吧。", tag:"あの + 名词 + ましょう" },
+      { k:"ロ", ro:"ro", w:"ロボット", cn:"机器人",       jp:"ロボットを作ることができます。",    read:"ロボット を つくる こと が できます。",   tr:"能做机器人。",      tag:"～ことができる（能做）" },
+    ]
+  },
+  { sec:"kata", row:"wa", rowLabel:"ワ行・ン", rowEn:"wa-row & n",
+    items:[
+      { k:"ワ", ro:"wa", w:"ワイン", cn:"葡萄酒",         jp:"フランスのワインはおいしいです。",  read:"フランス の ワイン は おいしい です。",   tr:"法国的葡萄酒好喝。", tag:"国 + の + 名词" },
+      { k:"ヲ", ro:"wo", w:"パンを", cn:"面包を / 借助词ヲ", jp:"パンを買いに行きます。",        read:"パン を かい に いきます。",              tr:"去买面包。",         tag:"～に行く（目的）" },
+      { k:"ン", ro:"n",  w:"パン", cn:"面包",             jp:"朝パンとコーヒーを飲みます。",      read:"あさ パン と コーヒー を のみます。",     tr:"早上吃面包配咖啡。", tag:"～と（并列）" },
+    ]
+  },
+];
+
+// ========== 渲染 ==========
+const container = document.getElementById('audioContainer');
+let allSentences = []; // 扁平化的句子列表，用于"播放全部"
+
+function renderAll() {
+  let html = '';
+  let groupIdx = 0;
+  let lastSec = null;
+
+  DATA.forEach(group => {
+    // 分节标题
+    if (group.sec !== lastSec) {
+      lastSec = group.sec;
+      const title = group.sec === 'hira' ? 'ひらがな · 平假名 46 句' : 'カタカナ · 片假名 46 句';
+      html += `<h2 style="font-family:var(--serif-jp);font-size:26px;font-weight:800;color:var(--ink);margin:32px 0 8px;letter-spacing:0.04em;padding-top:6px;border-top:2px solid var(--ink);padding-top:14px;">${title}</h2>`;
+    }
+
+    // 行标
+    html += `<div class="row-label-aud">${group.rowLabel} <span class="en">${group.rowEn}</span><span class="count">${group.items.length} 句</span><button class="row-play" data-row="${groupIdx}">▶ 本行连播</button></div>`;
+
+    // 卡片
+    html += '<div class="sen-list-aud">';
+    group.items.forEach((it, i) => {
+      const globalIdx = allSentences.length;
+      allSentences.push(it);
+      const wordHTML = it.f
+        ? `<span class="jp">${it.w}</span><span class="furi">${it.f}</span><span class="cn">${it.cn}</span>`
+        : `<span class="jp">${it.w}</span><span class="cn">${it.cn}</span>`;
+      html += `
+        <div class="sa" data-idx="${globalIdx}">
+          <div class="sa-head">
+            <span class="sa-kana">${it.k}<span class="ro">${it.ro}</span></span>
+            <span class="sa-word">${wordHTML}</span>
+          </div>
+          <div class="sa-body">
+            <button class="play-btn" data-play="${globalIdx}" aria-label="播放">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="sa-jp" data-play="${globalIdx}">${it.jp}</div>
+            <div class="sa-read">${it.read}</div>
+            <div class="sa-cn">${it.tr}</div>
+            <span class="sa-tag">${it.tag}</span>
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+    groupIdx++;
+  });
+
+  container.innerHTML = html;
+  document.getElementById('totalCnt').textContent = allSentences.length;
+}
+
+renderAll();
+
+// ========== 音频引擎 ==========
+// 优先 Google Translate TTS（更自然），回退到 Web Speech API
+const synth = window.speechSynthesis;
+let voices = [];
+let currentVoice = null;
+let currentIdx = -1;
+let autoNext = false;
+let repeatMode = false;
+let isPlayingAll = false;
+let queueFrom = -1, queueTo = -1;
+let audioMode = 'local'; // 'local' | 'google' | 'native'
+
+const audioEl = new Audio();
+audioEl.preload = 'auto';
+
+const engineSel = document.getElementById('engineSel');
+const voiceGroup = document.getElementById('voiceGroup');
+const voiceSel = document.getElementById('voiceSel');
+const rateSel = document.getElementById('rateSel');
+const rateVal = document.getElementById('rateVal');
+const noVoiceWarn = document.getElementById('noVoiceWarn');
+const nowPlaying = document.getElementById('nowPlaying');
+const nowPlayingText = document.getElementById('nowPlayingText');
+
+function loadVoices() {
+  voices = synth.getVoices().filter(v => v.lang && (v.lang.startsWith('ja') || v.lang.includes('JP')));
+  if (voices.length === 0) {
+    voiceSel.innerHTML = '<option>未检测到日语语音</option>';
+    return;
+  }
+  voiceSel.innerHTML = voices.map((v, i) =>
+    `<option value="${i}">${v.name} (${v.lang})</option>`
+  ).join('');
+  // 优先选择含 "Online" / "Natural" / "Neural" 的高质量语音
+  let preferred = voices.findIndex(v => /natural|neural|online/i.test(v.name));
+  if (preferred === -1) preferred = voices.findIndex(v => /google.*japan/i.test(v.name));
+  if (preferred === -1) preferred = voices.findIndex(v => /microsoft.*(nanami|ayumi|haruka)/i.test(v.name));
+  if (preferred === -1) preferred = 0;
+  voiceSel.value = preferred;
+  currentVoice = voices[preferred];
+}
+loadVoices();
+if (synth.onvoiceschanged !== undefined) {
+  synth.onvoiceschanged = loadVoices;
+}
+
+voiceSel.addEventListener('change', () => {
+  currentVoice = voices[parseInt(voiceSel.value)];
+});
+
+engineSel.addEventListener('change', () => {
+  audioMode = engineSel.value;
+  voiceGroup.style.display = (audioMode === 'native') ? '' : 'none';
+  // 切换时停止当前播放
+  stopAll();
+});
+
+rateSel.addEventListener('input', () => {
+  rateVal.textContent = parseFloat(rateSel.value).toFixed(2) + 'x';
+});
+
+// === Google 翻译 TTS ===
+function speakGoogle(text, onEnd) {
+  // Google TTS 单次请求字符限制约 200，雅思日语句子不会超
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(text)}&textlen=${text.length}`;
+  audioEl.src = url;
+  audioEl.playbackRate = parseFloat(rateSel.value);
+  let ended = false;
+  const safeEnd = () => { if (!ended) { ended = true; if (onEnd) onEnd(); } };
+  audioEl.onended = safeEnd;
+  audioEl.onerror = () => {
+    console.warn('Google TTS 加载失败，回退到系统语音');
+    // 标记 google 不可用，临时切到本地
+    if (!ended) { ended = true; speakNative(text, onEnd); }
+  };
+  audioEl.play().catch(err => {
+    console.warn('Google TTS 播放被阻止：', err);
+    if (!ended) { ended = true; speakNative(text, onEnd); }
+  });
+}
+
+// === Web Speech API ===
+function speakNative(text, onEnd) {
+  if (!currentVoice) {
+    noVoiceWarn.classList.add('show');
+    if (onEnd) onEnd();
+    return;
+  }
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.voice = currentVoice;
+  u.lang = currentVoice.lang;
+  u.rate = parseFloat(rateSel.value);
+  u.pitch = 1;
+  u.onend = () => { if (onEnd) onEnd(); };
+  u.onerror = (e) => { console.warn('Speech error:', e); if (onEnd) onEnd(); };
+  synth.speak(u);
+}
+
+function speak(text, onEnd) {
+  // 停掉之前的
+  synth.cancel();
+  try { audioEl.pause(); audioEl.currentTime = 0; } catch(e) {}
+
+  if (audioMode === 'local') {
+    speakLocal(currentIdx, text, onEnd);
+  } else if (audioMode === 'google') {
+    speakGoogle(text, onEnd);
+  } else {
+    speakNative(text, onEnd);
+  }
+}
+
+// === 本地预生成 mp3 (最自然) ===
+function speakLocal(idx, text, onEnd) {
+  // idx 是 0-based 索引；mp3 文件名是 1-based 3 位补零
+  const filename = `audio/${String(idx + 1).padStart(3, '0')}.mp3`;
+  audioEl.src = filename;
+  audioEl.playbackRate = parseFloat(rateSel.value);
+  let ended = false;
+  const safeEnd = () => { if (!ended) { ended = true; if (onEnd) onEnd(); } };
+  audioEl.onended = safeEnd;
+  audioEl.onerror = () => {
+    console.warn(`本地 mp3 ${filename} 加载失败，回退到 Google TTS`);
+    if (!ended) { ended = true; speakGoogle(text, onEnd); }
+  };
+  audioEl.play().catch(err => {
+    console.warn('本地 mp3 播放被阻止：', err);
+    if (!ended) { ended = true; speakGoogle(text, onEnd); }
+  });
+}
+
+function playOne(idx) {
+  // 取消之前的高亮
+  document.querySelectorAll('.sa.playing').forEach(el => el.classList.remove('playing'));
+
+  if (idx < 0 || idx >= allSentences.length) {
+    stopAll();
+    return;
+  }
+  currentIdx = idx;
+  const item = allSentences[idx];
+  const card = document.querySelector(`.sa[data-idx="${idx}"]`);
+  if (card) {
+    card.classList.add('playing');
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // 顶部浮条
+  nowPlayingText.textContent = `▶ ${idx + 1}/${allSentences.length}  ${item.jp}`;
+  nowPlaying.classList.add('show');
+
+  speak(item.jp, () => {
+    // 句末暂停
+    setTimeout(() => {
+      if (repeatMode && currentIdx === idx) {
+        playOne(idx);
+      } else if (isPlayingAll) {
+        // 队列连播
+        if (idx < queueTo) playOne(idx + 1);
+        else stopAll();
+      } else if (autoNext) {
+        if (idx < allSentences.length - 1) playOne(idx + 1);
+        else stopAll();
+      } else {
+        // 单句结束
+        if (card) card.classList.remove('playing');
+        nowPlaying.classList.remove('show');
+        currentIdx = -1;
+      }
+    }, 400);
+  });
+}
+
+function stopAll() {
+  synth.cancel();
+  try { audioEl.pause(); audioEl.currentTime = 0; } catch(e) {}
+  isPlayingAll = false;
+  currentIdx = -1;
+  document.querySelectorAll('.sa.playing').forEach(el => el.classList.remove('playing'));
+  nowPlaying.classList.remove('show');
+}
+
+// ========== 事件绑定 ==========
+// 单句播放（点击播放按钮、点击日文句子、点击假名）
+container.addEventListener('click', e => {
+  const tgt = e.target.closest('[data-play]');
+  if (tgt) {
+    const idx = parseInt(tgt.dataset.play);
+    isPlayingAll = false;
+    queueFrom = queueTo = idx;
+    playOne(idx);
+    return;
+  }
+  // 行播放
+  const rowBtn = e.target.closest('.row-play');
+  if (rowBtn) {
+    const rowIdx = parseInt(rowBtn.dataset.row);
+    let start = 0;
+    for (let i = 0; i < rowIdx; i++) start += DATA[i].items.length;
+    const end = start + DATA[rowIdx].items.length - 1;
+    isPlayingAll = true;
+    queueFrom = start;
+    queueTo = end;
+    playOne(start);
+  }
+});
+
+// 顶部控制
+document.getElementById('autoNext').addEventListener('click', e => {
+  autoNext = !autoNext;
+  e.target.classList.toggle('active', autoNext);
+  e.target.classList.toggle('outline', !autoNext);
+  e.target.textContent = autoNext ? '▸ 连播 ✓' : '▸ 连播';
+});
+
+document.getElementById('repeat').addEventListener('click', e => {
+  repeatMode = !repeatMode;
+  e.target.classList.toggle('active', repeatMode);
+  e.target.classList.toggle('outline', !repeatMode);
+  e.target.textContent = repeatMode ? '↺ 单句循环 ✓' : '↺ 单句循环';
+});
+
+document.getElementById('playAll').addEventListener('click', () => {
+  isPlayingAll = true;
+  queueFrom = 0;
+  queueTo = allSentences.length - 1;
+  playOne(0);
+});
+
+document.getElementById('stopAll').addEventListener('click', stopAll);
+document.getElementById('npStop').addEventListener('click', stopAll);
+
+// ESC 停止
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') stopAll();
+  if (e.key === ' ' && e.target === document.body) {
+    e.preventDefault();
+    if (synth.speaking) stopAll();
+  }
+});
+
+// 离开页面时停止
+window.addEventListener('beforeunload', () => {
+  synth.cancel();
+  try { audioEl.pause(); } catch(e) {}
+});
+</script>
+</body>
+</html>

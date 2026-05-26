@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>英语句子背诵站 · IELTS 7 Sentence Studio</title>
+  <meta name="description" content="面向高中英语水平到雅思 7 分的英语句子背诵网站：短句、长句、常用对话、长对话、文章、关键词解析、发音和推荐资源。" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="英语句子背诵站首页">
+      <span class="brand-mark">S</span>
+      <span><strong>Sentence Studio</strong><small>High School → IELTS 7</small></span>
+    </a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="#practice">背诵</a>
+      <a href="#dialogues">对话</a>
+      <a href="#articles">文章</a>
+      <a href="#resources">资源</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">IELTS 7 Sentence Recitation</p>
+        <h1>一句一句，把英语说顺、写稳、听清。</h1>
+        <p class="lead">从高中英语能看懂的短句开始，逐步进入雅思口语、写作和阅读需要的复杂表达。每条英文都可以朗读，适合跟读、听写、遮中文背诵和复述。</p>
+      </div>
+      <aside class="daily-panel" aria-label="今日训练建议">
+        <h2>今日训练</h2>
+        <ol>
+          <li>短句 8 条：先听，再跟读。</li>
+          <li>长句 4 条：拆主干，背连接词。</li>
+          <li>对话 1 组：一人分饰两角。</li>
+          <li>文章 1 篇：用英文复述 60 秒。</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="control-deck" aria-label="学习控制台">
+      <label>
+        <span>搜索</span>
+        <input id="searchBox" type="search" placeholder="输入 topic / keyword / 中文" />
+      </label>
+      <label>
+        <span>阶段</span>
+        <select id="levelFilter">
+          <option value="all">全部阶段</option>
+          <option value="foundation">1 奠基：高中核心句</option>
+          <option value="bridge">2 过渡：生活表达</option>
+          <option value="ielts">3 雅思：观点表达</option>
+          <option value="band7">4 冲 7：复杂论证</option>
+        </select>
+      </label>
+      <label>
+        <span>类型</span>
+        <select id="typeFilter">
+          <option value="all">全部类型</option>
+          <option value="short">常用短句</option>
+          <option value="long">长句</option>
+        </select>
+      </label>
+      <label>
+        <span>情景</span>
+        <select id="scenarioFilter">
+          <option value="all">全部情景</option>
+          <option value="daily">日常寒暄</option>
+          <option value="study">学习校园</option>
+          <option value="travel">旅行交通</option>
+          <option value="restaurant">餐厅咖啡</option>
+          <option value="shopping">购物退换</option>
+          <option value="hotel">酒店住宿</option>
+          <option value="health">看病健康</option>
+          <option value="phone">电话邮件</option>
+          <option value="work">面试工作</option>
+          <option value="opinion">观点讨论</option>
+          <option value="ielts">雅思口语</option>
+          <option value="academic">学术写作</option>
+        </select>
+      </label>
+      <label>
+        <span>语速</span>
+        <input id="rateControl" type="range" min="0.65" max="1.05" step="0.05" value="0.85" />
+      </label>
+      <button id="toggleChinese" class="tool-btn" type="button">隐藏中文</button>
+    </section>
+
+    <section id="practice" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Core Sentences</p>
+        <h2>短句与长句背诵库</h2>
+        <p>每条句子包含中文、使用场景、关键词解析。点播放按钮听读音；点“已掌握”会保存在本机浏览器。<span id="sentenceCount"></span></p>
+      </div>
+      <div id="sentenceGrid" class="sentence-grid"></div>
+    </section>
+
+    <section id="dialogues" class="section band">
+      <div class="section-head">
+        <p class="eyebrow">Dialogues</p>
+        <h2>常用对话与长对话</h2>
+        <p>先逐句跟读，再整段影子跟读。常用对话偏生活和学习，长对话偏雅思听力与口语 Part 3。</p>
+      </div>
+      <div id="dialogueList" class="stack"></div>
+    </section>
+
+    <section id="articles" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Reading Aloud</p>
+        <h2>分级短文朗读与复述</h2>
+        <p>文章按难度递进。每个句子都可朗读，适合做听写、跟读、复述和写作素材积累。</p>
+      </div>
+      <div id="articleList" class="stack"></div>
+    </section>
+
+    <section id="resources" class="section band">
+      <div class="section-head">
+        <p class="eyebrow">Links & Reading</p>
+        <h2>经典网站链接与推荐阅读材料</h2>
+        <p>优先选择官方、长期稳定、适合高中到雅思 7 过渡的材料。</p>
+      </div>
+      <div id="resourceGrid" class="resource-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Sentence Studio · local static site</span>
+    <button id="stopAudio" type="button">停止朗读</button>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
