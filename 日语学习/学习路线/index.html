@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日语学习路线 · 从 N5 到 N1</title>
+<title>JLPT 备考路线 · N5 到 N1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Klee+One:wght@400;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -154,6 +154,23 @@ a{color:inherit;text-decoration:none}
 .pitfall::before{content:"✕";position:absolute;top:-14px;left:24px;width:28px;height:28px;background:var(--vermillion);color:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif-display);font-size:14px;font-weight:700}
 .pitfall h4{font-family:var(--serif-jp);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:12px;padding-top:8px}
 .pitfall p{font-size:14px;line-height:1.8;color:var(--ink-2)}
+.jlpt-panel{padding:90px 0;border-bottom:1px solid var(--ink);position:relative}
+.jlpt-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink);margin:34px 0 52px}
+.jlpt-card{background:var(--paper);padding:22px 18px;min-height:260px}
+.jlpt-card h3{font-family:var(--serif-display);font-size:34px;font-weight:700;color:var(--vermillion);line-height:1;margin-bottom:10px}
+.jlpt-card .time{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3);letter-spacing:.04em;margin-bottom:14px}
+.jlpt-card p{font-size:13.5px;line-height:1.75;color:var(--ink-2);margin-bottom:12px}
+.jlpt-card ul{list-style:none;margin:0;padding:0}
+.jlpt-card li{font-size:12.5px;line-height:1.65;color:var(--ink-2);position:relative;padding-left:14px;margin-bottom:4px}
+.jlpt-card li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--vermillion)}
+.exam-table{width:100%;border-collapse:collapse;margin:28px 0 46px;font-size:13px;background:rgba(255,255,255,.35)}
+.exam-table th,.exam-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;color:var(--ink-2)}
+.exam-table th{font-family:var(--serif-jp);font-weight:700;color:var(--ink);background:rgba(200,54,45,.06)}
+.coverage{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+.coverage-card{border:1px solid var(--line);background:rgba(255,255,255,.42);padding:24px;border-left:3px solid var(--vermillion)}
+.coverage-card h3{font-family:var(--serif-jp);font-size:18px;margin-bottom:10px;color:var(--ink)}
+.coverage-card p,.coverage-card li{font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+.coverage-card ul{list-style:none;padding:0;margin:8px 0 0}.coverage-card li{padding-left:14px;position:relative}.coverage-card li::before{content:"•";position:absolute;left:0;color:var(--vermillion)}
 .closing{padding:140px 0 100px;text-align:center;border-top:1px solid var(--ink);position:relative}
 .closing::before{content:"";position:absolute;top:6px;left:0;right:0;border-top:.5px solid var(--ink)}
 .closing-kanji{font-family:var(--serif-jp);font-size:180px;font-weight:800;line-height:1;color:var(--vermillion);letter-spacing:.1em;margin-bottom:40px;opacity:.9}
@@ -161,8 +178,8 @@ a{color:inherit;text-decoration:none}
 .closing-text em{color:var(--vermillion);font-style:normal}
 .closing-jp{font-family:var(--serif-display);font-style:italic;font-size:15px;color:var(--ink-3);letter-spacing:.08em}
 footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-family:var(--serif-display);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-3);position:relative;z-index:3;flex-wrap:wrap;gap:14px}
-@media (max-width:1080px){.page,.masthead,.rule-double,footer{padding-left:40px;padding-right:40px}.hero-vertical{font-size:140px;left:-8px}.hero-main{margin-left:160px}.chapter-num{font-size:200px}.chapter-head{grid-template-columns:1fr;gap:24px}.chapter-num .level::after{display:none}.nav{display:none}.pullquote{margin:60px 0 0}}
-@media (max-width:680px){.page,.masthead,.rule-double,footer{padding-left:24px;padding-right:24px}.hero{padding:40px 0 60px;grid-template-columns:1fr}.hero-vertical{font-size:90px;position:relative;left:0;top:0;writing-mode:horizontal-tb;margin-bottom:30px}.hero-main{margin-left:0;padding-top:0}.hero-meta{position:relative;text-align:left;top:0;margin-bottom:30px}.seal{position:relative;right:0;bottom:0;margin-top:30px}.overview-grid{grid-template-columns:repeat(2,1fr)}.ov-cell:nth-child(odd){border-right:1px solid var(--line)}.ov-cell:nth-child(even){border-right:none}.chapter-num{font-size:120px}.chapter-title h2{font-size:34px}.goals{grid-template-columns:1fr;gap:20px}.closing-kanji{font-size:100px}.closing-text{font-size:22px}.pq-kanji{font-size:50px}.pullquote{grid-template-columns:1fr;padding:30px 24px}}
+@media (max-width:1080px){.page,.masthead,.rule-double,footer{padding-left:40px;padding-right:40px}.hero-vertical{font-size:140px;left:-8px}.hero-main{margin-left:160px}.chapter-num{font-size:200px}.chapter-head{grid-template-columns:1fr;gap:24px}.chapter-num .level::after{display:none}.nav{display:none}.pullquote{margin:60px 0 0}.jlpt-grid{grid-template-columns:repeat(2,1fr)}.coverage{grid-template-columns:1fr}}
+@media (max-width:680px){.page,.masthead,.rule-double,footer{padding-left:24px;padding-right:24px}.hero{padding:40px 0 60px;grid-template-columns:1fr}.hero-vertical{font-size:90px;position:relative;left:0;top:0;writing-mode:horizontal-tb;margin-bottom:30px}.hero-main{margin-left:0;padding-top:0}.hero-meta{position:relative;text-align:left;top:0;margin-bottom:30px}.seal{position:relative;right:0;bottom:0;margin-top:30px}.overview-grid{grid-template-columns:repeat(2,1fr)}.ov-cell:nth-child(odd){border-right:1px solid var(--line)}.ov-cell:nth-child(even){border-right:none}.chapter-num{font-size:120px}.chapter-title h2{font-size:34px}.goals{grid-template-columns:1fr;gap:20px}.closing-kanji{font-size:100px}.closing-text{font-size:22px}.pq-kanji{font-size:50px}.pullquote{grid-template-columns:1fr;padding:30px 24px}.jlpt-grid{grid-template-columns:1fr}.exam-table{font-size:12px}.exam-table th,.exam-table td{padding:9px 8px}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 </style>
@@ -173,6 +190,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
 
 <nav class="nav">
   <a href="#overview" data-target="overview">总览 · OVERVIEW</a>
+  <a href="#official" data-target="official">JLPT · 官方对照</a>
   <a href="#n5" data-target="n5">N5 · 入门</a>
   <a href="#n4" data-target="n4">N4 · 基础</a>
   <a href="#n3" data-target="n3">N3 · 中级</a>
@@ -186,7 +204,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
   <div class="left">
     <span class="dot"></span>
     <span>第〇一期 · ISSUE 01</span>
-    <span class="vol">日语学习路线指南</span>
+    <span class="vol">JLPT 备考路线指南</span>
   </div>
   <div>2026 · 春季版</div>
 </header>
@@ -204,14 +222,14 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
       五 → 四 → 三 → 二 → 一
     </div>
     <div class="hero-main">
-      <div class="kicker">完整进阶路线 · 五个阶段</div>
+      <div class="kicker">JLPT 官方对照 · 五级备考路线</div>
       <h1 class="hero-title">
         从 <span class="num">N5</span><span class="arrow">→</span><span class="num">N1</span>
-        <span class="jp">从五十音到原版小说 · 一条路走到底</span>
+        <span class="jp">以考试科目为骨架 · 以真实输入为血肉</span>
       </h1>
       <p class="hero-lede">
-        一份不贪多、不堆砌的日语学习路线。每一阶段只保留 <strong>核心资源</strong> 与 <strong>少量补充</strong>，
-        告诉你"学什么、用什么背、怎么坚持"。点击下方阶段卡片或资源链接可跳转到详细内容。
+        这份路线按 JLPT 官方定义重整：每一级都覆盖 <strong>语言知识（文字・词汇・语法）</strong>、<strong>阅读</strong>、<strong>听力</strong> 三条主线，
+        同时保留真实输入和长期学习规划。目标不是堆资源，而是让每个阶段都能对照考试要求查缺补漏。
       </p>
     </div>
     <div class="seal"><span>学<br>习</span></div>
@@ -221,7 +239,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
     <div class="section-label">第〇章 · 全景</div>
     <h2 class="section-h">
       五个阶段，<em>一条路</em>。
-      <span class="jp">点击 N5 卡片可直达详细学习页</span>
+      <span class="jp">点击卡片可直达各级详细学习页；下方先对照 JLPT 官方要求</span>
     </h2>
 
     <div class="overview-grid">
@@ -258,6 +276,40 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
     </div>
   </section>
 
+  <section class="jlpt-panel" id="official">
+    <div class="section-label">官方对照 · JLPT</div>
+    <h2 class="section-h">先看考试本身，再安排学习。<span class="jp">以 JLPT 官方科目、题型和能力描述为规划边界</span></h2>
+    <p class="hero-lede">
+      JLPT 官方把能力拆成阅读与听力活动，但通过考试还必须具备文字、词汇、语法等语言知识。
+      因此这份路线不只写“学到 N 几”，而是逐级覆盖 <strong>词汇/汉字 → 语法 → 阅读 → 听力 → 模考复盘</strong>。
+    </p>
+
+    <table class="exam-table">
+      <thead><tr><th>级别</th><th>官方考试科目与时间</th><th>备考覆盖重点</th></tr></thead>
+      <tbody>
+        <tr><th>N5</th><td>语言知识（文字・词汇）20 分；语言知识（语法）・阅读 40 分；听力 30 分。</td><td>假名、基础汉字、です/ます、助词、短对话听取必要信息。</td></tr>
+        <tr><th>N4</th><td>语言知识（文字・词汇）25 分；语言知识（语法）・阅读 55 分；听力 35 分。</td><td>动词活用、日常短文、慢速生活会话、基础信息检索。</td></tr>
+        <tr><th>N3</th><td>语言知识（文字・词汇）30 分；语言知识（语法）・阅读 70 分；听力 40 分。</td><td>桥梁级：日常主题阅读、稍难文章主旨、近自然速度日常会话。</td></tr>
+        <tr><th>N2</th><td>语言知识（文字・词汇・语法）・阅读 105 分；听力 50 分。</td><td>报刊杂志文章、清晰评论、近自然速度新闻/连贯会话、意图理解。</td></tr>
+        <tr><th>N1</th><td>语言知识（文字・词汇・语法）・阅读 110 分；听力 55 分。</td><td>社论、评论、抽象/逻辑复杂文本、自然速度新闻/讲座与细节关系。</td></tr>
+      </tbody>
+    </table>
+
+    <div class="jlpt-grid">
+      <div class="jlpt-card"><h3>N5</h3><div class="time">READ: basic kana/kanji<br>LISTEN: slow short talks</div><p>官方目标是理解部分基础日语。能读典型表达、基础句子，能从慢速短会话中抓必要信息。</p><ul><li>五十音全熟</li><li>100 汉字与基础词</li><li>短句阅读</li><li>课堂/生活短听力</li></ul></div>
+      <div class="jlpt-card"><h3>N4</h3><div class="time">READ: familiar topics<br>LISTEN: slow daily talks</div><p>官方目标是理解基础日语。能读熟悉日常主题短文，听懂慢速日常对话大意。</p><ul><li>动词活用自动化</li><li>助词与连接表达</li><li>短文信息检索</li><li>慢速会话跟读</li></ul></div>
+      <div class="jlpt-card"><h3>N3</h3><div class="time">BRIDGE LEVEL<br>near-natural daily talks</div><p>N3 是官方定义的桥梁级。能读日常具体内容，抓标题/概要，听懂近自然速度日常连贯会话。</p><ul><li>中级语法骨架</li><li>新闻标题/短新闻</li><li>关系与主旨听力</li><li>真实材料起步</li></ul></div>
+      <div class="jlpt-card"><h3>N2</h3><div class="time">READ: articles/commentary<br>LISTEN: near-natural speed</div><p>能在日常和一定广泛场景中理解日语。阅读清晰文章、评论，听懂近自然速度新闻和连贯会话。</p><ul><li>阅读速度训练</li><li>长文结构</li><li>新闻/讲座听力</li><li>真题计时</li></ul></div>
+      <div class="jlpt-card"><h3>N1</h3><div class="time">READ: abstract/logical texts<br>LISTEN: natural speed</div><p>能理解广泛场景中的日语。阅读复杂逻辑和抽象文本，听懂自然速度新闻、讲座、会话细节关系。</p><ul><li>社论/评论精读</li><li>抽象词与语感</li><li>自然速度听力</li><li>综合理解题</li></ul></div>
+    </div>
+
+    <div class="coverage">
+      <div class="coverage-card"><h3>覆盖清单：语言知识</h3><p>每级建立词汇、汉字、语法三张清单。N5/N4 以教材和活用为主，N3 起加入真实语料挖词，N2/N1 用真题错题反推薄弱语法。</p><ul><li>文字・词汇：读音、语义、用法、近义替换</li><li>语法：形式选择、句子组合、篇章语法</li><li>复习：Anki/Bunpro + 每周错题回炉</li></ul></div>
+      <div class="coverage-card"><h3>覆盖清单：阅读</h3><p>官方题型从短文、中篇、信息检索逐步走向长文、综合理解和主题理解。路线中每级都安排“短文精读 + 信息检索 + 限时阅读”。</p><ul><li>N5/N4：短句、公告、简单段落</li><li>N3：日常文章、标题概要、稍难文章主旨</li><li>N2/N1：评论、社论、长文结构和作者意图</li></ul></div>
+      <div class="coverage-card"><h3>覆盖清单：听力</h3><p>听力覆盖任务理解、要点理解、概要理解、即时应答和综合理解。低级别先保慢速输入，高级别必须进入自然速度新闻和讲座。</p><ul><li>每天 10-30 分钟听力，不等“词汇够了”才开始</li><li>每周一次听写/跟读，记录听不出的音变</li><li>N2/N1 每周至少一套真题听力分题型复盘</li></ul></div>
+    </div>
+  </section>
+
   <!-- ============== N5 ============== -->
   <section class="chapter" id="n5">
     <div class="chapter-head">
@@ -279,7 +331,8 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <li>基础语法（です／ます／助词）</li>
         <li>核心词汇 800 个</li>
         <li>常用汉字 100 字左右</li>
-        <li>能读懂简单的短句和招牌</li>
+        <li>能读懂简单短句、招牌、课堂/生活表达</li>
+        <li>按 JLPT N5 样题熟悉词汇、语法阅读、听力三段节奏</li>
       </ul>
     </div>
 
@@ -288,7 +341,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <div class="col-head"><span class="num">01</span><h3>学习方法</h3><span class="en">方法</span></div>
         <p><strong>头两周专注假名。</strong>不要急着学语法，否则会半懂不懂。每天 30 分钟手写 + Anki 复习。</p>
         <p>之后跟着主教材一课一课走，每课配 <strong>预习 → 听课 → Anki 卡 → 课后练习</strong> 四步循环。</p>
-        <p>每天 <strong>1–1.5 小时</strong>，比每周末突击 5 小时高效得多。</p>
+        <p>每周固定做一次 <strong>N5 样题小测</strong>：10 分钟词汇、15 分钟语法阅读、10 分钟听力，先熟悉题型。</p>
       </div>
       <div class="col">
         <div class="col-head"><span class="num">02</span><h3>推荐资料</h3><span class="en">教材</span></div>
@@ -328,6 +381,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <li>能读懂短篇文章和简单漫画</li>
         <li>能进行日常对话</li>
         <li>词汇约 1500，汉字约 300</li>
+        <li>能完成 N4 信息检索、短文理解和慢速听力任务</li>
       </ul>
     </div>
 
@@ -336,7 +390,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <div class="col-head"><span class="num">01</span><h3>学习方法</h3><span class="en">方法</span></div>
         <p><strong>动词变形是最大的山。</strong>专门花 1–2 周做活用表练习，每天默写一组。</p>
         <p>开始引入 <strong>分级阅读</strong>（Tadoku）和 <strong>慢速听力</strong>。读不懂也别查词太多 —— 整页过一遍优于逐字啃。</p>
-        <p>建议加入 <strong>Bunpro</strong> 做语法 SRS 循环，告别"学了就忘"。</p>
+        <p>每两周做一次 <strong>N4 分项限时</strong>：文字词汇 25 分钟、语法阅读 55 分钟、听力 35 分钟，提前适应考试体感。</p>
       </div>
       <div class="col">
         <div class="col-head"><span class="num">02</span><h3>推荐资料</h3><span class="en">教材</span></div>
@@ -372,6 +426,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <li>看动画、日剧能跟上大致剧情</li>
         <li>词汇约 3000，汉字约 650</li>
         <li>语法体系基本完整</li>
+        <li>能按 N3 题型处理短文、中篇、信息检索和近自然速度日常听力</li>
       </ul>
     </div>
 
@@ -380,7 +435,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <div class="col-head"><span class="num">01</span><h3>学习方法</h3><span class="en">方法</span></div>
         <p><strong>这是最容易掉队的阶段。</strong>很多人卡在 N3 一两年走不出去，原因都是没接触真实材料。</p>
         <p>必须开始 <strong>大量输入</strong>：日剧、动漫、YouTube、播客、原版漫画。每天至少 30 分钟。</p>
-        <p>教材保持节奏，但比重下降。新增 <strong>精读 + 泛读</strong> 双轨：精读一篇 Satori Reader，泛读 NHK / 漫画。</p>
+        <p>教材保持节奏，但比重下降。新增 <strong>精读 + 泛读 + 真题分项</strong> 三轨：精读一篇 Satori Reader，泛读 NHK Easy / 漫画，每周拆一组 N3 阅读或听力题。</p>
       </div>
       <div class="col">
         <div class="col-head"><span class="num">02</span><h3>推荐资料</h3><span class="en">教材</span></div>
@@ -416,6 +471,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <li>日本求职、留学的基本门槛</li>
         <li>词汇约 6000，汉字约 1000</li>
         <li>复杂句式与敬语初步掌握</li>
+        <li>能完成 N2 105 分钟语言知识・阅读整卷和 50 分钟听力整卷</li>
       </ul>
     </div>
 
@@ -424,7 +480,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <div class="col-head"><span class="num">01</span><h3>学习方法</h3><span class="en">方法</span></div>
         <p>核心三件事：<strong>真题</strong> + <strong>真实输入</strong> + <strong>挖词卡</strong>。三者缺一不可。</p>
         <p>每周至少做一次模拟卷计时；每天精读 1 篇 + 泛读 2 篇；听力跟 NHK 新闻。</p>
-        <p>这一阶段开始尝试 <strong>语言交换</strong>（HelloTalk / iTalki），输出会暴露真正的盲点。</p>
+        <p>从 N2 起用 <strong>错题归因表</strong>：词义误判、语法结构、指代关系、作者意图、听力关系/要点，错因必须归类。</p>
       </div>
       <div class="col">
         <div class="col-head"><span class="num">02</span><h3>推荐资料</h3><span class="en">教材</span></div>
@@ -460,6 +516,7 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <li>书面输出接近母语自然度</li>
         <li>词汇 10000+，汉字 2000+</li>
         <li>古典、敬语、拟声拟态有感觉</li>
+        <li>能应对 N1 抽象文章、综合理解、自然速度新闻/讲座和细节关系题</li>
       </ul>
     </div>
 
@@ -468,8 +525,8 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
         <div class="col-head"><span class="num">01</span><h3>学习方法</h3><span class="en">方法</span></div>
         <p><strong>教材已不再是主角</strong>，真实材料才是。N1 的语法点很多冷僻，但更难的是词汇与微妙的语感。</p>
         <p>建议：每月读完一本小说 + 每周读 5 篇社论 + 每天听 30 分钟广播。</p>
-        <p>开始 <strong>主动输出</strong>：写日记、写读后感、找日本人批改（HelloTalk / iTalki）。</p>
-        <p>备考时再集中刷 2 个月真题与神书，效率最高。</p>
+        <p>备考最后 8 周进入 <strong>N1 真题周期</strong>：每周一套整卷，阅读按题型复盘，听力按任务理解/概要理解/综合理解拆错因。</p>
+        <p>主动输出仍保留：写日记、写读后感、找日本人批改。输出不是 JLPT 科目，但能反向补语感和词义边界。</p>
       </div>
       <div class="col">
         <div class="col-head"><span class="num">02</span><h3>推荐资料</h3><span class="en">教材</span></div>
@@ -490,25 +547,25 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
   </section>
 
   <section class="tools" id="tools">
-    <div class="section-label">第六章 · 工具</div>
-    <h2 class="section-h">必备 <em>工具箱</em>。<span class="jp">装好这些再上路，省下大把时间</span></h2>
+    <div class="section-label">第六章 · JLPT 工具</div>
+    <h2 class="section-h">备考 <em>工具箱</em>。<span class="jp">官方样题、真题复盘、SRS 与真实输入一起用</span></h2>
     <div class="tools-grid">
+      <a class="tool" href="https://www.jlpt.jp/e/samples/forlearners.html" target="_blank" rel="noopener"><div class="tool-icon">試</div><div class="tool-name">JLPT 官方样题 <span class="en">official samples</span></div><div class="tool-desc">先用官方样题确认题型边界：语言知识、阅读、听力。每升一级前先做一遍。</div></a>
+      <a class="tool" href="https://www.jlpt.jp/e/guideline/testsections.html" target="_blank" rel="noopener"><div class="tool-icon">表</div><div class="tool-name">考试科目表 <span class="en">test sections</span></div><div class="tool-desc">核对各级考试时间和题型。复习计划必须围绕科目时间和题型展开。</div></a>
       <a class="tool" href="https://yomitan.wiki/" target="_blank" rel="noopener"><div class="tool-icon">辞</div><div class="tool-name">Yomitan <span class="en">划词词典</span></div><div class="tool-desc">浏览器扩展，鼠标悬停即查词，可一键加入 Anki 卡组。N3 之后阅读必备。</div></a>
-      <a class="tool" href="https://github.com/kha-white/manga-ocr" target="_blank" rel="noopener"><div class="tool-icon">读</div><div class="tool-name">Manga OCR <span class="en">漫画识别</span></div><div class="tool-desc">看原版漫画时把气泡里的日文识别成文本，配合 Yomitan 查词。</div></a>
-      <a class="tool" href="https://www.google.co.jp/ime/" target="_blank" rel="noopener"><div class="tool-icon">入</div><div class="tool-name">Google 日本語入力 <span class="en">输入法</span></div><div class="tool-desc">日本人也常用的 IME，比系统自带版本智能，候选词更准。</div></a>
       <a class="tool" href="https://apps.ankiweb.net/" target="_blank" rel="noopener"><div class="tool-icon">记</div><div class="tool-name">Anki <span class="en">间隔重复</span></div><div class="tool-desc">全段必备。配合 AnkiConnect + Yomitan，可实现从阅读到卡片的工作流。</div></a>
-      <a class="tool" href="https://www.languagereactor.com/" target="_blank" rel="noopener"><div class="tool-icon">听</div><div class="tool-name">Language Reactor <span class="en">双语字幕</span></div><div class="tool-desc">Netflix / YouTube 双语字幕扩展，看日剧学日语的标配。</div></a>
-      <a class="tool" href="https://www.italki.com/" target="_blank" rel="noopener"><div class="tool-icon">话</div><div class="tool-name">iTalki / HelloTalk <span class="en">语言交换</span></div><div class="tool-desc">N2 之后强烈推荐。HelloTalk 免费聊天，iTalki 付费 1on1 课程。</div></a>
+      <a class="tool" href="https://bunpro.jp/" target="_blank" rel="noopener"><div class="tool-icon">文</div><div class="tool-name">Bunpro <span class="en">grammar SRS</span></div><div class="tool-desc">语法按 JLPT 级别复习，适合配合教材和错题本补弱项。</div></a>
+      <a class="tool" href="https://www.languagereactor.com/" target="_blank" rel="noopener"><div class="tool-icon">听</div><div class="tool-name">Language Reactor <span class="en">双语字幕</span></div><div class="tool-desc">Netflix / YouTube 双语字幕扩展，看日剧、新闻、讲座时做听力输入。</div></a>
     </div>
   </section>
 
   <section class="pitfalls" id="pitfalls">
     <div class="section-label">第七章 · 避坑</div>
-    <h2 class="section-h">三个常见的 <em>坑</em>。<span class="jp">学日语最容易掉进去的三件事</span></h2>
+    <h2 class="section-h">三个 JLPT 常见的 <em>坑</em>。<span class="jp">不是刷题越多越稳，覆盖错了会越刷越偏</span></h2>
     <div class="pitfall-grid">
-      <div class="pitfall"><h4>同时学三套教材</h4><p>新标日、Genki、Minna no Nihongo 一起开 —— 很快就会崩盘。<br><strong>选一套，走到底。</strong></p></div>
-      <div class="pitfall"><h4>一开始狂背汉字</h4><p>日语不是中文。重点是"词、语境、发音"，不是"会写"。<br><strong>汉字在词里出现自然就记住了。</strong></p></div>
-      <div class="pitfall"><h4>不接触真实内容</h4><p>到 N4 之后必须开始看日剧、漫画、YouTube。<br><strong>否则你永远停留在"教材日语"。</strong></p></div>
+      <div class="pitfall"><h4>只背词，不做题型</h4><p>JLPT 不考“你背了多少词”，它考你能否在语境中判断读音、含义、用法和替换。<br><strong>词汇必须配合题型练。</strong></p></div>
+      <div class="pitfall"><h4>阅读不计时</h4><p>N2/N1 的核心压力是阅读时间。平时不计时，考场会被长文和信息检索拖垮。<br><strong>每周必须有一次限时阅读。</strong></p></div>
+      <div class="pitfall"><h4>听力等到最后</h4><p>听力不是考前两周能补的。N5 就要开始听，N3 起要适应近自然速度。<br><strong>每天 10 分钟，比考前狂听更有效。</strong></p></div>
     </div>
   </section>
 
@@ -521,8 +578,8 @@ footer{padding:40px 80px;border-top:2px solid var(--ink);max-width:1240px;margin
 </main>
 
 <footer>
-  <div>© 日语学习路线</div>
-  <div>N5 → N1 · 一份不堆砌的路线图</div>
+  <div>© JLPT 备考路线</div>
+  <div>N5 → N1 · 官方科目对照版</div>
   <div>2026 · 完</div>
 </footer>
 

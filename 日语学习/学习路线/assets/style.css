@@ -75,6 +75,16 @@ a{color:inherit;text-decoration:none}
 .stat-num small{font-size:14px;color:var(--ink-3);font-weight:400;margin-left:4px}
 .stat-label{font-family:var(--serif-jp);font-size:12px;color:var(--ink-3);margin-top:8px;letter-spacing:.1em}
 
+/* ===== JLPT official coverage cards ===== */
+.jlpt-check{margin:34px 0 58px;padding:28px 30px;background:rgba(255,255,255,.48);border:1px solid var(--ink);border-left:4px solid var(--vermillion);position:relative}
+.jlpt-check h3{font-family:var(--serif-jp);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:.04em}
+.jlpt-check .official{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3);letter-spacing:.04em;margin-bottom:18px}
+.jlpt-check-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+.jlpt-check-card{border:1px solid var(--line);background:rgba(244,239,226,.75);padding:16px 15px}
+.jlpt-check-card h4{font-family:var(--serif-jp);font-size:15px;font-weight:700;color:var(--vermillion-d);margin-bottom:8px;letter-spacing:.04em}
+.jlpt-check-card p,.jlpt-check-card li{font-size:13px;line-height:1.7;color:var(--ink-2)}
+.jlpt-check-card ul{list-style:none;padding:0;margin:0}.jlpt-check-card li{position:relative;padding-left:14px;margin-bottom:4px}.jlpt-check-card li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:1px;background:var(--vermillion)}
+
 /* ===== Section Headers ===== */
 .section{padding:100px 0 40px;border-bottom:1px solid var(--line);scroll-margin-top:20px}
 .section:last-of-type{border-bottom:none}
@@ -160,7 +170,7 @@ a{color:inherit;text-decoration:none}
 
 /* ===== Resource Cards ===== */
 .res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
-@media (max-width:780px){.res-grid{grid-template-columns:1fr}}
+@media (max-width:780px){.res-grid{grid-template-columns:1fr}.jlpt-check-grid{grid-template-columns:1fr}}
 .res-card{padding:22px 24px;background:rgba(255,255,255,.5);border:1px solid var(--line);border-left:3px solid var(--vermillion);transition:all .25s ease;display:block}
 .res-card:hover{background:rgba(255,255,255,.8);transform:translateX(2px)}
 .res-card .rc-name{font-family:var(--serif-jp);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px;display:flex;align-items:baseline;gap:10px}
@@ -212,6 +222,10 @@ a{color:inherit;text-decoration:none}
 .quiz-feedback.ok{color:var(--moss);font-weight:600}
 .quiz-feedback.bad{color:var(--vermillion);font-weight:600}
 .quiz-feedback .ans{font-family:var(--serif-jp);font-weight:700;color:var(--ink);margin-left:4px}
+.quiz-mini{padding:18px 20px;border:1px solid var(--line);background:rgba(255,255,255,.45);margin-bottom:14px}
+.quiz-mini p{font-size:14px;color:var(--ink-2);margin-bottom:10px}.quiz-mini .feedback{font-weight:700;color:var(--vermillion)}
+.quiz-mini button.correct{background:rgba(90,106,58,.18);border-color:var(--moss);color:var(--moss)}
+.quiz-mini button.wrong{background:rgba(200,54,45,.12);border-color:var(--vermillion);color:var(--vermillion-d)}
 
 .quiz-next{margin-top:24px;display:flex;justify-content:center;gap:12px;min-height:50px}
 .quiz-next button{font-family:var(--serif-jp);font-size:15px;font-weight:600;letter-spacing:.06em;padding:12px 32px;background:var(--ink);color:var(--paper);border:2px solid var(--ink);cursor:pointer;transition:all .2s ease}

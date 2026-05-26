@@ -507,8 +507,12 @@ sentences.push(...extraSentences);
 dialogues.push(...extraDialogues);
 articles.push(...extraArticles);
 
+const largeCorpus = window.LARGE_SENTENCE_CORPUS || { sentences: [], stats: {} };
+sentences.push(...largeCorpus.sentences);
+
 const state = {
   hiddenChinese: false,
+  visibleSentenceLimit: 240,
   mastered: JSON.parse(localStorage.getItem("sentenceStudioMastered") || "[]")
 };
 
@@ -536,8 +540,15 @@ function renderSentences() {
       && (scenario === "all" || item.topic === scenario)
       && (!search || haystack.includes(search));
   });
-  document.querySelector("#sentenceCount").textContent = ` 当前显示 ${filtered.length} / ${sentences.length} 条。`;
-  document.querySelector("#sentenceGrid").innerHTML = filtered.map(item => {
+  const visible = filtered.slice(0, state.visibleSentenceLimit);
+  const shown = Math.min(visible.length, filtered.length);
+  document.querySelector("#sentenceCount").textContent = ` 当前显示 ${shown} / ${filtered.length} 条，句库总量 ${sentences.length} 条。`;
+  const loadMoreButton = document.querySelector("#loadMoreSentences");
+  if (loadMoreButton) {
+    loadMoreButton.style.display = filtered.length > shown ? "inline-flex" : "none";
+    loadMoreButton.textContent = `加载更多句子（剩余 ${filtered.length - shown} 条）`;
+  }
+  document.querySelector("#sentenceGrid").innerHTML = visible.map(item => {
     const done = state.mastered.includes(item.id);
     return `<article class="sentence-card" data-id="${item.id}">
       <div class="card-top">
@@ -599,12 +610,76 @@ function renderAllPractice() {
   renderArticles();
 }
 
+function resetSentenceLimitAndRender() {
+  state.visibleSentenceLimit = 240;
+  renderAllPractice();
+}
+
 function renderResources() {
   document.querySelector("#resourceGrid").innerHTML = resources.map(resource => `<article class="resource-card">
     <h3>${resource.title}</h3>
     <p>${resource.desc}</p>
     <a href="${resource.url}" target="_blank" rel="noopener">打开链接</a>
   </article>`).join("");
+}
+
+function renderNews() {
+  const news = window.NEWS_SENTENCES || { updatedAt: "未加载", sources: [], items: [] };
+  const meta = document.querySelector("#newsMeta");
+  const list = document.querySelector("#newsList");
+  if (!meta || !list) return;
+
+  const sourceText = news.sources && news.sources.length ? ` 来源：${news.sources.join(" / ")}` : "";
+  meta.textContent = ` 更新时间：${news.updatedAt || "未知"}。当前 ${news.items.length} 条新闻。${sourceText}`;
+
+  list.innerHTML = news.items.map(item => `<article class="news-card">
+    <div class="card-top">
+      <div>
+        <h3>${item.title}</h3>
+        <div class="news-meta">${item.source || "News"}${item.published ? ` · ${item.published}` : ""}</div>
+      </div>
+      ${item.link && item.link !== "#" ? `<a href="${item.link}" target="_blank" rel="noopener">原文</a>` : ""}
+    </div>
+    ${(item.sentences || []).map(sentence => `<div class="news-sentence">
+      <button class="speak" type="button" title="朗读新闻句子" data-speak="${escapeAttr(sentence.text)}">▶</button>
+      <div>
+        <div class="english">${sentence.text}</div>
+        <div class="news-breakdown">${sentence.pattern || "新闻句子"}</div>
+        <div class="news-keywords">${(sentence.keywords || []).map(word => `<span>${word}</span>`).join("")}</div>
+        <div class="cn">${sentence.task || "朗读后用一句自己的英文复述。"}</div>
+      </div>
+    </div>`).join("")}
+  </article>`).join("") || `<article class="news-card"><h3>还没有新闻数据</h3><p class="cn">运行 scripts/update_news_sentences.py 后这里会显示最新新闻句子。</p></article>`;
+}
+
+function renderCorpusStats() {
+  const panel = document.querySelector("#corpusStats");
+  if (!panel) return;
+  const news = window.NEWS_SENTENCES || { items: [] };
+  const newsSentenceCount = news.items.reduce((sum, item) => sum + (item.sentences ? item.sentences.length : 0), 0);
+  const articleSentenceCount = articles.reduce((sum, article) => sum + article.sentences.length, 0);
+  const dialogueLineCount = dialogues.reduce((sum, dialogue) => sum + dialogue.lines.length, 0);
+  window.SENTENCE_STUDIO_STATS = {
+    sentenceCards: sentences.length,
+    manualSentenceCards: sentences.length - (largeCorpus.sentences ? largeCorpus.sentences.length : 0),
+    generatedCorpusSentences: largeCorpus.sentences ? largeCorpus.sentences.length : 0,
+    corpusScenarios: largeCorpus.stats.scenarios || 0,
+    corpusTemplates: largeCorpus.stats.frames || 0,
+    dialogues: dialogues.length,
+    dialogueLines: dialogueLineCount,
+    articles: articles.length,
+    articleSentences: articleSentenceCount,
+    newsItems: news.items.length,
+    newsSentences: newsSentenceCount,
+    totalSentenceLikeItems: sentences.length + dialogueLineCount + articleSentenceCount + newsSentenceCount
+  };
+  panel.innerHTML = `
+    <b>${window.SENTENCE_STUDIO_STATS.sentenceCards}</b> 条句子 ·
+    <b>${dialogues.length}</b> 组对话（${dialogueLineCount} 句） ·
+    <b>${articles.length}</b> 篇文章（${articleSentenceCount} 句） ·
+    <b>${newsSentenceCount}</b> 条新闻句 ·
+    总计 <b>${window.SENTENCE_STUDIO_STATS.totalSentenceLikeItems}</b> 条可朗读句级材料
+  `;
 }
 
 function escapeAttr(value) {
@@ -624,10 +699,14 @@ document.addEventListener("click", event => {
   }
 });
 
-document.querySelector("#searchBox").addEventListener("input", renderAllPractice);
-document.querySelector("#levelFilter").addEventListener("change", renderAllPractice);
-document.querySelector("#typeFilter").addEventListener("change", renderSentences);
-document.querySelector("#scenarioFilter").addEventListener("change", renderAllPractice);
+document.querySelector("#searchBox").addEventListener("input", resetSentenceLimitAndRender);
+document.querySelector("#levelFilter").addEventListener("change", resetSentenceLimitAndRender);
+document.querySelector("#typeFilter").addEventListener("change", resetSentenceLimitAndRender);
+document.querySelector("#scenarioFilter").addEventListener("change", resetSentenceLimitAndRender);
+document.querySelector("#loadMoreSentences").addEventListener("click", () => {
+  state.visibleSentenceLimit += 240;
+  renderSentences();
+});
 document.querySelector("#toggleChinese").addEventListener("click", () => {
   state.hiddenChinese = !state.hiddenChinese;
   document.body.classList.toggle("hidden-cn", state.hiddenChinese);
@@ -637,3 +716,5 @@ document.querySelector("#stopAudio").addEventListener("click", () => window.spee
 
 renderAllPractice();
 renderResources();
+renderNews();
+renderCorpusStats();

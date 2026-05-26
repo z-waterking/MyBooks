@@ -11,9 +11,15 @@
 ├── README.md                       ← 本文件
 ├── 英语句子背诵站/                  ← 短句/长句/对话/文章背诵网站
 │   ├── index.html                    主页 + 练习控制台
+│   ├── daily.html                    每日背诵分页（20 句 / 天）
 │   └── assets/
 │       ├── style.css
-│       └── app.js                    内容数据 + 浏览器朗读
+│       ├── app.js                    内容数据 + 浏览器朗读
+│       ├── corpus-data.js             8000 句常用词情景语料库
+│       └── news-data.js              每日新闻句子数据（由脚本生成）
+│   └── scripts/
+│       ├── update_news_sentences.py   从 RSS 更新新闻句子
+│       └── update_news_daily.ps1      Windows 每日更新任务脚本
 ├── IELTS网页/                       ← 备考主网站（在浏览器打开 index.html）
 │   ├── index.html                    主页 + 总索引
 │   ├── pages/
@@ -37,10 +43,27 @@
 
 ## 快速开始
 
-1. 想背句子和练口语：进入 `英语句子背诵站/`，双击 `index.html`。
-2. 想系统备考雅思：进入 `IELTS网页/`，双击 `index.html`。
-3. 从主页顶部导航或卡片索引进入各模块。
-4. 建议先看 **学习路线** → 再看 **阅读方法** → 然后按词汇 / 听 / 写 / 说节奏推进。
+1. 想按天背句子：进入 `英语句子背诵站/`，双击 `daily.html`。
+2. 想自由筛选句库和练口语：进入 `英语句子背诵站/`，双击 `index.html`。
+3. 想系统备考雅思：进入 `IELTS网页/`，双击 `index.html`。
+4. 从主页顶部导航或卡片索引进入各模块。
+5. 建议先看 **学习路线** → 再看 **阅读方法** → 然后按词汇 / 听 / 写 / 说节奏推进。
+
+### 每日新闻句子更新
+
+进入 `英语句子背诵站/` 后运行：
+
+```powershell
+python .\scripts\update_news_sentences.py
+```
+
+安装 Windows 每日自动更新任务（默认每天 07:30）：
+
+```powershell
+.\scripts\update_news_daily.ps1 -InstallTask -Time "07:30"
+```
+
+脚本只抓取公开 RSS 中的标题与摘要，保留原文链接，并把适合背诵的句子拆成朗读、关键词和句型提示；不复制新闻网站整篇正文。
 
 ---
 

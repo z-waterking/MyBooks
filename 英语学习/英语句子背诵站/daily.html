@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>每日背诵 · Sentence Studio</title>
+  <meta name="description" content="英语句子背诵站每日分页：每天 20 句，从高中英语逐步走到 IELTS 7。" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="返回英语句子背诵站首页">
+      <span class="brand-mark">S</span>
+      <span><strong>Daily Sentence</strong><small>20 sentences a day</small></span>
+    </a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="index.html">首页</a>
+      <a href="daily.html">每日</a>
+      <a href="index.html#news">新闻</a>
+      <a href="index.html#resources">资源</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="daily-hero">
+      <div>
+        <p class="eyebrow">Daily Recitation</p>
+        <h1>每天 20 句，少一点滚动，多一点真的背下来。</h1>
+        <p class="lead">每一页就是一天的任务：朗读、跟读、隐藏中文复述、标记掌握。8000 句会自动分成 400 天。</p>
+      </div>
+      <aside class="daily-panel">
+        <h2 id="dayTitle">Day 1</h2>
+        <p id="dayMeta" class="article-meta">加载中...</p>
+        <label class="day-jump">
+          跳转到第几天
+          <input id="dayInput" type="number" min="1" value="1" />
+        </label>
+      </aside>
+    </section>
+
+    <section class="daily-toolbar" aria-label="每日背诵控制">
+      <button id="prevDay" class="tool-btn" type="button">上一天</button>
+      <button id="nextDay" class="tool-btn" type="button">下一天</button>
+      <button id="readDay" class="tool-btn" type="button">朗读当天</button>
+      <button id="hideChinese" class="tool-btn" type="button">隐藏中文</button>
+      <button id="stopAudio" class="tool-btn" type="button">停止朗读</button>
+    </section>
+
+    <section class="section daily-section">
+      <div class="section-head">
+        <p class="eyebrow">Today</p>
+        <h2 id="dailyHeading">今日句子</h2>
+        <p id="dailyProgress">完成进度会保存在本机浏览器。</p>
+      </div>
+      <div id="dailyGrid" class="sentence-grid"></div>
+    </section>
+  </main>
+
+  <script src="assets/corpus-data.js"></script>
+  <script src="assets/daily.js"></script>
+</body>
+</html>
