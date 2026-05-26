@@ -10,6 +10,20 @@ from lessons_data import LESSONS  # noqa: E402
 
 PLAY_SVG = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'
 
+# 各级音频路径前缀（避免不同册同名 L01-L16 共用一份 mp3）
+# 初级上为历史路径（已有 L01-L10 mp3），保持兼容
+AUDIO_PREFIX = {
+    '初级上': '',
+    '初级下': '初级下/',
+    '中级上': '中级上/',
+    '中级下': '中级下/',
+}
+
+
+def audio_path(folder, lesson_id, fid):
+    prefix = AUDIO_PREFIX.get(folder, '')
+    return f'../audio/{prefix}{lesson_id}/{fid}.mp3'
+
 
 def esc(s):
     return html.escape(s, quote=True)
@@ -22,33 +36,36 @@ def word_block(w):
     return f'<div class="word"><span class="w-jp">{esc(jp)}{furi_html}</span><span class="w-cn">{esc(cn)}</span><span class="w-pos">{esc(pos)}</span></div>'
 
 
-def passage_html(lines, lesson_id, prefix):
+def passage_html(lines, lesson_id, prefix, folder):
     """lines: [(speaker, jp, cn), ...]  prefix: 'c' or 'e'"""
     rows = []
     for i, (sp, jp, cn) in enumerate(lines, 1):
         fid = f'{prefix}{i:02d}'
-        audio = f'../audio/{lesson_id}/{fid}.mp3'
+        audio = audio_path(folder, lesson_id, fid)
         rows.append(
             f'<div class="pa-line"><span class="speaker">{esc(sp)}</span>'
-            f'<button class="pa-play" data-play data-audio="{audio}">{PLAY_SVG}</button>'
+            f'<button class="pa-play" data-play data-audio="{audio}" data-text="{esc(jp)}">{PLAY_SVG}</button>'
             f'<span class="pa-jp" data-play data-audio="{audio}">{esc(jp)}</span>'
             f'<span class="pa-cn">{esc(cn)}</span></div>'
         )
     return '\n  '.join(rows)
 
 
-def grammar_html(g_index, g, lesson_id):
+def grammar_html(g_index, g, lesson_id, folder):
     """g: dict(title, tag, explain, egs[(jp,cn)], tip?, table?)"""
     rows = []
     for j, (jp, cn) in enumerate(g['egs'], 1):
         fid = f'g{g_index}-{j}'
-        audio = f'../audio/{lesson_id}/{fid}.mp3'
+        audio = audio_path(folder, lesson_id, fid)
         marker = ['①', '②', '③', '④', '⑤'][j - 1]
+        # 例句 jp 含 <strong> 等 HTML，提取纯文本作为语音回退
+        import re as _re
+        plain_jp = _re.sub(r'<[^>]+>', '', jp)
         rows.append(
             f'<div class="eg"><span class="eg-num">{marker}</span>'
             f'<span class="eg-jp" data-play data-audio="{audio}">{jp}</span>'
             f'<span class="eg-cn">{esc(cn)}</span>'
-            f'<button class="eg-play" data-play data-audio="{audio}">{PLAY_SVG}</button></div>'
+            f'<button class="eg-play" data-play data-audio="{audio}" data-text="{esc(plain_jp)}">{PLAY_SVG}</button></div>'
         )
     eg_list = '\n    '.join(rows)
     table_html = g.get('table', '')
@@ -149,9 +166,9 @@ def build_lesson(L):
     next_btn = f'<a href="{L["next"]}">下一课 →</a>' if L.get('next') else '<span></span>'
 
     words_html = '\n'.join(word_block(w) for w in L['words'])
-    core_html = passage_html(L['core'], lesson_id, 'c')
-    ext_html = passage_html(L['ext'], lesson_id, 'e')
-    g_html = '\n\n'.join(grammar_html(i + 1, g, lesson_id) for i, g in enumerate(L['grammar']))
+    core_html = passage_html(L['core'], lesson_id, 'c', L['folder'])
+    ext_html = passage_html(L['ext'], lesson_id, 'e', L['folder'])
+    g_html = '\n\n'.join(grammar_html(i + 1, g, lesson_id, L['folder']) for i, g in enumerate(L['grammar']))
     ex_html = '\n'.join(exercise_html(i + 1, ex) for i, ex in enumerate(L['exercises']))
 
     return PAGE_TEMPLATE.format(
@@ -176,8 +193,10 @@ def build_lesson(L):
 
 
 def collect_audio(L):
-    """返回 { 'cNN':text, 'eNN':text, 'gK-J':text }，用于生成 mp3"""
+    """返回 (audio_key, dict) — audio_key 是带 folder 前缀的键名，与 HTML 路径一致"""
     lesson_id = f"L{L['num']:02d}"
+    prefix = AUDIO_PREFIX.get(L['folder'], '')
+    audio_key = f"{prefix}{lesson_id}".rstrip('/')
     d = {}
     for i, (_, jp, _) in enumerate(L['core'], 1):
         d[f'c{i:02d}'] = jp
@@ -189,7 +208,7 @@ def collect_audio(L):
             import re
             clean = re.sub(r'<[^>]+>', '', jp)
             d[f'g{gi}-{ej}'] = clean
-    return lesson_id, d
+    return audio_key, d
 
 
 def main():
