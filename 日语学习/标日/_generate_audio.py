@@ -1,5 +1,8 @@
-"""标日 L01-L03 音频批量生成（Nanami Neural）"""
-import asyncio, os, sys, io
+"""标日全部课程音频批量生成（Nanami Neural）
+- L01-L10 数据保留在本文件内
+- L11+ 数据从 _lessons_audio_index.json 读取（由 _build_lessons.py 生成）
+"""
+import asyncio, os, sys, io, json
 import edge_tts
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -287,6 +290,16 @@ async def gen_one(lesson_id, file_id, text):
         return f"[FAIL] {lesson_id}/{file_id}.mp3  ERR: {e}"
 
 async def main():
+    # 合并 L11+ 数据
+    json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_lessons_audio_index.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            extra = json.load(f)
+        for lid, items in extra.items():
+            if lid not in LESSONS:
+                LESSONS[lid] = items
+        print(f"[INFO] Merged {len(extra)} lessons from _lessons_audio_index.json")
+
     total = sum(len(v) for v in LESSONS.values())
     print(f"Total: {total} sentences across {len(LESSONS)} lessons")
     print(f"Voice: {VOICE}  Rate: {RATE}")
