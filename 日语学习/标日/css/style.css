@@ -137,21 +137,48 @@ p { margin: 0 0 12px; color: var(--ink-2); }
 }
 
 /* 单词表 */
-.word-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; margin: 12px 0; }
+.word-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 6px 18px;
+  margin: 12px 0;
+}
 .word {
-  display: grid; grid-template-columns: 24px 1fr auto;
-  gap: 10px; padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--line-soft);
   font-size: 16px;
 }
 .word:hover { background: var(--paper-warm); }
-.word .idx { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
-.word .w-jp { font-family: var(--serif-jp); font-weight: 600; color: var(--ink); font-size: 17px; }
-.word .w-jp .furi { font-size: 12px; color: var(--gold-deep); margin-left: 4px; }
-.word .w-cn { font-size: 15px; color: var(--ink-2); }
+.word .idx {
+  flex: 0 0 24px;
+  font-family: var(--mono); font-size: 13px; color: var(--ink-3);
+  text-align: right;
+}
+.word .w-jp {
+  flex: 1 1 180px;
+  font-family: var(--serif-jp); font-weight: 600; color: var(--ink); font-size: 18px;
+  line-height: 1.5;
+}
+.word .w-jp .furi { font-size: 12px; color: var(--gold-deep); margin-left: 4px; font-weight: 400; }
+.word .w-cn {
+  flex: 1 1 140px;
+  font-size: 15px; color: var(--ink-2);
+  line-height: 1.5;
+}
 .word .w-pos {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px;
+  background: var(--paper);
   font-family: var(--mono); font-size: 11px; color: var(--ink-3);
   letter-spacing: 0.08em; text-transform: uppercase;
+  white-space: nowrap;
 }
 .word .w-play {
   width: 22px; height: 22px; border-radius: 50%;
@@ -296,4 +323,6 @@ footer {
   .passage .pa-line .pa-cn { flex: 1 0 100%; padding-left: 44px; }
   .grammar .eg { grid-template-columns: 1fr; gap: 4px; }
   .grammar .eg .eg-cn { padding-left: 0; }
+  .word-list { grid-template-columns: 1fr; }
+  .word .w-pos { margin-left: 0; }
 }
