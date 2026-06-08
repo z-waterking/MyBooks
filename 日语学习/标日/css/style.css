@@ -26,8 +26,8 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--serif-body);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
   color: var(--ink);
   background: var(--paper);
   background-image:
@@ -53,11 +53,11 @@ a:hover { color: var(--bell-deep); border-bottom-color: var(--bell); }
   display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
 }
 .masthead .brand {
-  font-family: var(--serif-jp); font-size: 18px; font-weight: 700;
+  font-family: var(--serif-jp); font-size: 20px; font-weight: 700;
   color: var(--ink); border: none; letter-spacing: 0.04em;
 }
 .masthead .brand small {
-  display: block; font-family: var(--mono); font-size: 10px;
+  display: block; font-family: var(--mono); font-size: 12px;
   color: var(--ink-3); letter-spacing: 0.16em; font-weight: 400;
 }
 .masthead .nav {
@@ -65,7 +65,7 @@ a:hover { color: var(--bell-deep); border-bottom-color: var(--bell); }
   list-style: none;
 }
 .masthead .nav a {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--ink); border: none;
 }
 .masthead .nav a:hover, .masthead .nav a.active { color: var(--bell-deep); }
@@ -74,15 +74,15 @@ a:hover { color: var(--bell-deep); border-bottom-color: var(--bell); }
 
 /* 标题层级 */
 .kicker {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.2em;
   color: var(--ink-3); text-transform: uppercase;
 }
-h1 { font-family: var(--serif-jp); font-size: 42px; font-weight: 800; color: var(--ink); line-height: 1.15; letter-spacing: 0.02em; }
-h2 { font-family: var(--serif-jp); font-size: 26px; font-weight: 700; color: var(--ink); margin: 28px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); letter-spacing: 0.03em; }
-h3 { font-family: var(--serif-jp); font-size: 18px; font-weight: 700; color: var(--ink); margin: 22px 0 10px; letter-spacing: 0.02em; }
+h1 { font-family: var(--serif-jp); font-size: 50px; font-weight: 800; color: var(--ink); line-height: 1.15; letter-spacing: 0.02em; }
+h2 { font-family: var(--serif-jp); font-size: 32px; font-weight: 700; color: var(--ink); margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); letter-spacing: 0.03em; }
+h3 { font-family: var(--serif-jp); font-size: 22px; font-weight: 700; color: var(--ink); margin: 24px 0 12px; letter-spacing: 0.02em; }
 
-p { margin: 0 0 10px; color: var(--ink-2); }
-.lead { font-size: 16px; color: var(--ink-2); max-width: 760px; line-height: 1.65; }
+p { margin: 0 0 12px; color: var(--ink-2); }
+.lead { font-size: 19px; color: var(--ink-2); max-width: 820px; line-height: 1.7; }
 
 /* 课文卡 */
 .lesson-card {
@@ -108,13 +108,13 @@ p { margin: 0 0 10px; color: var(--ink-2); }
 }
 .passage .pa-line:last-child { border-bottom: none; }
 .passage .pa-line .pa-jp {
-  font-family: var(--serif-jp); font-size: 16px; line-height: 1.6;
+  font-family: var(--serif-jp); font-size: 21px; line-height: 1.7;
   color: var(--ink); flex: 1; cursor: pointer;
 }
 .passage .pa-line .pa-jp:hover { color: var(--bell); }
 .passage .pa-line .pa-cn {
-  font-size: 13px; color: var(--ink-3); flex: 0 0 36%;
-  font-style: italic;
+  font-size: 16px; color: var(--ink-3); flex: 0 0 36%;
+  font-style: italic; line-height: 1.6;
 }
 .passage .pa-play {
   flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%;
@@ -131,26 +131,26 @@ p { margin: 0 0 10px; color: var(--ink-2); }
 
 /* 课文角色 */
 .passage .speaker {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em;
   color: var(--gold-deep); font-weight: 600; text-transform: uppercase;
-  flex: 0 0 50px;
+  flex: 0 0 60px;
 }
 
 /* 单词表 */
-.word-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px; margin: 10px 0; }
+.word-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; margin: 12px 0; }
 .word {
   display: grid; grid-template-columns: 24px 1fr auto;
-  gap: 8px; padding: 6px 10px;
+  gap: 10px; padding: 8px 12px;
   border-bottom: 1px solid var(--line-soft);
-  font-size: 14px;
+  font-size: 16px;
 }
 .word:hover { background: var(--paper-warm); }
-.word .idx { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
-.word .w-jp { font-family: var(--serif-jp); font-weight: 600; color: var(--ink); }
-.word .w-jp .furi { font-size: 10px; color: var(--gold-deep); margin-left: 4px; }
-.word .w-cn { font-size: 13px; color: var(--ink-2); }
+.word .idx { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
+.word .w-jp { font-family: var(--serif-jp); font-weight: 600; color: var(--ink); font-size: 17px; }
+.word .w-jp .furi { font-size: 12px; color: var(--gold-deep); margin-left: 4px; }
+.word .w-cn { font-size: 15px; color: var(--ink-2); }
 .word .w-pos {
-  font-family: var(--mono); font-size: 9px; color: var(--ink-3);
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
   letter-spacing: 0.08em; text-transform: uppercase;
 }
 .word .w-play {
@@ -170,42 +170,42 @@ p { margin: 0 0 10px; color: var(--ink-2); }
   margin: 14px 0;
 }
 .grammar h4 {
-  font-family: var(--serif-jp); font-size: 16px; font-weight: 700;
-  color: var(--ink); margin-bottom: 6px;
+  font-family: var(--serif-jp); font-size: 19px; font-weight: 700;
+  color: var(--ink); margin-bottom: 8px;
   display: flex; align-items: baseline; gap: 10px;
 }
 .grammar h4 .num {
-  font-family: var(--serif-display); font-style: italic; font-size: 14px;
+  font-family: var(--serif-display); font-style: italic; font-size: 16px;
   color: var(--bell); letter-spacing: 0.05em;
 }
 .grammar h4 .pattern {
   font-family: var(--serif-jp); color: var(--ink-3); font-weight: 500;
-  font-size: 14px; margin-left: auto;
+  font-size: 16px; margin-left: auto;
   background: var(--paper); padding: 2px 8px;
 }
 .grammar .explain {
-  font-size: 14px; color: var(--ink-2); margin: 6px 0;
+  font-size: 16px; color: var(--ink-2); margin: 8px 0; line-height: 1.7;
 }
 .grammar .eg-list {
-  margin: 10px 0; padding: 10px 12px;
+  margin: 12px 0; padding: 12px 14px;
   background: var(--paper); border: 1px dashed var(--line);
 }
 .grammar .eg {
-  display: grid; grid-template-columns: 28px 1fr 36% 28px;
-  gap: 8px; align-items: baseline; padding: 4px 0;
+  display: grid; grid-template-columns: 30px 1fr 36% 28px;
+  gap: 10px; align-items: baseline; padding: 6px 0;
   border-bottom: 1px dotted var(--line-soft);
-  font-size: 13.5px;
+  font-size: 17px;
 }
 .grammar .eg:last-child { border-bottom: none; }
 .grammar .eg .eg-num {
-  font-family: var(--mono); font-size: 10px;
+  font-family: var(--mono); font-size: 12px;
   color: var(--bell-deep); font-weight: 600;
 }
 .grammar .eg .eg-jp {
-  font-family: var(--serif-jp); color: var(--ink); cursor: pointer;
+  font-family: var(--serif-jp); color: var(--ink); cursor: pointer; line-height: 1.65;
 }
 .grammar .eg .eg-jp:hover { color: var(--bell); }
-.grammar .eg .eg-cn { font-size: 12px; color: var(--ink-3); font-style: italic; }
+.grammar .eg .eg-cn { font-size: 14px; color: var(--ink-3); font-style: italic; line-height: 1.55; }
 .grammar .eg .eg-play {
   width: 22px; height: 22px; border-radius: 50%;
   background: transparent; border: 1px solid var(--line);
@@ -215,10 +215,10 @@ p { margin: 0 0 10px; color: var(--ink-2); }
 .grammar .eg .eg-play:hover svg { fill: var(--paper); }
 .grammar .eg .eg-play svg { width: 8px; height: 8px; fill: var(--ink); }
 .grammar .tip {
-  margin-top: 8px; padding: 8px 10px;
+  margin-top: 10px; padding: 10px 12px;
   background: rgba(168, 132, 59, 0.08);
   border-left: 2px solid var(--gold);
-  font-size: 12.5px; color: var(--ink-2); line-height: 1.55;
+  font-size: 14.5px; color: var(--ink-2); line-height: 1.65;
 }
 .grammar .tip strong { color: var(--gold-deep); }
 
@@ -229,16 +229,16 @@ p { margin: 0 0 10px; color: var(--ink-2); }
   padding: 14px 18px;
   margin: 14px 0;
 }
-.exercise h4 { font-family: var(--serif-jp); font-size: 15px; color: var(--sage); margin-bottom: 8px; }
-.exercise ol { margin-left: 20px; }
-.exercise li { padding: 4px 0; font-size: 13.5px; color: var(--ink-2); }
+.exercise h4 { font-family: var(--serif-jp); font-size: 18px; color: var(--sage); margin-bottom: 10px; }
+.exercise ol { margin-left: 24px; }
+.exercise li { padding: 5px 0; font-size: 16px; color: var(--ink-2); line-height: 1.7; }
 .exercise details summary {
-  cursor: pointer; font-family: var(--mono); font-size: 10px;
+  cursor: pointer; font-family: var(--mono); font-size: 12px;
   color: var(--sage); letter-spacing: 0.1em; text-transform: uppercase;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .exercise details[open] summary { color: var(--ink); }
-.exercise details .ans { padding: 8px 10px; margin-top: 6px; background: var(--paper); font-size: 13px; }
+.exercise details .ans { padding: 10px 12px; margin-top: 8px; background: var(--paper); font-size: 15px; line-height: 1.7; }
 
 /* 课导航 */
 .lesson-nav {
@@ -246,10 +246,10 @@ p { margin: 0 0 10px; color: var(--ink-2); }
   padding: 16px 0; border-top: 2px solid var(--ink);
 }
 .lesson-nav a {
-  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+  font-family: var(--mono); font-size: 14px; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--ink); border: none;
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px; border: 1px solid var(--line); transition: all 0.15s ease;
+  padding: 8px 14px; border: 1px solid var(--line); transition: all 0.15s ease;
 }
 .lesson-nav a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
@@ -264,30 +264,33 @@ p { margin: 0 0 10px; color: var(--ink-2); }
   margin: 14px 0 18px;
 }
 .audio-control .ac-label {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
   color: var(--ink-3); text-transform: uppercase;
 }
-.audio-control input[type=range] { width: 80px; }
+.audio-control input[type=range] { width: 100px; }
 .audio-control button {
   background: transparent; border: 1px solid var(--ink);
-  padding: 4px 10px; cursor: pointer;
-  font-family: var(--mono); font-size: 10px;
+  padding: 6px 12px; cursor: pointer;
+  font-family: var(--mono); font-size: 12px;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink); transition: all 0.15s ease;
 }
 .audio-control button:hover { background: var(--ink); color: var(--paper); }
 .audio-control button.active { background: var(--bell); border-color: var(--bell); color: var(--paper); }
-.audio-control .ac-status { margin-left: auto; font-family: var(--mono); font-size: 10px; color: var(--ink-3); }
+.audio-control .ac-status { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
 
 footer {
   border-top: 2px solid var(--ink); margin-top: 60px; padding: 22px 24px;
-  font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em;
   display: flex; justify-content: space-between; max-width: 1280px; margin-left: auto; margin-right: auto;
 }
 
 @media (max-width: 720px) {
-  h1 { font-size: 28px; }
-  h2 { font-size: 20px; }
+  body { font-size: 16px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  .passage .pa-line .pa-jp { font-size: 19px; }
+  .grammar .eg { font-size: 16px; }
   .page { padding: 20px 14px; }
   .passage .pa-line { flex-wrap: wrap; }
   .passage .pa-line .pa-cn { flex: 1 0 100%; padding-left: 44px; }
