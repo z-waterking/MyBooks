@@ -8,7 +8,11 @@
       "Bash(git commit *)",
       "Bash(rm -rf .git)",
       "Bash(rm -rf \"JPHo/大家的日语1\" \"JPHo/大家的日语2\")",
-      "Bash(mkdir -p \"机器学习\" \"计算广告\" \"投资理财\" \"日语学习\")"
+      "Bash(mkdir -p \"机器学习\" \"计算广告\" \"投资理财\" \"日语学习\")",
+      "Bash(git push *)",
+      "Bash(python -c \"import pypdf; print\\(pypdf.__version__\\)\")",
+      "Bash(python -c \"import pypdf; print\\('pypdf', pypdf.__version__\\)\")",
+      "Bash(python *)"
     ]
   }
 }
