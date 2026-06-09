@@ -40,3 +40,7 @@ __pycache__/
 日语学习/标日中级下_part*.pdf
 日语学习/_pdf_pages/
 日语学习/_pdf_pages_lo/
+
+# 司法考试教材 PDF（仅本地使用，正版购买后留存的电子稿）
+司法考试/_pdfs/
+司法考试/*.pdf
