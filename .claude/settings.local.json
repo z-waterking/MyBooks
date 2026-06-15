@@ -12,7 +12,10 @@
       "Bash(git push *)",
       "Bash(python -c \"import pypdf; print\\(pypdf.__version__\\)\")",
       "Bash(python -c \"import pypdf; print\\('pypdf', pypdf.__version__\\)\")",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(awk '{print $5, $9}')",
+      "WebSearch",
+      "WebFetch(domain:ielts.neea.cn)"
     ]
   }
 }

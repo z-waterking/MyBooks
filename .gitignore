@@ -4,6 +4,9 @@
 __pycache__/
 *.py[cod]
 
+# Claude Code temporary worktrees
+.claude/worktrees/
+
 # Keep downloaded book/media files local unless explicitly cleared for redistribution
 文学小说/*.epub
 日语学习/*z-library*.pdf
