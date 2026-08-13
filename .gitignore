@@ -16,7 +16,9 @@ site-server.log
 site-server-error.log
 
 文学小说/*.epub
-文学小说/公版电子书/
+文学小说/公版电子书/*
+!文学小说/公版电子书/README.md
+!文学小说/公版电子书/获取状态.md
 !文学小说/1984*.epub
 !文学小说/哈利波特全集*.epub
 !文学小说/霍乱时期的爱情*.epub
