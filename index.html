@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MyBooks 个人数字书房：浏览馆藏、检索图书、查看专题书单与记录阅读状态。">
+  <meta name="theme-color" content="#173f36">
+  <title>MyBooks · 私人数字书房</title>
+  <link rel="stylesheet" href="assets/library.css">
+  <script src="assets/library-data.js" defer></script>
+  <script src="assets/library.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="MyBooks 首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>MY<span>BOOKS</span></span>
+    </a>
+    <nav class="main-nav" aria-label="主要导航">
+      <a href="#lists">专题书单</a>
+      <a href="#collection">全部馆藏</a>
+      <a href="#about">关于书房</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="切换深色模式" title="切换主题">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+      <a class="github-link" href="https://github.com/z-waterking/MyBooks" target="_blank" rel="noreferrer">查看仓库 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> PRIVATE DIGITAL LIBRARY · 2026</p>
+        <h1 id="hero-title">让每一次阅读，<br><em>都有迹可循。</em></h1>
+        <p class="hero-intro">一间安静、有序的私人数字书房。收藏值得重读的作品，也保存通往下一本书的路线。</p>
+        <form class="hero-search" id="hero-search-form" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <label class="sr-only" for="hero-search">检索图书与作者</label>
+          <input id="hero-search" type="search" placeholder="搜索书名、作者或主题……" autocomplete="off">
+          <kbd>/</kbd>
+          <button type="submit">检索</button>
+        </form>
+        <div class="hero-stats" aria-label="书房统计">
+          <div><strong id="stat-books">46</strong><span>册数字馆藏</span></div>
+          <div><strong id="stat-lists">9</strong><span>条阅读路线</span></div>
+          <div><strong id="stat-reading">0</strong><span>本正在阅读</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="本期选读">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="featured-book book-back"><span>世界文学</span></div>
+        <div class="featured-book book-middle"><span>READ<br>SLOWLY</span></div>
+        <button class="featured-book book-front" type="button" data-featured-book="局外人">
+          <span class="book-kicker">本期选读 · 01</span>
+          <strong>局外人</strong>
+          <span class="book-author">阿尔贝·加缪</span>
+          <small>打开图书详情 <b aria-hidden="true">↗</b></small>
+        </button>
+        <div class="visual-note"><span>“</span>真正严肃的哲学问题只有一个。<small>— 阿尔贝·加缪</small></div>
+      </div>
+    </section>
+
+    <section class="booklists-section section-shell" id="lists" aria-labelledby="lists-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-index">01 / READING PATHS</p>
+          <h2 id="lists-title">专题阅读书单</h2>
+          <p>不只是排行榜。每一份书单都按“入门 → 核心 → 进阶”梳理，让下一本书更容易选择。</p>
+        </div>
+        <a class="text-link" href="书单/README.md">查看书单总索引 <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="list-filter" id="list-filter" role="group" aria-label="筛选专题书单">
+        <button class="active" type="button" data-list-category="全部">全部 <span>9</span></button>
+        <button type="button" data-list-category="综合">综合路线 <span>1</span></button>
+        <button type="button" data-list-category="类型">类型书单 <span>3</span></button>
+        <button type="button" data-list-category="奖项">文学奖项 <span>5</span></button>
+      </div>
+
+      <div class="booklist-grid" id="booklist-grid"></div>
+    </section>
+
+    <section class="collection-section section-shell" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading collection-heading">
+        <div>
+          <p class="section-index">02 / THE COLLECTION</p>
+          <h2 id="collection-title">全部馆藏</h2>
+          <p>浏览电子书与学习资料，点击状态即可在本机记录阅读进度。</p>
+        </div>
+        <div class="view-toggle" role="group" aria-label="切换视图">
+          <button class="active" id="grid-view" type="button" aria-label="网格视图" title="网格视图">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button id="row-view" type="button" aria-label="列表视图" title="列表视图">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3" cy="6" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="3" cy="18" r="1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="collection-toolbar">
+        <div class="collection-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <label class="sr-only" for="collection-search">搜索馆藏</label>
+          <input id="collection-search" type="search" placeholder="在馆藏中搜索……" autocomplete="off">
+          <button id="clear-search" type="button" aria-label="清除搜索">×</button>
+        </div>
+        <label class="select-control">
+          <span>分类</span>
+          <select id="category-filter"><option value="全部">全部分类</option></select>
+        </label>
+        <label class="select-control">
+          <span>状态</span>
+          <select id="status-filter">
+            <option value="全部">全部状态</option>
+            <option value="unread">未读</option>
+            <option value="reading">在读</option>
+            <option value="done">已读</option>
+          </select>
+        </label>
+        <label class="select-control">
+          <span>排序</span>
+          <select id="sort-books">
+            <option value="featured">推荐顺序</option>
+            <option value="title">书名 A—Z</option>
+            <option value="category">按分类</option>
+            <option value="status">按阅读状态</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="active-filters" id="active-filters" aria-live="polite"></div>
+      <div class="results-meta"><p>找到 <strong id="result-count">46</strong> 本馆藏</p><span>阅读状态只保存在当前浏览器</span></div>
+      <div class="book-grid" id="book-grid"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span aria-hidden="true">⌕</span><h3>没有找到匹配的书</h3><p>换一个关键词或清除筛选条件试试。</p><button type="button" id="reset-filters">清除全部筛选</button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="about-number">MY<br>BOOKS</div>
+      <div class="about-copy">
+        <p class="section-index">03 / ABOUT THIS LIBRARY</p>
+        <h2 id="about-title">书房不在于大，<br>而在于<em>常来。</em></h2>
+        <p>这里收录文学小说、历史人文、投资理财、机器学习、语言学习等主题。电子书归档在 GitHub 仓库，专题书单负责把零散的收藏连成一条条可以真正走完的阅读路线。</p>
+        <a class="button-light" href="https://github.com/z-waterking/MyBooks" target="_blank" rel="noreferrer">前往 GitHub 仓库 <span aria-hidden="true">↗</span></a>
+      </div>
+      <blockquote>
+        <span>“</span>
+        <p>读书是在别人思想的帮助下，建立起自己的思想。</p>
+        <cite>— 尼古拉·鲁巴金</cite>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>MY<span>BOOKS</span></span></a>
+    <p>个人电子书与学习资料收藏库</p>
+    <p>Built for slow reading · <span id="year">2026</span></p>
+  </footer>
+
+  <dialog class="detail-dialog" id="book-dialog">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="关闭详情">×</button>
+    <div id="book-dialog-content"></div>
+  </dialog>
+
+  <dialog class="route-dialog" id="route-dialog">
+    <div class="route-dialog-head">
+      <div><p id="route-dialog-category"></p><h2 id="route-dialog-title"></h2></div>
+      <button class="dialog-close" type="button" data-close-dialog aria-label="关闭书单">×</button>
+    </div>
+    <p class="route-dialog-intro" id="route-dialog-intro"></p>
+    <div class="route-legend"><span>□ 未读</span><span>▣ 已读</span><span>📚 已入库</span><span>💾 本地馆藏</span></div>
+    <div class="route-body" id="route-body"></div>
+    <a class="route-source" id="route-source" href="#">查看 Markdown 原文 <span aria-hidden="true">↗</span></a>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
