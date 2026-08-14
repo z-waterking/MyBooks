@@ -8,3 +8,10 @@
 文学小说/长日将尽*.epub filter=lfs diff=lfs merge=lfs -text
 文学小说/罪与罚*.epub filter=lfs diff=lfs merge=lfs -text
 饮食烹饪/雅舍谈吃*.epub filter=lfs diff=lfs merge=lfs -text
+文学小说/本地馆藏/**/*.epub filter=lfs diff=lfs merge=lfs -text
+文学小说/本地馆藏/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+文学小说/本地馆藏/**/*.txt filter=lfs diff=lfs merge=lfs -text
+文学小说/公版电子书/**/*.epub filter=lfs diff=lfs merge=lfs -text
+文学小说/*.epub filter=lfs diff=lfs merge=lfs -text
+文学小说/*.pdf filter=lfs diff=lfs merge=lfs -text
+文学小说/*.txt filter=lfs diff=lfs merge=lfs -text
