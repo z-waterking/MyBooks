@@ -1,6 +1,6 @@
 # 本地公版电子书
 
-此目录保存从 Project Gutenberg 合法获取的公版 EPUB，仅作本地馆藏，已由仓库根目录的 .gitignore 排除。
+此目录保存从 Project Gutenberg 合法获取的公版 EPUB，仅作本地保存，已由仓库根目录的 `.gitignore` 排除。
 
 ## 目录结构
 
